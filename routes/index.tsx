@@ -13,9 +13,10 @@ export default function Home({data}:PageProps) {
         <title>릴레이 선언 하는곳</title>
       </Head>
       <Layout>
-        <Relso relso={data.result}/>
-        <br/>
-        <Entry />
+        <div>
+          <Relso isProgress={data.isProgress} progressLabel={data.progressLabel} relso={data.resultRelso}/>
+          <Entry entry={data.resultEntry}/>
+        </div>
       </Layout>
     </html>
   )
@@ -24,6 +25,7 @@ export default function Home({data}:PageProps) {
 export const handler: Handlers<any,WithSession> = {
   async GET(_,cxt){
     const selectRelso = await select("* from rel_main")
+    const selectEntry = await select("* from rel_entry where main_key=? and result is null order by entry_key desc limit 1",[selectRelso[0].main_key])
     const {session} = cxt.state
     // let isLogin = false
     // const email = session.data.aabbcc
@@ -31,8 +33,26 @@ export const handler: Handlers<any,WithSession> = {
     //     isLogin = await isHave("lim_admin where email=?",[email])
     // }
 
+    let isProgress : boolean
+    let progressLabel : string
+    const now = Date.now()
+  
+    if(selectRelso[0].main_start>now){
+      progressLabel = '진행전'
+      isProgress = false
+    }else if(selectRelso[0].main_end<now){
+        progressLabel = '기간만료'
+        isProgress = false
+    }else{
+        progressLabel = '진행중'
+        isProgress = true
+    }
+
     return await cxt.render({
-      result : selectRelso
+      isProgress : isProgress,
+      progressLabel : progressLabel,
+      resultRelso : selectRelso,
+      resultEntry : selectEntry
     })
   }
 }

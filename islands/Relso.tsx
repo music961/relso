@@ -1,15 +1,24 @@
 import { useState } from "preact/hooks"
 
 interface RelsoProps {
+    isProgress : boolean,
+    progressLabel : string,
     relso: any
 }
 
 export default function Relso(props: RelsoProps){
-    const [relso, setFells] = useState(props.relso)
-    const a = "text-red-600 font-bold"
+    const [relso, setRelso] = useState(props.relso)
+    let progressColor : string
+
+    if(props.isProgress){
+        progressColor = "text-green-600 font-bold"
+    }else{
+        progressColor = "text-red-600 font-bold"
+    }
+    
     return(
         <div class="p-4 items-center">
-            <a>릴레이소설</a> <a class={a}>{'종료'}</a>
+            <a>릴레이소설</a> <a class={progressColor}>{props.progressLabel}</a>
             <br/>
             <tr>
                 <td>회차</td>
