@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks"
+import { Button, Input } from "../components/Button.tsx"
 
 interface EntryProps {
     entry: any
@@ -20,6 +21,8 @@ export default function Entry(props:EntryProps){
                 <td>선언시간</td>
                 <td class="px-4">{convertDate(entry[0].entry_start)}</td>
             </tr>
+            <Button>제출</Button>
+            <Button>취소</Button>
         </div>
     )
 }
