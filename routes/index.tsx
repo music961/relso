@@ -25,7 +25,8 @@ export default function Home({data}:PageProps) {
 export const handler: Handlers<any,WithSession> = {
   async GET(_,cxt){
     const selectRelso = await select("* from rel_main")
-    const selectEntry = await select("* from rel_entry where main_key=? and result is null order by entry_key desc limit 1",[selectRelso[0].main_key])
+    const selectEntry = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[selectRelso[0].main_key])
+    const selectReserve = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry[0].entry_key])
     const {session} = cxt.state
     // let isLogin = false
     // const email = session.data.aabbcc

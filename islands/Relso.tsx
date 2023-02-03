@@ -29,16 +29,8 @@ export default function Relso(props: RelsoProps){
                 <td class="px-4">{relso[0].topic}</td>
             </tr>
             <tr>
-                <td>시작</td>
-                <td class="px-4">{convertDate(relso[0].main_start)}</td>
-            </tr>
-            <tr>
-                <td>종료</td>
+                <td>마감</td>
                 <td class="px-4">{convertDate(relso[0].main_end)}</td>
-            </tr>
-            <tr>
-                <td>남은 시간</td>
-                <td class="px-4"><input id='mainTimer' class="bg-black" value='' readOnly/></td>
             </tr>
         </div>
     )
