@@ -6,9 +6,10 @@ interface RelsoProps {
 
 export default function Relso(props: RelsoProps){
     const [relso, setFells] = useState(props.relso)
+    const a = "text-red-600 font-bold"
     return(
         <div class="p-4 items-center">
-            <h1>릴레이소설</h1>
+            <a>릴레이소설</a> <a class={a}>{'종료'}</a>
             <br/>
             <tr>
                 <td>회차</td>

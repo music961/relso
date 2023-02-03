@@ -4,6 +4,7 @@ import { PageProps, Handlers } from "$fresh/server.ts"
 import { select, cnt, isHave } from "../const/DBTable.tsx"
 import { WithSession } from "freshSession"
 import Relso from "../islands/Relso.tsx"
+import Entry from "../islands/Entry.tsx"
 
 export default function Home({data}:PageProps) {
   return (
@@ -13,6 +14,8 @@ export default function Home({data}:PageProps) {
       </Head>
       <Layout>
         <Relso relso={data.result}/>
+        <br/>
+        <Entry />
       </Layout>
     </html>
   )
