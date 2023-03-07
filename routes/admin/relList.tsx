@@ -25,7 +25,7 @@ export const handler:  Handlers<any,WithSession> = {
         isLogin = await isHave("rel_admin where email=?",[email])
     }
     const cntAdmin = await cnt("rel_admin")
-    const selectAdmin = await select("* from rel_admin")
+    const selectAdmin = await select("* from rel_main")
     return await cxt.render({
       isLogin : isLogin,
       cnt : cntAdmin,
