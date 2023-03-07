@@ -30,25 +30,37 @@ export default function Admin(props: AdminProps) {
         result= (
             <div>
             <div>
-                <Button onClick={()=>{
-                    setAdminEmail('')
-                    setIsLogin(false)
-                    fetch(
-                        `../DB/admin/runLogout`,
-                        {
-                            method:'GET',
-                            headers : {
-                                'Accept' : 'application/json',
-                                'Content-Type' : 'application/json'
-                            }
+                <Button 
+                    onClick={
+                        ()=>{
+                            location.href = "/admin/relList"
                         }
-                    ) 
-                }
+                    }>릴레이관리
+                </Button>
+                <Button 
+                    onClick={
+                        ()=>{
+                            location.href = "/admin/adminList"
+                        }
+                    }>관리계정
+                </Button>
+                <Button 
+                    onClick={
+                        ()=>{
+                            setAdminEmail('')
+                            setIsLogin(false)
+                            fetch(
+                                `../DB/admin/runLogout`,
+                                {
+                                    method:'GET',
+                                    headers : {
+                                        'Accept' : 'application/json',
+                                        'Content-Type' : 'application/json'
+                                    }
+                                }
+                            ) 
+                        }
                     }>로그아웃</Button>
-                <Button onClick={()=>{
-                    location.href = "/admin/adminList"
-                }
-                }>관리계정</Button>
             </div>
             <div>
                 <a>관리자 : {adminEmail}</a>
