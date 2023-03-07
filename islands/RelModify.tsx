@@ -28,7 +28,7 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><input id="fellEmail" type="date" value={rel.main_start}/></td>
+              <td class="px-4"><input class="bg-black" id="fellEmail" type="date" value={rel.main_start}/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
