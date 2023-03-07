@@ -28,11 +28,11 @@ export const handler: Handlers<any,WithSession> = {
     const selectEntry = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[selectRelso[0].main_key])
     const selectReserve = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry[0].entry_key])
     const {session} = cxt.state
-    // let isLogin = false
-    // const email = session.data.aabbcc
-    // if(email!=null){
-    //     isLogin = await isHave("lim_admin where email=?",[email])
-    // }
+    let isLogin = false
+    const email = session.data.aabbcc
+    if(email!=null){
+        isLogin = await isHave("lim_admin where email=?",[email])
+    }
 
     let isProgress : boolean
     let progressLabel : string

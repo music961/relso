@@ -3,23 +3,29 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/[name].tsx";
-import * as $1 from "./routes/_middleware.tsx";
-import * as $2 from "./routes/api/joke.ts";
-import * as $3 from "./routes/index.tsx";
-import * as $$0 from "./islands/Entry.tsx";
-import * as $$1 from "./islands/Relso.tsx";
+import * as $0 from "./routes/DB/runGoogleAuth.tsx";
+import * as $1 from "./routes/[name].tsx";
+import * as $2 from "./routes/_middleware.tsx";
+import * as $3 from "./routes/admin/main.tsx";
+import * as $4 from "./routes/api/joke.ts";
+import * as $5 from "./routes/index.tsx";
+import * as $$0 from "./islands/Admin.tsx";
+import * as $$1 from "./islands/Entry.tsx";
+import * as $$2 from "./islands/Relso.tsx";
 
 const manifest = {
   routes: {
-    "./routes/[name].tsx": $0,
-    "./routes/_middleware.tsx": $1,
-    "./routes/api/joke.ts": $2,
-    "./routes/index.tsx": $3,
+    "./routes/DB/runGoogleAuth.tsx": $0,
+    "./routes/[name].tsx": $1,
+    "./routes/_middleware.tsx": $2,
+    "./routes/admin/main.tsx": $3,
+    "./routes/api/joke.ts": $4,
+    "./routes/index.tsx": $5,
   },
   islands: {
-    "./islands/Entry.tsx": $$0,
-    "./islands/Relso.tsx": $$1,
+    "./islands/Admin.tsx": $$0,
+    "./islands/Entry.tsx": $$1,
+    "./islands/Relso.tsx": $$2,
   },
   baseUrl: import.meta.url,
   config,
