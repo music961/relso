@@ -6,18 +6,19 @@ interface RelsProps {
     rels : any
   }
 
-export default function Admins(props: RelsProps) {
+export default function Rels(props: RelsProps) {
     const rels = props.rels
     return (
         <div>
             <div>
-                <Input id='admin_add' placeholder='이메일 입력'/>
-                <Button onClick={()=> adminAdd()}>관리계정 추가</Button>
+                <Button onClick={()=> adminAdd()}>새 릴레이</Button>
+                <Button class="p-4" onClick={()=>location.href =`./relCreate/${props.rels.main_key}`}>품목 추가</Button>
             </div>
             <table class="p-4 items-center shadow-md">
                 <th>번호</th>
                 <th>회차</th>
                 <th>주제</th>
+                <th>제목</th>
                 <th>시작</th>
                 <th>종료</th>
                 {
@@ -26,9 +27,9 @@ export default function Admins(props: RelsProps) {
                         <td class="px-4">{rel.main_key}</td>
                         <td class="px-4">{rel.round}</td>
                         <td class="px-4">{rel.topic}</td>
+                        <td class="px-4">{rel.title}</td>
                         <td class="px-4">{convertDate(rel.main_start)}</td>
                         <td class="px-4">{convertDate(rel.main_end)}</td>
-                        <td class="px-4">{rel.title}</td>
                         <td>
                             <Button onClick={()=>
                                 adminDel(rel.main_key)
