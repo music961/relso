@@ -30,10 +30,6 @@ export default function Admin(props: AdminProps) {
         result= (
             <div>
             <div>
-                당신은 로그인을 했습니다
-                <Button onClick={()=>
-                    location.href = link
-                    }>로그인</Button>
                 <Button onClick={()=>{
                     setAdminEmail('')
                     setIsLogin(false)
