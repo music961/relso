@@ -28,8 +28,8 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><input class="bg-black hover:fill-current" id="fellEmail" type="date"/></td>
-              <td class="px-4"><input class="bg-black hover:text-red-500 hover:fill-current" id="fellEmail" type="time"/></td>
+              <td class="px-4"><input class="bg-black fill-white" id="fellEmail" type="date"/></td>
+              <td class="px-4"><input class="bg-black fill-red-300" id="fellEmail" type="time"/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
