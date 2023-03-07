@@ -11,8 +11,7 @@ export default function Rels(props: RelsProps) {
     return (
         <div>
             <div>
-                <Button onClick={()=> adminAdd()}>새 릴레이</Button>
-                <Button class="p-4" onClick={()=>location.href =`./relCreate/${props.rels.main_key}`}>품목 추가</Button>
+                <Button class="p-4" onClick={()=>location.href =`./relCreate/${props.rels.main_key}`}>새 릴레이</Button>
             </div>
             <table class="p-4 items-center shadow-md">
                 <th>번호</th>

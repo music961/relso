@@ -28,11 +28,11 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><Input id="fellEmail" value={rel.main_start}/></td>
+              <td class="px-4"><Input id="fellEmail" type="datetime-local" value={rel.main_start}/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
-              <td class="px-4"><Input id="fellEmail" value={rel.main_end}/></td>
+              <td class="px-4"><Input id="fellEmail" type="datetime-local" value={rel.main_end}/></td>
           </tr>
       </table>
       <div>
