@@ -1,6 +1,6 @@
 import { PageProps, Handlers } from "$fresh/server.ts"
 import Layout from "../../components/Layouts.tsx"
-import Admins from "../../islands/Admins.tsx"
+import Rels from "../../islands/Rels.tsx"
 import { select, cnt, isHave } from "../../const/DBTable.tsx"
 import { WithSession } from "freshSession"
 
@@ -9,7 +9,7 @@ export default function aaa({data}:PageProps){
   if(data.isLogin){
     result = (
       <Layout>
-          <Admins cnt={data.cnt} admins={data.result}/>
+          <Rels cnt={data.cnt} rels={data.result}/>
       </Layout>
     )
   }
@@ -24,7 +24,7 @@ export const handler:  Handlers<any,WithSession> = {
     if(email!=null){
         isLogin = await isHave("rel_admin where email=?",[email])
     }
-    const cntAdmin = await cnt("rel_admin")
+    const cntAdmin = await cnt("rel_main")
     const selectAdmin = await select("* from rel_main")
     return await cxt.render({
       isLogin : isLogin,
