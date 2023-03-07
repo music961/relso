@@ -3,25 +3,35 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/DB/runGoogleAuth.tsx";
-import * as $1 from "./routes/_middleware.tsx";
-import * as $2 from "./routes/admin/main.tsx";
-import * as $3 from "./routes/index.tsx";
+import * as $0 from "./routes/DB/admin/runAdminAdd.tsx";
+import * as $1 from "./routes/DB/admin/runAdminDel.tsx";
+import * as $2 from "./routes/DB/runGoogleAuth.tsx";
+import * as $3 from "./routes/_middleware.tsx";
+import * as $4 from "./routes/admin/adminList.tsx";
+import * as $5 from "./routes/admin/main.tsx";
+import * as $6 from "./routes/admin/runLogout.tsx";
+import * as $7 from "./routes/index.tsx";
 import * as $$0 from "./islands/Admin.tsx";
-import * as $$1 from "./islands/Entry.tsx";
-import * as $$2 from "./islands/Relso.tsx";
+import * as $$1 from "./islands/Admins.tsx";
+import * as $$2 from "./islands/Entry.tsx";
+import * as $$3 from "./islands/Relso.tsx";
 
 const manifest = {
   routes: {
-    "./routes/DB/runGoogleAuth.tsx": $0,
-    "./routes/_middleware.tsx": $1,
-    "./routes/admin/main.tsx": $2,
-    "./routes/index.tsx": $3,
+    "./routes/DB/admin/runAdminAdd.tsx": $0,
+    "./routes/DB/admin/runAdminDel.tsx": $1,
+    "./routes/DB/runGoogleAuth.tsx": $2,
+    "./routes/_middleware.tsx": $3,
+    "./routes/admin/adminList.tsx": $4,
+    "./routes/admin/main.tsx": $5,
+    "./routes/admin/runLogout.tsx": $6,
+    "./routes/index.tsx": $7,
   },
   islands: {
     "./islands/Admin.tsx": $$0,
-    "./islands/Entry.tsx": $$1,
-    "./islands/Relso.tsx": $$2,
+    "./islands/Admins.tsx": $$1,
+    "./islands/Entry.tsx": $$2,
+    "./islands/Relso.tsx": $$3,
   },
   baseUrl: import.meta.url,
   config,
