@@ -52,7 +52,7 @@ const dbTimeToDateTimeLocal = (dbTime : number)=>{
 	if(!dbTime){
 		param = 0
 	}
-	return new Date(new Date(dbTime).getTime()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,-5)
+	return new Date(new Date(param).getTime()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,-5)
 }
 
 const dateTimeLocalToDbTime = (dateTimeLocal:string)=>{
