@@ -32,7 +32,7 @@ export const handler: Handlers<any,WithSession> = {
       [entry] = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[relso.main_key])
     }
     if(entry){
-      [reserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry.entry_key])
+      [reserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[entry.entry_key])
     }
     
     let isProgress : boolean
