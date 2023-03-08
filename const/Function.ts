@@ -51,4 +51,8 @@ const dbTimeToDateTimeLocal = (dbTime : number)=>{
 	return new Date(new Date(dbTime).getTime()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,-5)
 }
 
+const dateTimeLocalToDbTime = (dateTimeLocal:string)=>{
+	return 0
+}
+
 export { jwtokenDecode, pintoLog, usrKeyEnc, usrKeyDec,dbTimeToDateTimeLocal  }
