@@ -25,7 +25,11 @@ export default function Relso(props: RelsoProps){
             </div>
         )
     }else{
-        return(<div/>)
+        return(
+            <div class="p-4 items-center">
+                진행중인 릴레이가 없습니다.
+            </div>
+        )
     }
 
 }
