@@ -41,7 +41,7 @@ export default function FellModify(props : PropsRel){
           </tr>
       </table>
       <div>
-        <Button onClick={()=>fellSummit(rel.main_key,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
       </div>
   </div>
     )

@@ -29,11 +29,6 @@ export default function Rels(props: RelsProps) {
                         <td class="px-4">{rel.title}</td>
                         <td class="px-4">{convertDate(rel.main_start)}</td>
                         <td class="px-4">{convertDate(rel.main_end)}</td>
-                        <td>
-                            <Button onClick={()=>
-                                adminDel(rel.main_key)
-                            }>삭제</Button>
-                        </td>
                     </tr>
                 )
                 }
@@ -47,44 +42,3 @@ export default function Rels(props: RelsProps) {
     const d = new Date(time)
     return d.toLocaleString()
   }
-
-  const adminDel = async(adminKey:number)=>{
-    if(confirm(`삭제하시겠습니까?`)){
-        await fetch(
-            `../../DB/admin/runAdminDel`,
-            {
-                method:'POST',
-                headers : {
-                    'Accept' : 'application/json',
-                    'Content-Type' : 'application/json'
-                },
-                body: JSON.stringify({adminKey:adminKey})
-            }
-        ) 
-        location.replace('/admin/adminList')
-    }
-}
-
-const adminAdd =() => {
-    let summitOK = true
-    const chkValue = (label:string)=> {
-        const elem = document.getElementById(label).value
-        // 공백이 입력되면, 실행하지 않는다.
-        if(elem==''){
-          summitOK = false
-        }
-        return elem
-      }
-    const email = chkValue('admin_add')
-    if(summitOK==true){
-        fetch('/DB/admin/runAdminAdd',{
-            method:'POST',
-            headers : {
-              'Accept' : 'application/json',
-              'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({email:email})
-          })
-        location.replace('/admin/adminList')
-    }
-}
