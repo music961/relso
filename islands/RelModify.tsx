@@ -99,6 +99,7 @@ const fellSummit = (fellKey:any,url:string)=>{
 }
 
 const fellDel = (fellKey:number)=>{
+  alert('asdfasdf')
   let elem = document.getElementById('endTime')
   elem.value = new Date(13456)
   // if(confirm(`삭제하시겠습니까?`)){
