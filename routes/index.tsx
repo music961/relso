@@ -27,7 +27,7 @@ export const handler: Handlers<any,WithSession> = {
     let entry
     let reserve
     const now = Date.now()
-    const [relso] = await select("* from rel_main where main_end<? order by main_end desc limit 1",[now])
+    const [relso] = await select("* from rel_main where main_end>? order by main_end desc limit 1",[now])
     if(relso){
       [entry] = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[relso.main_key])
     }
