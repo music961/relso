@@ -21,8 +21,7 @@ export default function Relso(props: RelsoProps){
             <br/>
             <tr>
                 <td>회차</td>
-                <td class="px-4">{relso.round}</td>
-                <td class={progressColor}>{props.progressLabel}</td>
+                <td class="px-4">{relso.round} <a class={progressColor}>{props.progressLabel}</a> </td>
             </tr>
             <tr>
                 <td>주제</td>
