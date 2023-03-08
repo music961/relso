@@ -24,13 +24,13 @@ export default function Home({data}:PageProps) {
 
 export const handler: Handlers<any,WithSession> = {
   async GET(_,cxt){
-    const [selectRelso] = await select("* from rel_main")
+    const now = Date.now()
+    const [selectRelso] = await select("* from rel_main where main_end<? order by main_end desc limit 1",[now])
     const [selectEntry] = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[selectRelso.main_key])
     const [selectReserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry.entry_key])
 
     let isProgress : boolean
     let progressLabel : string
-    const now = Date.now()
   
     if(selectRelso.main_start>now){
       progressLabel = '진행전'
