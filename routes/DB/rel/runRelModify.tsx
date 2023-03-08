@@ -6,7 +6,7 @@ export const handler = {
         const rel = await req.json()
         pintoLog(rel)
         update(
-          'rel_main set round=?,topic=?,title=?,main_start=?,main_end=? where info_key=?',
+          'rel_main set round=?,topic=?,title=?,main_start=?,main_end=? where main_key=?',
           [rel.round,rel.topic,rel.title,rel.timeStart,rel.timeEnd,rel.mainKey]
         )
         const result = {
