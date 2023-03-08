@@ -100,7 +100,7 @@ const fellSummit = (fellKey:any,url:string)=>{
 
 const fellDel = (fellKey:number)=>{
   let elem = document.getElementById('endTime')
-  alert(elem.value)
+  alert(Date.parse(elem.value))
   // if(confirm(`삭제하시겠습니까?`)){
   //     await fetch(
   //         `../DB/fell/runFellDel`,
