@@ -77,7 +77,7 @@ const relSummit = (mainKey:any,url:string)=>{
       },
       body: JSON.stringify(model)
     })    
-    location.replace('/admin/relList')
+    //location.replace('/admin/relList')
   }else{
     alert('바르게 입력해 주세요')
   }
