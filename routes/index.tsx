@@ -24,18 +24,24 @@ export default function Home({data}:PageProps) {
 
 export const handler: Handlers<any,WithSession> = {
   async GET(_,cxt){
+    let entry
+    let reserve
     const now = Date.now()
-    const [selectRelso] = await select("* from rel_main where main_end<? order by main_end desc limit 1",[now])
-    const [selectEntry] = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[selectRelso.main_key])
-    const [selectReserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry.entry_key])
-
+    const [relso] = await select("* from rel_main where main_end<? order by main_end desc limit 1",[now])
+    if(relso){
+      [entry] = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[relso.main_key])
+    }
+    if(entry){
+      [reserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry.entry_key])
+    }
+    
     let isProgress : boolean
     let progressLabel : string
   
-    if(selectRelso.main_start>now){
+    if(relso.main_start>now){
       progressLabel = '진행전'
       isProgress = false
-    }else if(selectRelso.main_end<now){
+    }else if(relso.main_end<now){
         progressLabel = '기간만료'
         isProgress = false
     }else{
@@ -46,8 +52,8 @@ export const handler: Handlers<any,WithSession> = {
     return await cxt.render({
       isProgress : isProgress,
       progressLabel : progressLabel,
-      resultRelso : selectRelso,
-      resultEntry : selectEntry
+      resultRelso : relso,
+      resultEntry : entry
     })
   }
 }
