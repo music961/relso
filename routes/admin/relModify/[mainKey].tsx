@@ -6,7 +6,7 @@ import RelModify from '../../../islands/RelModify.tsx'
 export default function info_modify({data}:PageProps){
     return (
         <Layout>
-            <RelModify rel={data} url='../../../DB/rel/runRelModify' />
+            <RelModify rel={data} url='../../DB/rel/runRelModify' />
         </Layout>
     )
 }
