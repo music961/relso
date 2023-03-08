@@ -6,7 +6,7 @@ export default function info_create(props:PageProps){
     const {mainKey} = props.params
     return (
         <Layout>
-            <RelModify rel={{main_key:mainKey}} url='../../../DB/rel/runRelCreate' />
+            <RelModify rel={{main_key:mainKey}} url='../../DB/rel/runRelCreate' />
         </Layout>
     )
 }
