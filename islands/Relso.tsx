@@ -18,11 +18,11 @@ export default function Relso(props: RelsoProps){
     
     return(
         <div class="p-4 items-center">
-            <a>릴레이소설</a> <a class={progressColor}>{props.progressLabel}</a>
             <br/>
             <tr>
                 <td>회차</td>
                 <td class="px-4">{relso.round}</td>
+                <td class={progressColor}>{props.progressLabel}</td>
             </tr>
             <tr>
                 <td>주제</td>
