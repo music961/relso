@@ -5,15 +5,17 @@
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/DB/admin/runAdminAdd.tsx";
 import * as $1 from "./routes/DB/admin/runAdminDel.tsx";
-import * as $2 from "./routes/DB/runGoogleAuth.tsx";
-import * as $3 from "./routes/_middleware.tsx";
-import * as $4 from "./routes/admin/adminList.tsx";
-import * as $5 from "./routes/admin/main.tsx";
-import * as $6 from "./routes/admin/relCreate/[mainKey].tsx";
-import * as $7 from "./routes/admin/relList.tsx";
-import * as $8 from "./routes/admin/relModify/[mainKey].tsx";
-import * as $9 from "./routes/admin/runLogout.tsx";
-import * as $10 from "./routes/index.tsx";
+import * as $2 from "./routes/DB/rel/runRelCreate.tsx";
+import * as $3 from "./routes/DB/rel/runRelModify.tsx";
+import * as $4 from "./routes/DB/runGoogleAuth.tsx";
+import * as $5 from "./routes/_middleware.tsx";
+import * as $6 from "./routes/admin/adminList.tsx";
+import * as $7 from "./routes/admin/main.tsx";
+import * as $8 from "./routes/admin/relCreate/[mainKey].tsx";
+import * as $9 from "./routes/admin/relList.tsx";
+import * as $10 from "./routes/admin/relModify/[mainKey].tsx";
+import * as $11 from "./routes/admin/runLogout.tsx";
+import * as $12 from "./routes/index.tsx";
 import * as $$0 from "./islands/Admin.tsx";
 import * as $$1 from "./islands/Admins.tsx";
 import * as $$2 from "./islands/Entry.tsx";
@@ -25,15 +27,17 @@ const manifest = {
   routes: {
     "./routes/DB/admin/runAdminAdd.tsx": $0,
     "./routes/DB/admin/runAdminDel.tsx": $1,
-    "./routes/DB/runGoogleAuth.tsx": $2,
-    "./routes/_middleware.tsx": $3,
-    "./routes/admin/adminList.tsx": $4,
-    "./routes/admin/main.tsx": $5,
-    "./routes/admin/relCreate/[mainKey].tsx": $6,
-    "./routes/admin/relList.tsx": $7,
-    "./routes/admin/relModify/[mainKey].tsx": $8,
-    "./routes/admin/runLogout.tsx": $9,
-    "./routes/index.tsx": $10,
+    "./routes/DB/rel/runRelCreate.tsx": $2,
+    "./routes/DB/rel/runRelModify.tsx": $3,
+    "./routes/DB/runGoogleAuth.tsx": $4,
+    "./routes/_middleware.tsx": $5,
+    "./routes/admin/adminList.tsx": $6,
+    "./routes/admin/main.tsx": $7,
+    "./routes/admin/relCreate/[mainKey].tsx": $8,
+    "./routes/admin/relList.tsx": $9,
+    "./routes/admin/relModify/[mainKey].tsx": $10,
+    "./routes/admin/runLogout.tsx": $11,
+    "./routes/index.tsx": $12,
   },
   islands: {
     "./islands/Admin.tsx": $$0,

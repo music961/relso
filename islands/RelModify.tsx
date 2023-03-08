@@ -11,29 +11,29 @@ export default function FellModify(props : PropsRel){
     return (
       <div>
       <div>
-        <Button onClick={()=>fellSummit(rel.main_key,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
         <Button onClick={()=>fellDel(rel.fell_key)}>삭제</Button>
       </div>
       <table class="p-4 shadow-md">
           <tr>
               <td class="px-4">라운드</td>
-              <td class="px-4"><Input id="fellName" value={rel.round}/></td>
+              <td class="px-4"><Input id="relRound" value={rel.round}/></td>
           </tr>
           <tr>
               <td class="px-4">제목</td>
-              <td class="px-4"><Input id="fellPhone" value={rel.title}/></td>
+              <td class="px-4"><Input id="relTitle" value={rel.title}/></td>
           </tr>
           <tr>
               <td class="px-4">주제</td>
-              <td class="px-4"><Input id="fellEmail" value={rel.topic}/></td>
+              <td class="px-4"><Input id="relTopic" value={rel.topic}/></td>
           </tr>
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><Input id="startTime" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
+              <td class="px-4"><Input id="relStart" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
-              <td class="px-4"><Input id="endTime" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
+              <td class="px-4"><Input id="relEnd" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
           </tr>
       </table>
       <div>
@@ -43,7 +43,7 @@ export default function FellModify(props : PropsRel){
     )
 }
 
-const fellSummit = (fellKey:any,url:string)=>{
+const relSummit = (mainKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -53,48 +53,33 @@ const fellSummit = (fellKey:any,url:string)=>{
     }
     return elem
   }
-  const fellStep = chkValue('fellStep')
-  const fellName = chkValue('fellName')
-  const fellPhone = chkValue('fellPhone')
-  const fellEmail = chkValue('fellEmail')
-  const fellAddressApplicant = chkValue('fellAddressApplicant')
-  const fellAddress = chkValue('fellAddress')
-  const fellPassword = chkValue('fellPassword')
-  const fellPasswordChk = chkValue('fellPasswordChk')
-  const fellArea = chkValue('fellArea')
-  const fellLongitude = chkValue('fellLongitude')
-  const fellLatitude = chkValue('fellLatitude')
+  const relRound = chkValue('relRound')
+  const relTitle = chkValue('relTitle')
+  const relTopic = chkValue('relTopic')
+  const relStart = chkValue('relStart')
+  const relEnd = chkValue('relEnd')
 
-  if(fellPassword==fellPasswordChk){
-    const model = {
-      fellKey : fellKey,
-      step : fellStep,
-      fellName : fellName,
-      mobileNum : fellPhone,
-      email : fellEmail,
-      address : fellAddressApplicant,
-      addressFell : fellAddress,
-      password : fellPassword,
-      extent : fellArea,
-      x : fellLongitude,
-      y : fellLatitude
-    }
-    if(summitOK==true){
-      alert('적용되었습니다.')
-      fetch(url,{
-        method:'POST',
-        headers : {
-          'Accept' : 'application/json',
-          'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(model)
-      })    
-      location.replace('/fell/fellList')
-    }else{
-      alert('바르게 입력해 주세요')
-    }
+  const model = {
+    mainKey : mainKey,
+    round : relRound,
+    title : relTitle,
+    topic : relTopic,
+    timeStart : relStart,
+    timeEnd : relEnd
+  }
+  if(summitOK==true){
+    alert('적용되었습니다.')
+    fetch(url,{
+      method:'POST',
+      headers : {
+        'Accept' : 'application/json',
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify(model)
+    })    
+    location.replace('/admin/relList')
   }else{
-    alert('비밀번호가 다릅니다.')
+    alert('바르게 입력해 주세요')
   }
 }
 
