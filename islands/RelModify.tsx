@@ -7,7 +7,7 @@ interface PropsRel {
 
 export default function FellModify(props : PropsRel){
   const rel = props.rel
-  const d = new Date(rel.main_end).toISOString().slice(0,-5)
+  //const d = new Date(rel.main_end).toISOString().slice(0,-5)
     return (
       <div>
       <div>
@@ -33,7 +33,7 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
-              <td class="px-4"><Input id="endTime" type="datetime-local" value={d}/></td>
+              <td class="px-4"><Input id="endTime" type="datetime-local" value={new Date(rel.main_end).toISOString().slice(0,-5)}/></td>
           </tr>
       </table>
       <div>
@@ -99,9 +99,8 @@ const fellSummit = (fellKey:any,url:string)=>{
 }
 
 const fellDel = (fellKey:number)=>{
-  alert('asdfas')
+  alert('asd')
   let elem = document.getElementById('endTime')
-  elem.value = new Date(13456).toISOString().slice(0,-5)
   // if(confirm(`삭제하시겠습니까?`)){
   //     await fetch(
   //         `../DB/fell/runFellDel`,
