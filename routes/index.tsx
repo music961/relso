@@ -14,7 +14,7 @@ export default function Home({data}:PageProps) {
       </Head>
       <Layout>
         <div>
-          <Relso isProgress={data.isProgress} progressLabel={data.progressLabel} relso={data.resultRelso}/>
+          <Relso relso={data.resultRelso}/>
           <Entry entry={data.resultEntry}/>
         </div>
       </Layout>
@@ -34,24 +34,8 @@ export const handler: Handlers<any,WithSession> = {
     if(entry){
       [reserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[entry.entry_key])
     }
-    
-    let isProgress : boolean
-    let progressLabel : string
-  
-    if(relso.main_start>now){
-      progressLabel = '진행전'
-      isProgress = false
-    }else if(relso.main_end<now){
-        progressLabel = '기간만료'
-        isProgress = false
-    }else{
-        progressLabel = '진행중'
-        isProgress = true
-    }
-
+      
     return await cxt.render({
-      isProgress : isProgress,
-      progressLabel : progressLabel,
       resultRelso : relso,
       resultEntry : entry
     })
