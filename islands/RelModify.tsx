@@ -64,8 +64,8 @@ const relSummit = (mainKey:any,url:string)=>{
     round : relRound,
     title : relTitle,
     topic : relTopic,
-    timeStart : relStart,
-    timeEnd : relEnd
+    timeStart : Date.parse(relStart),
+    timeEnd : Date.parse(relEnd)
   }
   if(summitOK==true){
     alert('적용되었습니다.')
