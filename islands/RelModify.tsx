@@ -8,6 +8,10 @@ interface PropsRel {
 
 export default function FellModify(props : PropsRel){
   const rel = props.rel
+  let preTitle = '미정'
+  if(rel.title){
+    preTitle = rel.title
+  }
     return (
       <div>
       <div>
@@ -21,7 +25,7 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">제목</td>
-              <td class="px-4"><Input id="relTitle" value={rel.title}/></td>
+              <td class="px-4"><Input id="relTitle" value={preTitle}/></td>
           </tr>
           <tr>
               <td class="px-4">주제</td>
