@@ -22,15 +22,15 @@ export default function Relso(props: RelsoProps){
             <br/>
             <tr>
                 <td>회차</td>
-                <td class="px-4">{relso[0].round}</td>
+                <td class="px-4">{relso.round}</td>
             </tr>
             <tr>
                 <td>주제</td>
-                <td class="px-4">{relso[0].topic}</td>
+                <td class="px-4">{relso.topic}</td>
             </tr>
             <tr>
                 <td>마감</td>
-                <td class="px-4">{convertDate(relso[0].main_end)}</td>
+                <td class="px-4">{convertDate(relso.main_end)}</td>
             </tr>
         </div>
     )

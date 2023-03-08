@@ -24,24 +24,18 @@ export default function Home({data}:PageProps) {
 
 export const handler: Handlers<any,WithSession> = {
   async GET(_,cxt){
-    const selectRelso = await select("* from rel_main")
-    const selectEntry = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[selectRelso[0].main_key])
-    const selectReserve = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry[0].entry_key])
-    // const {session} = cxt.state
-    // let isLogin = false
-    // const email = session.data.aabbcc
-    // if(email!=null){
-    //     isLogin = await isHave("lim_admin where email=?",[email])
-    // }
+    const [selectRelso] = await select("* from rel_main")
+    const [selectEntry] = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[selectRelso.main_key])
+    const [selectReserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[selectEntry.entry_key])
 
     let isProgress : boolean
     let progressLabel : string
     const now = Date.now()
   
-    if(selectRelso[0].main_start>now){
+    if(selectRelso.main_start>now){
       progressLabel = '진행전'
       isProgress = false
-    }else if(selectRelso[0].main_end<now){
+    }else if(selectRelso.main_end<now){
         progressLabel = '기간만료'
         isProgress = false
     }else{

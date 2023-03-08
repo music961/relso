@@ -11,15 +11,15 @@ export default function Entry(props:EntryProps){
         <div class="p-4 items-center">
             <tr>
                 <td>순서</td>
-                <td class="px-4">{entry[0].th}</td>
+                <td class="px-4">{entry.th}</td>
             </tr>
             <tr>
                 <td>선언</td>
-                <td class="px-4">{entry[0].entry_name}</td>
+                <td class="px-4">{entry.entry_name}</td>
             </tr>
             <tr>
                 <td>선언시간</td>
-                <td class="px-4">{convertDate(entry[0].entry_start)}</td>
+                <td class="px-4">{convertDate(entry.entry_start)}</td>
             </tr>
             <Button>제출</Button>
             <Button>취소</Button>
