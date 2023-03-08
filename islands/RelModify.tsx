@@ -1,4 +1,5 @@
 import { Button, Input } from "../components/Button.tsx"
+import { dbTimeToDateTimeLocal } from "../const/Function.ts"
 
 interface PropsRel {
   rel: any,
@@ -7,7 +8,6 @@ interface PropsRel {
 
 export default function FellModify(props : PropsRel){
   const rel = props.rel
-  //const d = new Date(rel.main_end).toISOString().slice(0,-5)
     return (
       <div>
       <div>
@@ -29,11 +29,11 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><Input id="startTime" type="datetime-local" value={new Date(rel.main_start).toISOString().slice(0,-5)}/></td>
+              <td class="px-4"><Input id="startTime" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
-              <td class="px-4"><Input id="endTime" type="datetime-local" value={new Date(rel.main_end).toISOString().slice(0,-5)}/></td>
+              <td class="px-4"><Input id="endTime" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
           </tr>
       </table>
       <div>
