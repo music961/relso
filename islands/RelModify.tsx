@@ -29,11 +29,11 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><Input id="fellEmail" type="datetime-local"/></td>
+              <td class="px-4"><Input id="startTime" type="datetime-local"/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
-              <td class="px-4"><Input id="fellEmail" type="datetime-local" value={d}/></td>
+              <td class="px-4"><Input id="endTime" type="datetime-local" value={d}/></td>
           </tr>
       </table>
       <div>
@@ -98,19 +98,21 @@ const fellSummit = (fellKey:any,url:string)=>{
   }
 }
 
-const fellDel = async(fellKey:number)=>{
-  if(confirm(`삭제하시겠습니까?`)){
-      await fetch(
-          `../DB/fell/runFellDel`,
-          {
-              method:'POST',
-              headers : {
-                  'Accept' : 'application/json',
-                  'Content-Type' : 'application/json'
-              },
-              body: JSON.stringify({fellKey:fellKey})
-          }
-      ) 
-      location.replace('/fell/fellList')
-  }
+const fellDel = (fellKey:number)=>{
+  let elem = document.getElementById('endTime')
+  elem.value = new Date(13456)
+  // if(confirm(`삭제하시겠습니까?`)){
+  //     await fetch(
+  //         `../DB/fell/runFellDel`,
+  //         {
+  //             method:'POST',
+  //             headers : {
+  //                 'Accept' : 'application/json',
+  //                 'Content-Type' : 'application/json'
+  //             },
+  //             body: JSON.stringify({fellKey:fellKey})
+  //         }
+  //     ) 
+  //     location.replace('/fell/fellList')
+  // }
 }
