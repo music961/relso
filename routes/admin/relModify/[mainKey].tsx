@@ -3,7 +3,7 @@ import { select } from "../../../const/DBTable.tsx"
 import Layout from '../../../components/Layouts.tsx'
 import RelModify from '../../../islands/RelModify.tsx'
 
-export default function info_modify({data}:PageProps){
+export default function rel_modify({data}:PageProps){
     return (
         <Layout>
             <RelModify rel={data} url='../../../../DB/rel/runRelModify' />

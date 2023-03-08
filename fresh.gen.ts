@@ -11,7 +11,7 @@ import * as $4 from "./routes/DB/runGoogleAuth.tsx";
 import * as $5 from "./routes/_middleware.tsx";
 import * as $6 from "./routes/admin/adminList.tsx";
 import * as $7 from "./routes/admin/main.tsx";
-import * as $8 from "./routes/admin/relCreate/[mainKey].tsx";
+import * as $8 from "./routes/admin/relCreate.tsx";
 import * as $9 from "./routes/admin/relList.tsx";
 import * as $10 from "./routes/admin/relModify/[mainKey].tsx";
 import * as $11 from "./routes/admin/runLogout.tsx";
@@ -33,7 +33,7 @@ const manifest = {
     "./routes/_middleware.tsx": $5,
     "./routes/admin/adminList.tsx": $6,
     "./routes/admin/main.tsx": $7,
-    "./routes/admin/relCreate/[mainKey].tsx": $8,
+    "./routes/admin/relCreate.tsx": $8,
     "./routes/admin/relList.tsx": $9,
     "./routes/admin/relModify/[mainKey].tsx": $10,
     "./routes/admin/runLogout.tsx": $11,

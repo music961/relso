@@ -11,9 +11,9 @@ export default function Relso(props: RelsoProps){
     let progressColor : string
 
     if(props.isProgress){
-        progressColor = "text-green-600 font-bold"
+        progressColor = "text-green-600"
     }else{
-        progressColor = "text-red-600 font-bold"
+        progressColor = "text-red-600"
     }
     
     return(
