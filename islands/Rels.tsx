@@ -22,7 +22,7 @@ export default function Rels(props: RelsProps) {
                 <th>종료</th>
                 {
                 rels.map((rel)=>
-                    <tr class="mx-4">
+                    <tr class="mx-4 cursor-pointer hover:underline" onClick={()=>location.href=`./relModify/${rel.main_key}`}>
                         <td class="px-4">{rel.main_key}</td>
                         <td class="px-4">{rel.round}</td>
                         <td class="px-4">{rel.topic}</td>

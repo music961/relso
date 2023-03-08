@@ -11,8 +11,9 @@ import * as $4 from "./routes/admin/adminList.tsx";
 import * as $5 from "./routes/admin/main.tsx";
 import * as $6 from "./routes/admin/relCreate/[mainKey].tsx";
 import * as $7 from "./routes/admin/relList.tsx";
-import * as $8 from "./routes/admin/runLogout.tsx";
-import * as $9 from "./routes/index.tsx";
+import * as $8 from "./routes/admin/relModify/[mainKey].tsx";
+import * as $9 from "./routes/admin/runLogout.tsx";
+import * as $10 from "./routes/index.tsx";
 import * as $$0 from "./islands/Admin.tsx";
 import * as $$1 from "./islands/Admins.tsx";
 import * as $$2 from "./islands/Entry.tsx";
@@ -30,8 +31,9 @@ const manifest = {
     "./routes/admin/main.tsx": $5,
     "./routes/admin/relCreate/[mainKey].tsx": $6,
     "./routes/admin/relList.tsx": $7,
-    "./routes/admin/runLogout.tsx": $8,
-    "./routes/index.tsx": $9,
+    "./routes/admin/relModify/[mainKey].tsx": $8,
+    "./routes/admin/runLogout.tsx": $9,
+    "./routes/index.tsx": $10,
   },
   islands: {
     "./islands/Admin.tsx": $$0,
