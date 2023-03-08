@@ -29,7 +29,7 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><Input id="startTime" type="datetime-local"/></td>
+              <td class="px-4"><Input id="startTime" type="datetime-local" value={new Date(rel.main_start).toISOString().slice(0,-5)}/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
