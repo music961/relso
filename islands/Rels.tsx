@@ -1,5 +1,6 @@
 import { Button, Input } from "../components/Button.tsx"
 import { useState } from "preact/hooks"
+import { convertDate } from "../const/Function.ts"
 
 interface RelsProps {
     cnt: number,
@@ -36,9 +37,4 @@ export default function Rels(props: RelsProps) {
         </div>
 
     )
-  }
-  
-  const convertDate = (time:number)=>{
-    const d = new Date(time)
-    return d.toLocaleString()
   }
