@@ -19,7 +19,7 @@ export default function Entry(props:EntryProps){
                     <td class="px-4">{entry.entry_name}</td>
                 </tr>
                 <tr>
-                    <td class="px-4">{convertTimeScale(entry.entry_start,마감시간,false)}</td>
+                    <td class="px-4">{convertTimeScale(Date.now(),마감시간,false)}</td>
                 </tr>
                 <Button>제출</Button>
                 <Button>취소</Button>
