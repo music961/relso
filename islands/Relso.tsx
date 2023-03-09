@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks"
-import { convertDate } from "../const/Function.ts"
+import { convertDate, convertTimeScale } from "../const/Function.ts"
 
 interface RelsoProps {
     relso: any
@@ -18,7 +18,10 @@ export default function Relso(props: RelsoProps){
                     <td class="px-4">{relso.topic}</td>
                 </tr>
                 <tr>
-                    <td class="px-4">{convertDate(relso.main_end)}</td>
+                    <td class="px-4">마감 : {convertDate(relso.main_end).slice(0,-3)}</td>
+                </tr>
+                <tr>
+                    <td class="px-4">{convertTimeScale(relso.main_end,Date.now(),false)}</td>
                 </tr>
             </div>
         )

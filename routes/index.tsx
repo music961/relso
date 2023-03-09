@@ -29,7 +29,10 @@ export const handler: Handlers<any,WithSession> = {
     const now = Date.now()
     const [relso] = await select("* from rel_main where main_end>? order by main_end desc limit 1",[now])
     if(relso){
-      [entry] = await select("* from rel_entry where main_key=? order by entry_key desc limit 1",[relso.main_key])
+      [entry] = await select(
+        "* from rel_entry where main_key=? and entry_start>? and state is null order by entry_key desc limit 1",
+        [relso.main_key,Date.now()-10800000]
+      )
     }
     if(entry){
       [reserve] = await select("* from rel_reserve where entry_key=? order by rsv_key desc limit 1",[entry.entry_key])

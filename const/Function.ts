@@ -83,13 +83,17 @@ const convertTimeScale = (t1:number,t2:number,isAgo:boolean) =>{
 	for (const [unit, secondsInUnit] of Object.entries(interval)) {
 	  const count = Math.floor(diff / secondsInUnit);
 	  if (count > 0) {
-		return `${count} ${unit}${count > 1 ? "s" : ""} 전`;
+		return `${count} ${unit} ${tail}`;
 	  }
 	}
 	if(isAgo){
 		return '방금'
 	}else{
-		return '곧'
+		if(diff>0){
+			return '곧'
+		}else{
+			return '시간 초과'
+		}
 	}
 }
 
