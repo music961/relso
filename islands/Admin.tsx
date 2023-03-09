@@ -1,6 +1,7 @@
 import { Button, Input } from "../components/Button.tsx"
 import { GoogleOAuth } from "https://deno.land/x/google@0.0.7/oauth.ts"
 import { useState } from "preact/hooks"
+import { oauthId, oauthRedirect, oauthSecret } from "../const/Const.ts"
 
 interface AdminProps {
     isLogin : boolean,
@@ -9,9 +10,9 @@ interface AdminProps {
 
 export default function Admin(props: AdminProps) {
     const ga = new GoogleOAuth({
-        client_id : "602990314098-bvs1v7oj71pmbb9m4ptp9aq68jeg10k7.apps.googleusercontent.com",
-        client_secret : "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",
-        redirect_uri : "https://relso.deno.dev/DB/runGoogleAuth",
+        client_id : oauthId,
+        client_secret : oauthSecret,
+        redirect_uri : oauthRedirect,
         "scopes" : [
             "https://www.googleapis.com/auth/userinfo.email",
         ]

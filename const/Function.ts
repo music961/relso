@@ -59,4 +59,10 @@ const dateTimeLocalToDbTime = (dateTimeLocal:string)=>{
 	return 0
 }
 
-export { jwtokenDecode, pintoLog, usrKeyEnc, usrKeyDec,dbTimeToDateTimeLocal  }
+const convertDate = (time:number)=>{
+    const d = new Date((time-(3600*9*1000)))
+    return d.toLocaleString()
+  }
+
+
+export { convertDate, jwtokenDecode, pintoLog, usrKeyEnc, usrKeyDec,dbTimeToDateTimeLocal  }
