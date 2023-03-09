@@ -61,7 +61,7 @@ const dateTimeLocalToDbTime = (dateTimeLocal:string)=>{
 
 const convertDate = (time:number)=>{
     const d = new Date(time)
-    return d.join()
+    return d.toLocaleString()
   }
 
 
