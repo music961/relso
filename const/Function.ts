@@ -64,5 +64,34 @@ const convertDate = (time:number)=>{
     return d.toLocaleString()
   }
 
+const convertTimeScale = (t1:number,t2:number,isAgo:boolean) =>{
+	const diff = (t1-t2)/1000
+	let tail = '후'
+	if(isAgo){
+		tail = '전'
+	}
 
-export { convertDate, jwtokenDecode, pintoLog, usrKeyEnc, usrKeyDec,dbTimeToDateTimeLocal  }
+	const interval = {
+	  년: 31536000,
+	  월: 2592000,
+	  주: 604800,
+	  일: 86400,
+	  시간: 3600,
+	  분: 60
+	}
+  
+	for (const [unit, secondsInUnit] of Object.entries(interval)) {
+	  const count = Math.floor(diff / secondsInUnit);
+	  if (count > 0) {
+		return `${count} ${unit}${count > 1 ? "s" : ""} 전`;
+	  }
+	}
+	if(isAgo){
+		return '방금'
+	}else{
+		return '곧'
+	}
+}
+
+
+export { convertDate,convertTimeScale, jwtokenDecode, pintoLog, usrKeyEnc, usrKeyDec,dbTimeToDateTimeLocal  }
