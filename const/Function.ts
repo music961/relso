@@ -60,7 +60,7 @@ const dateTimeLocalToDbTime = (dateTimeLocal:string)=>{
 }
 
 const convertDate = (time:number)=>{
-    const d = new Date((time-(3600*9*1000)))
+    const d = new Date(new Date(time).getTime()-new Date().getTimezoneOffset()*60000)
     return d.toLocaleString()
   }
 
