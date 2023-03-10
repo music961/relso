@@ -36,7 +36,7 @@ export const handler: Handlers<any,WithSession> = {
     if(relso){
       [entry] = await select(
         "* from rel_entry where main_key=? and entry_start>? and state is null order by entry_key desc limit 1",
-        [mainKey,Date.now()-10800000]
+        [relso.main_key,Date.now()-10800000]
       )
       mainKey = relso.main_key
       entrys = await select("* from rel_entry where main_key=? and state=1 order by entry_key desc",[mainKey])
