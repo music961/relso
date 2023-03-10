@@ -7,10 +7,8 @@ export const handler = {
         pintoLog(entry)
         // insert 하기 전, 누군가가 먼저 등록을 했는지 체크하고 진행.
         insert(
-          //'rel_entry (main_key,entry_name,entry_start)value (?,?,?)',
           'rel_entry (main_key,entry_name,entry_start) select ?,?,? where exists(select * from rel_entry where main_key=? and entry_start>? and state is null)',
-          //[entry.mainKey,entry.entryName,Date.now()]
-          [entry.mainKey,entry.entryName,Date.now(),entry.mainKey,Date.now()]
+          [entry.mainKey,entry.entryName,Date.now(),entry.mainKey,Date.now()-10800000]
         )
         const result = {
             result : 100
