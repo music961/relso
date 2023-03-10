@@ -10,17 +10,17 @@ interface EntryProps {
 
 export default function Entry(props:EntryProps){
     const [entry, setEntry] = useState(props.entry)
-    const [예약, 세팅_예약] = useState(false)
-    let aaa = (<div/>)
-    if(예약)
-    aaa = (
-        <div>
-            <Input id="entryName" placeholder={`예약하시는 분 이름 입력`}/>
-            <Button onClick={()=>entryStart(props.mainKey)}>예약합니다</Button>
-        </div>
-    )
     if(props.mainKey!=0){
-        if(props.entry){
+        if(entry){
+            const [예약, 세팅_예약] = useState(false)
+            let aaa = (<div/>)
+            if(예약)
+            aaa = (
+                <div>
+                    <Input id="예약" placeholder={`예약하시는 분 이름 입력`}/>
+                    <Button onClick={()=>실행_예약(entry.entry_key)}>예약합니다</Button>
+                </div>
+            )
             const 마감시간 = entry.entry_start+(3600*3*1000)
             return(
                 <div class="p-4 items-center">
@@ -92,6 +92,38 @@ const entryStart = (mainKey:number)=>{
                 entryName : entryName
             }
             fetch('../DB/entry/runEntryAdd',{
+                method:'POST',
+                headers : {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(model)
+            })
+            location.replace('/')
+        }
+    }else{
+        alert('바르게 입력해주세요.')
+    }
+}
+
+const 실행_예약 = (entryKey:number)=>{
+    let summitOK = true
+    const chkValue = (label:string)=> {
+        const elem = document.getElementById(label).value
+        // 공백이 입력되면, 실행하지 않는다.
+        if(elem==''){
+          summitOK = false
+        }
+        return elem
+      }
+      const 예약자이름 = chkValue('예약자이름')
+      if(summitOK){
+        if(confirm(`${예약자이름}님, 예약하시겠습니까?`)){
+            const model = {
+                entryKey : entryKey,
+                reserveName : 예약자이름
+            }
+            fetch('../DB/entry/runReserveAdd',{
                 method:'POST',
                 headers : {
                 'Accept' : 'application/json',
