@@ -71,7 +71,6 @@ const relSummit = (mainKey:any,url:string)=>{
     timeEnd : Date.parse(relEnd)
   }
   if(summitOK==true){
-    alert('적용되었습니다.')
     fetch(url,{
       method:'POST',
       headers : {
