@@ -16,7 +16,6 @@ export default function FellModify(props : PropsRel){
       <div>
       <div>
         <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
-        <Button onClick={()=>fellDel(rel.fell_key)}>삭제</Button>
       </div>
       <table class="p-4 shadow-md">
           <tr>
@@ -85,23 +84,4 @@ const relSummit = (mainKey:any,url:string)=>{
   }else{
     alert('바르게 입력해 주세요')
   }
-}
-
-const fellDel = (fellKey:number)=>{
-  let elem = document.getElementById('endTime')
-  alert(Date.parse(elem.value))
-  // if(confirm(`삭제하시겠습니까?`)){
-  //     await fetch(
-  //         `../DB/fell/runFellDel`,
-  //         {
-  //             method:'POST',
-  //             headers : {
-  //                 'Accept' : 'application/json',
-  //                 'Content-Type' : 'application/json'
-  //             },
-  //             body: JSON.stringify({fellKey:fellKey})
-  //         }
-  //     ) 
-  //     location.replace('/fell/fellList')
-  // }
 }

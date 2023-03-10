@@ -15,7 +15,7 @@ export default function Home({data}:PageProps) {
       <Layout>
         <div>
           <Relso relso={data.relso}/>
-          <Entry th={data.th} mainKey={data.relso.main_key} entry={data.entry}/>
+          <Entry th={data.th} mainKey={data.mainKey} entry={data.entry}/>
         </div>
       </Layout>
     </html>
@@ -27,6 +27,7 @@ export const handler: Handlers<any,WithSession> = {
     let entry
     let reserve
     let th=0
+    let mainKey = 0
     const now = Date.now()
     const [relso] = await select("* from rel_main where main_end>? order by main_end desc limit 1",[now])
     if(relso){
@@ -34,6 +35,7 @@ export const handler: Handlers<any,WithSession> = {
         "* from rel_entry where main_key=? and entry_start>? and state is null order by entry_key desc limit 1",
         [relso.main_key,Date.now()-10800000]
       )
+      mainKey = relso.main_key
       th = await cnt("rel_entry where main_key=1 and state=1")
     }
     if(entry){
@@ -43,7 +45,8 @@ export const handler: Handlers<any,WithSession> = {
     return await cxt.render({
       relso : relso,
       entry : entry,
-      th : th+1
+      th : th+1,
+      mainKey : mainKey
     })
   }
 }
