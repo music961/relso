@@ -14,7 +14,7 @@ export default function Relso(props: RelsoProps){
                     <td class="px-4">{relso.round}.{relso.topic}</td>
                 </tr>
                 <tr>
-                    <td class="px-4">마감 : {convertDateShort(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
+                    <td class="px-4">마감 : {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
                 </tr>
                 <tr>
                     <td class="px-4"></td>
