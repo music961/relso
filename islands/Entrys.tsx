@@ -7,8 +7,8 @@ interface RelsProps {
 
 export default function Entrys(props: RelsProps) {
     const entrys = props.entrys
-    const cnt = entrys.length
     if(entrys){
+        const cnt = entrys.length
         return (
             <div>
                 <table class="p-4 items-center shadow-md">
