@@ -21,9 +21,10 @@ import * as $14 from "./routes/index.tsx";
 import * as $$0 from "./islands/Admin.tsx";
 import * as $$1 from "./islands/Admins.tsx";
 import * as $$2 from "./islands/Entry.tsx";
-import * as $$3 from "./islands/RelModify.tsx";
-import * as $$4 from "./islands/Rels.tsx";
-import * as $$5 from "./islands/Relso.tsx";
+import * as $$3 from "./islands/Entrys.tsx";
+import * as $$4 from "./islands/RelModify.tsx";
+import * as $$5 from "./islands/Rels.tsx";
+import * as $$6 from "./islands/Relso.tsx";
 
 const manifest = {
   routes: {
@@ -47,9 +48,10 @@ const manifest = {
     "./islands/Admin.tsx": $$0,
     "./islands/Admins.tsx": $$1,
     "./islands/Entry.tsx": $$2,
-    "./islands/RelModify.tsx": $$3,
-    "./islands/Rels.tsx": $$4,
-    "./islands/Relso.tsx": $$5,
+    "./islands/Entrys.tsx": $$3,
+    "./islands/RelModify.tsx": $$4,
+    "./islands/Rels.tsx": $$5,
+    "./islands/Relso.tsx": $$6,
   },
   baseUrl: import.meta.url,
   config,

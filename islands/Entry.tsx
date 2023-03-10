@@ -34,7 +34,7 @@ export default function Entry(props:EntryProps){
                 <div class="p-4 items-center">
                     <tr class="mx-4">
                         <td class="px-4">
-                            <Input id="entryName"/>
+                            <Input id="entryName" placeholder={'작가님 이름 입력'}/>
                         </td>
                     </tr>
                     <tr class="mx-4">
