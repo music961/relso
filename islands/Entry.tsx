@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks"
 import { Button, Input } from "../components/Button.tsx"
-import { convertTimeScale } from "../const/Function.ts"
+import { convertDate,convertTimeScale } from "../const/Function.ts"
 
 interface EntryProps {
     th : number,
@@ -10,6 +10,15 @@ interface EntryProps {
 
 export default function Entry(props:EntryProps){
     const [entry, setEntry] = useState(props.entry)
+    const [예약, 세팅_예약] = useState(false)
+    let aaa = (<div/>)
+    if(예약)
+    aaa = (
+        <div>
+            <Input id="entryName" placeholder={`예약하시는 분 이름 입력`}/>
+            <Button onClick={()=>entryStart(props.mainKey)}>예약합니다</Button>
+        </div>
+    )
     if(props.mainKey!=0){
         if(props.entry){
             const 마감시간 = entry.entry_start+(3600*3*1000)
@@ -18,17 +27,20 @@ export default function Entry(props:EntryProps){
                     <tr class="mx-4">
                         <td class="px-4">[{props.th} 번째 {entry.entry_name}]</td>
                     </tr>
-                   
                     <tr>
                         <td class="px-4">마감 : {convertTimeScale(마감시간,Date.now(),false)}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">예약 : 없음</td>
                     </tr>
                     <tr>
                         <td class="px-4">
                         <Button onClick={()=>entrySummit(entry.entry_key,1,"제출하시겠습니까?")}>제출</Button>
                         <Button onClick={()=>entrySummit(entry.entry_key,2,"포기하시겠습니까?")}>포기</Button>
+                        <Button onClick={()=>세팅_예약(!예약)}>예약</Button>
                         </td>
                     </tr>
-
+                    {aaa}
                 </div>
             )
         }else{
