@@ -43,7 +43,17 @@ export const handler: Handlers<any,WithSession> = {
       th = await cnt("rel_entry where main_key=1 and state=1")
     }
     if(entry){
-      [reserve] = await select("* from rel_reserve where entry_key=? and state is null order by rsv_key desc limit 1",[entry.entry_key])
+      [reserve] = await select(
+        "* from rel_reserve where entry_key=? and state is null order by rsv_key desc limit 1",
+        [entry.entry_key]
+      )
+    }else{
+      [reserve] = await select(
+        //"rsv_name,rsv_start from (select rsv_name,rsv_start,rsv_end from rel_reserve rr join rel_entry re on rr.entry_key = re.entry_key order by rsv_key desc limit 1)a where (rsv_start>?)or(rsv_end is not null and rsv_end>?)",
+        //"rsv_name,entry_start,entry_end from rel_reserve rr join rel_entry re on rr.entry_key = re.entry_key order by rsv_key desc limit 1"
+        "rsv_name,entry_start,entry_end from (select rsv_name,entry_start,entry_end from rel_reserve rr join rel_entry re on rr.entry_key = re.entry_key order by rsv_key desc limit 1)a where (entry_start>?)and(entry_end is null or entry_end>?)",
+        [Date.now()-12600000,Date.now()-1800000]  // 3시간 30분, 30분
+      )
     }
       
     return await cxt.render({

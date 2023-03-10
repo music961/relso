@@ -14,12 +14,13 @@ import * as $7 from "./routes/DB/rel/runRelModify.tsx";
 import * as $8 from "./routes/DB/runGoogleAuth.tsx";
 import * as $9 from "./routes/_middleware.tsx";
 import * as $10 from "./routes/admin/adminList.tsx";
-import * as $11 from "./routes/admin/main.tsx";
-import * as $12 from "./routes/admin/relCreate.tsx";
-import * as $13 from "./routes/admin/relList.tsx";
-import * as $14 from "./routes/admin/relModify/[mainKey].tsx";
-import * as $15 from "./routes/admin/runLogout.tsx";
-import * as $16 from "./routes/index.tsx";
+import * as $11 from "./routes/admin/guide.tsx";
+import * as $12 from "./routes/admin/main.tsx";
+import * as $13 from "./routes/admin/relCreate.tsx";
+import * as $14 from "./routes/admin/relList.tsx";
+import * as $15 from "./routes/admin/relModify/[mainKey].tsx";
+import * as $16 from "./routes/admin/runLogout.tsx";
+import * as $17 from "./routes/index.tsx";
 import * as $$0 from "./islands/Admin.tsx";
 import * as $$1 from "./islands/Admins.tsx";
 import * as $$2 from "./islands/Entry.tsx";
@@ -41,12 +42,13 @@ const manifest = {
     "./routes/DB/runGoogleAuth.tsx": $8,
     "./routes/_middleware.tsx": $9,
     "./routes/admin/adminList.tsx": $10,
-    "./routes/admin/main.tsx": $11,
-    "./routes/admin/relCreate.tsx": $12,
-    "./routes/admin/relList.tsx": $13,
-    "./routes/admin/relModify/[mainKey].tsx": $14,
-    "./routes/admin/runLogout.tsx": $15,
-    "./routes/index.tsx": $16,
+    "./routes/admin/guide.tsx": $11,
+    "./routes/admin/main.tsx": $12,
+    "./routes/admin/relCreate.tsx": $13,
+    "./routes/admin/relList.tsx": $14,
+    "./routes/admin/relModify/[mainKey].tsx": $15,
+    "./routes/admin/runLogout.tsx": $16,
+    "./routes/index.tsx": $17,
   },
   islands: {
     "./islands/Admin.tsx": $$0,
