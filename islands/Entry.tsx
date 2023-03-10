@@ -16,17 +16,20 @@ export default function Entry(props:EntryProps){
             const [예약, 세팅_예약] = useState(false)
             let 예약자 = '없음'
             let 예약버튼 = (<Button onClick={()=>세팅_예약(!예약)}>예약</Button>)
-            let 예약입력영역 = (
-                <div>
-                    <Input id="예약자이름" placeholder={`예약하시는 분 이름 입력`}/>
-                    <Button onClick={()=>등록_예약(entry.entry_key)}>예약합니다</Button>
-                </div>
-            )
+            let 예약입력영역 = (<div/>)
             if(props.reserve){
                 const rsv = props.reserve
                 예약자 = rsv.rsv_name
                 예약버튼 = (<Button onClick={()=>실행_예약(rsv.rsv_key,2,"예약취소하시겠습니까?")}>예약취소</Button>)
                 예약입력영역 = (<div/>)
+            }
+            if(예약){
+                예약입력영역 = (
+                    <div>
+                        <Input id="예약자이름" placeholder={`예약하시는 분 이름 입력`}/>
+                        <Button onClick={()=>등록_예약(entry.entry_key)}>예약합니다</Button>
+                    </div>
+                )
             }
 
             const 마감시간 = entry.entry_start+(3600*3*1000)
