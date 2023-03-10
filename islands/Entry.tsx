@@ -17,7 +17,7 @@ export default function Entry(props:EntryProps){
             if(예약)
             aaa = (
                 <div>
-                    <Input id="예약" placeholder={`예약하시는 분 이름 입력`}/>
+                    <Input id="예약자이름" placeholder={`예약하시는 분 이름 입력`}/>
                     <Button onClick={()=>실행_예약(entry.entry_key)}>예약합니다</Button>
                 </div>
             )
