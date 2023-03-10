@@ -34,12 +34,13 @@ export default function Entry(props:EntryProps){
                 <div class="p-4 items-center">
                     <tr class="mx-4">
                         <td class="px-4">
-                            <Input id="entryName" placeholder={'작가님 이름 입력'}/>
+                            <Input id="entryName" placeholder={`${props.th}번째 작가님 이름 입력`}/>
+                            <Button onClick={()=>entryStart(props.mainKey)}>잇겠습니다</Button>
                         </td>
                     </tr>
                     <tr class="mx-4">
                         <td class="px-4">
-                            <Button onClick={()=>entryStart(props.mainKey)}>{props.th}번째 잇겠습니다</Button>
+                            
                         </td>
                     </tr>
                 </div>
