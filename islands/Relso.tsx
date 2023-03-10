@@ -10,18 +10,14 @@ export default function Relso(props: RelsoProps){
     if(relso){
         return(
             <div class="p-4 items-center">
-                <br/>
                 <tr>
-                    <td class="px-4">{relso.round} </td>
+                    <td class="px-4">{relso.round}.{relso.topic}</td>
                 </tr>
                 <tr>
-                    <td class="px-4">{relso.topic}</td>
+                    <td class="px-4">마감 : {convertDateShort(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
                 </tr>
                 <tr>
-                    <td class="px-4">마감 : {convertDate(relso.main_end).slice(0,-3)}</td>
-                </tr>
-                <tr>
-                    <td class="px-4">{convertTimeScale(relso.main_end,Date.now(),false)}</td>
+                    <td class="px-4"></td>
                 </tr>
             </div>
         )

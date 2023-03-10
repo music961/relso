@@ -1,3 +1,4 @@
+import { options } from "https://esm.sh/v111/preact@10.13.0/src/index"
 import { jwtDec, format, validate, hexEnc, hexDec} from "../deps.ts"
 
 function jwtokenDecode(token: any) {
@@ -61,7 +62,7 @@ const dateTimeLocalToDbTime = (dateTimeLocal:string)=>{
 
 const convertDate = (time:number)=>{
     const d = new Date(time)
-    return d.toLocaleString()
+    return d.toLocaleString('default',{dateStyle:'short',timeStyle:'short',hour12:false})
   }
 
 const convertTimeScale = (t1:number,t2:number,isAgo:boolean) =>{
