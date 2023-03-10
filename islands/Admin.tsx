@@ -27,7 +27,7 @@ export default function Admin(props: AdminProps) {
                 }>로그인</Button>
         </div>
     )
-    //if(isLogin){
+    if(isLogin){
         result= (
             <div>
             <div>
@@ -68,7 +68,7 @@ export default function Admin(props: AdminProps) {
             </div>
           </div>
         )
-    //}
+    }
     return result
   }
   
