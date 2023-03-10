@@ -5,7 +5,8 @@ import { convertDate,convertTimeScale } from "../const/Function.ts"
 interface EntryProps {
     th : number,
     mainKey : number,
-    entry: any
+    entry: any,
+    reserve: any
 }
 
 export default function Entry(props:EntryProps){
@@ -13,14 +14,21 @@ export default function Entry(props:EntryProps){
     if(props.mainKey!=0){
         if(entry){
             const [예약, 세팅_예약] = useState(false)
-            let aaa = (<div/>)
-            if(예약)
-            aaa = (
+            let 예약자 = '없음'
+            let 예약버튼 = (<Button onClick={()=>세팅_예약(!예약)}>예약</Button>)
+            let 예약입력영역 = (
                 <div>
                     <Input id="예약자이름" placeholder={`예약하시는 분 이름 입력`}/>
-                    <Button onClick={()=>실행_예약(entry.entry_key)}>예약합니다</Button>
+                    <Button onClick={()=>등록_예약(entry.entry_key)}>예약합니다</Button>
                 </div>
             )
+            if(props.reserve){
+                const reserve = props.reserve
+                예약자 = reserve.rsv_name
+                예약버튼 = (<Button onClick={()=>세팅_예약(!예약)}>예약취소</Button>)
+                예약입력영역 = (<div/>)
+            }
+
             const 마감시간 = entry.entry_start+(3600*3*1000)
             return(
                 <div class="p-4 items-center">
@@ -31,16 +39,16 @@ export default function Entry(props:EntryProps){
                         <td class="px-4">마감 : {convertTimeScale(마감시간,Date.now(),false)}</td>
                     </tr>
                     <tr>
-                        <td class="px-4">예약 : 없음</td>
+                        <td class="px-4">예약 : {예약자}</td>
                     </tr>
                     <tr>
                         <td class="px-4">
                         <Button onClick={()=>entrySummit(entry.entry_key,1,"제출하시겠습니까?")}>제출</Button>
                         <Button onClick={()=>entrySummit(entry.entry_key,2,"포기하시겠습니까?")}>포기</Button>
-                        <Button onClick={()=>세팅_예약(!예약)}>예약</Button>
+                        {예약버튼}
                         </td>
                     </tr>
-                    {aaa}
+                    {예약입력영역}
                 </div>
             )
         }else{
@@ -106,7 +114,7 @@ const entryStart = (mainKey:number)=>{
     }
 }
 
-const 실행_예약 = (entryKey:number)=>{
+const 등록_예약 = (entryKey:number)=>{
     let summitOK = true
     const chkValue = (label:string)=> {
         const elem = document.getElementById(label).value
@@ -135,5 +143,23 @@ const 실행_예약 = (entryKey:number)=>{
         }
     }else{
         alert('바르게 입력해주세요.')
+    }
+}
+
+const 실행_예약 = (rsvKey:number,state:any,ask:string)=>{
+    if(confirm(ask)){
+        const model = {
+            rsvKey : rsvKey,
+            state : state
+        }
+        fetch('../DB/entry/runReserveWrited',{
+            method:'POST',
+            headers : {
+            'Accept' : 'application/json',
+            'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(model)
+        })    
+        location.replace('/')
     }
 }
