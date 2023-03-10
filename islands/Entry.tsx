@@ -23,9 +23,9 @@ export default function Entry(props:EntryProps){
                 </div>
             )
             if(props.reserve){
-                const reserve = props.reserve
-                예약자 = reserve.rsv_name
-                예약버튼 = (<Button onClick={()=>세팅_예약(!예약)}>예약취소</Button>)
+                const rsv = props.reserve
+                예약자 = rsv.rsv_name
+                예약버튼 = (<Button onClick={()=>실행_예약(rsv.rsv_key,2,"예약취소하시겠습니까?")}>예약취소</Button>)
                 예약입력영역 = (<div/>)
             }
 
