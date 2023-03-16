@@ -159,27 +159,27 @@ const 등록_예약 = (entryKey:number,이전주자_이름:string)=>{
       const 예약자이름 = chkValue('예약자이름')
       if(예약자이름==이전주자_이름){
         alert('진행 중인 작가와 닉네임이 달라야 합니다.')
-        summitOK = false
-      }
-      if(summitOK){
-        if(confirm(`${예약자이름}님, 예약하시겠습니까?`)){
-            const model = {
-                entryKey : entryKey,
-                reserveName : 예약자이름
+      }else{
+        if(summitOK){
+            if(confirm(`${예약자이름}님, 예약하시겠습니까?`)){
+                const model = {
+                    entryKey : entryKey,
+                    reserveName : 예약자이름
+                }
+                fetch('../DB/entry/runReserveAdd',{
+                    method:'POST',
+                    headers : {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify(model)
+                })
+                location.replace('/')
             }
-            fetch('../DB/entry/runReserveAdd',{
-                method:'POST',
-                headers : {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-                },
-                body: JSON.stringify(model)
-            })
-            location.replace('/')
+        }else{
+            alert('바르게 입력해주세요.')
         }
-    }else{
-        alert('바르게 입력해주세요.')
-    }
+      }
 }
 
 const 실행_예약 = (rsvKey:number,state:any,ask:string)=>{
