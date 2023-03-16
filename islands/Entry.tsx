@@ -27,7 +27,7 @@ export default function Entry(props:EntryProps){
                 예약입력영역 = (
                     <div>
                         <Input id="예약자이름" placeholder={`예약하시는 분 이름 입력`}/>
-                        <Button onClick={()=>등록_예약(entry.entry_key)}>예약합니다</Button>
+                        <Button onClick={()=>등록_예약(entry.entry_key,entry.entry_name)}>예약합니다</Button>
                     </div>
                 )
             }
@@ -146,7 +146,7 @@ const entryStart = (mainKey:number)=>{
     }
 }
 
-const 등록_예약 = (entryKey:number)=>{
+const 등록_예약 = (entryKey:number,이전주자_이름:string)=>{
     let summitOK = true
     const chkValue = (label:string)=> {
         const elem = document.getElementById(label).value
@@ -157,6 +157,10 @@ const 등록_예약 = (entryKey:number)=>{
         return elem
       }
       const 예약자이름 = chkValue('예약자이름')
+      if(예약자이름==이전주자_이름){
+        alert('진행 중인 작가와 닉네임이 달라야 합니다.')
+        summitOK = false
+      }
       if(summitOK){
         if(confirm(`${예약자이름}님, 예약하시겠습니까?`)){
             const model = {
