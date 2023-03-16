@@ -38,6 +38,10 @@ export default function FellModify(props : PropsRel){
               <td class="px-4">종료시간</td>
               <td class="px-4"><Input id="relEnd" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
           </tr>
+          <tr>
+              <td class="px-4">구글독스 링크</td>
+              <td class="px-4"><Input id="relEnd" value={rel.docs}/></td>
+          </tr>
       </table>
       <div>
         <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
