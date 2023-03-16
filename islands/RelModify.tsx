@@ -77,6 +77,24 @@ const relSummit = (mainKey:any,url:string)=>{
   const relEnd = chkValue('relEnd')
   const relDocs = chkValue('relDocs')
 
+  if(url=='../../DB/rel/runRelCreate'){
+    const relFirstWriter = chkValue('relFirstWriter')
+    if(summitOK){
+      const model = {
+        mainKey : mainKey,
+        entryName : relFirstWriter
+      }
+      fetch('../DB/entry/runEntryAdd',{
+          method:'POST',
+          headers : {
+          'Accept' : 'application/json',
+          'Content-Type' : 'application/json'
+          },
+          body: JSON.stringify(model)
+      })
+    }
+  }
+
   const model = {
     mainKey : mainKey,
     round : relRound,
@@ -86,7 +104,7 @@ const relSummit = (mainKey:any,url:string)=>{
     timeEnd : Date.parse(relEnd),
     docs : relDocs
   }
-  if(summitOK==true){
+  if(summitOK){
     fetch(url,{
       method:'POST',
       headers : {
@@ -99,4 +117,5 @@ const relSummit = (mainKey:any,url:string)=>{
   }else{
     alert('바르게 입력해 주세요')
   }
+  
 }
