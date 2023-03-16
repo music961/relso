@@ -1,4 +1,3 @@
-import { PageProps } from '$fresh/server.ts'
 import Layout from '../../components/Layouts.tsx'
 import RelModify from '../../islands/RelModify.tsx'
 

@@ -12,15 +12,15 @@ export default function FellModify(props : PropsRel){
   if(rel.title){
     preTitle = rel.title
   }
-  let 첫글작가입력 = (<div/>)
-  if(props.url=='../../DB/rel/runRelCreate'){
-    첫글작가입력 = (
-      <tr>
-        <td class="px-4">첫글 작가 닉네임</td>
-        <td class="px-4"><Input id="relFirstWriter" value={rel.firstWriter}/></td>
-      </tr>
-    )
-  }
+  // let 첫글작가입력 = (<div/>)
+  // if(props.url=='../../DB/rel/runRelCreate'){
+  //   첫글작가입력 = (
+  //     <tr>
+  //       <td class="px-4">첫글 작가 닉네임</td>
+  //       <td class="px-4"><Input id="relFirstWriter" value={rel.firstWriter}/></td>
+  //     </tr>
+  //   )
+  // }
   return (
     <div>
       <div>
@@ -51,7 +51,10 @@ export default function FellModify(props : PropsRel){
               <td class="px-4">구글독스 링크</td>
               <td class="px-4"><Input id="relDocs" value={rel.docs}/></td>
           </tr>
-          {첫글작가입력}
+          <tr>
+            <td class="px-4">첫글 작가 닉네임</td>
+            <td class="px-4"><Input id="relFirstWriter" value={rel.firstWriter}/></td>
+          </tr>
       </table>
       <div>
         <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
@@ -76,24 +79,7 @@ const relSummit = (mainKey:any,url:string)=>{
   const relStart = chkValue('relStart')
   const relEnd = chkValue('relEnd')
   const relDocs = chkValue('relDocs')
-
-  if(url=='../../DB/rel/runRelCreate'){
-    const relFirstWriter = chkValue('relFirstWriter')
-    if(summitOK){
-      const model = {
-        mainKey : mainKey,
-        entryName : relFirstWriter
-      }
-      fetch('../DB/entry/runEntryAdd',{
-          method:'POST',
-          headers : {
-          'Accept' : 'application/json',
-          'Content-Type' : 'application/json'
-          },
-          body: JSON.stringify(model)
-      })
-    }
-  }
+  const relFirstWriter = chkValue('relFirstWriter')
 
   const model = {
     mainKey : mainKey,
@@ -102,7 +88,8 @@ const relSummit = (mainKey:any,url:string)=>{
     topic : relTopic,
     timeStart : Date.parse(relStart),
     timeEnd : Date.parse(relEnd),
-    docs : relDocs
+    docs : relDocs,
+    firstWriter : relFirstWriter
   }
   if(summitOK){
     fetch(url,{

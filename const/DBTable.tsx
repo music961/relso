@@ -60,7 +60,8 @@ const isHave = async(query:string,param?:any[]) : Promise<boolean> => {
 const insertReturning = async(query:string,keyName:string,param?:any[]) : Promise<any> => {
 	lastQuery = `${query} : ${param}`
 	pintoLog(lastQuery)
-	return await maria.query(`insert ${query} returning ${keyName}`,param)
+	const [returning] = await maria.query(`insert ${query} returning ${keyName}`,param)
+	return returning
 }
 
 export { cnt, del, exe, maria , select, insert,insertReturning, isHave,
