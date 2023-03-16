@@ -73,7 +73,8 @@ const relSummit = (mainKey:any,url:string)=>{
     title : relTitle,
     topic : relTopic,
     timeStart : Date.parse(relStart),
-    timeEnd : Date.parse(relEnd)
+    timeEnd : Date.parse(relEnd),
+    docs : relDocs
   }
   if(summitOK==true){
     fetch(url,{

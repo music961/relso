@@ -6,8 +6,8 @@ export const handler = {
         const rel = await req.json()
         pintoLog(rel)
         insert(
-          'rel_main (round,topic,title,main_start,main_end)value (?,?,?,?,?)',
-          [rel.round,rel.topic,rel.title,rel.timeStart,rel.timeEnd]
+          'rel_main (round,topic,title,main_start,main_end,docs)value (?,?,?,?,?,?)',
+          [rel.round,rel.topic,rel.title,rel.timeStart,rel.timeEnd,rel.docs]
         )
         const result = {
             result : 100
