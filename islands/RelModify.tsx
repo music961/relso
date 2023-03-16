@@ -12,8 +12,17 @@ export default function FellModify(props : PropsRel){
   if(rel.title){
     preTitle = rel.title
   }
-    return (
-      <div>
+  let 첫글작가입력 = (<div/>)
+  if(props.url=='../../DB/rel/runRelCreate'){
+    첫글작가입력 = (
+      <tr>
+        <td class="px-4">첫글</td>
+        <td class="px-4"><Input id="relFirstWriter" value={rel.firstWriter}/></td>
+      </tr>
+    )
+  }
+  return (
+    <div>
       <div>
         <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
       </div>
@@ -42,12 +51,13 @@ export default function FellModify(props : PropsRel){
               <td class="px-4">구글독스 링크</td>
               <td class="px-4"><Input id="relDocs" value={rel.docs}/></td>
           </tr>
+          {첫글작가입력}
       </table>
       <div>
         <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
       </div>
-  </div>
-    )
+    </div>
+  )
 }
 
 const relSummit = (mainKey:any,url:string)=>{
