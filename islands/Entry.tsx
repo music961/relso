@@ -5,6 +5,7 @@ import { convertDate,convertTimeScale } from "../const/Function.ts"
 interface EntryProps {
     th : number,
     mainKey : number,
+    이전주자_닉네임 : string,
     entry: any,
     reserve: any
 }
