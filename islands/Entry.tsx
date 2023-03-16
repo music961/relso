@@ -73,6 +73,7 @@ export default function Entry(props:EntryProps){
                         <tr class="mx-4">
                             <td>
                                 {rsv.rsv_name}<Button onClick={()=>예약자_릴레이참가(props.mainKey,rsv.rsv_name,rsv.rsv_key)}>잇겠습니다</Button>
+                                <Button onClick={()=>실행_예약(rsv.rsv_key,2,"예약 포기하시겠습니까?")}>예약포기</Button>
                             </td>
                         </tr>
                         <tr class="mx-4">
