@@ -9,7 +9,7 @@ export default function Relso(props: RelsoProps){
     if(relso){
         return(
             <div class="p-4 items-center">
-                <tr>
+                <tr onClick={()=>location.href=`${relso.docs}`}>
                     <td class="px-4">{relso.round}.{relso.topic}</td>
                 </tr>
                 <tr>
