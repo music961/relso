@@ -1,8 +1,6 @@
-import { PageProps, Handlers } from "$fresh/server.ts"
 import Layout from "../../components/Layouts.tsx"
-import Admin from "../../islands/Admin.tsx"
 
-export default function main({data}:PageProps){
+export default function main(){
   return(
     <Layout>
         <div>

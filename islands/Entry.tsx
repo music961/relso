@@ -11,7 +11,7 @@ interface EntryProps {
 }
 
 export default function Entry(props:EntryProps){
-    const [entry, setEntry] = useState(props.entry)
+    const entry = props.entry
     const rsv = props.reserve
     if(props.mainKey!=0){
         if(entry){
