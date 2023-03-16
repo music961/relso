@@ -215,7 +215,6 @@ const 예약자_릴레이참가 = (mainKey:number,entryName:string,rsvKey:number
             },
             body: JSON.stringify(model)
         })
-
         fetch('../DB/entry/runReserveWrited',{
             method:'POST',
             headers : {
