@@ -17,7 +17,7 @@ export default function Home({data}:PageProps) {
       <Layout>
         <div>
           <Relso relso={data.relso}/>
-          <Entry th={data.th} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
+          <Entry th={firstEntry.entry_key} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
           <Entrys entrys={data.entrys}/>
         </div>
       </Layout>
@@ -30,7 +30,6 @@ export const handler: Handlers<any,WithSession> = {
     let entry
     let entrys
     let reserve
-    let th=0
     let mainKey = 0
     const now = Date.now()
     const [relso] = await select("* from rel_main where main_end>? order by main_end desc limit 1",[now])
@@ -41,7 +40,6 @@ export const handler: Handlers<any,WithSession> = {
       )
       mainKey = relso.main_key
       entrys = await select("* from rel_entry where main_key=? and state=1 order by entry_key desc",[mainKey])
-      th = await cnt("rel_entry where main_key=1 and state=1")
     }
     if(entry){
       [reserve] = await select(
@@ -60,7 +58,6 @@ export const handler: Handlers<any,WithSession> = {
       entry : entry,
       entrys : entrys,
       reserve : reserve,
-      th : th+1,
       mainKey : mainKey
     })
   }
