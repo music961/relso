@@ -16,7 +16,7 @@ export default function FellModify(props : PropsRel){
   if(props.url=='../../DB/rel/runRelCreate'){
     첫글작가입력 = (
       <tr>
-        <td class="px-4">첫글</td>
+        <td class="px-4">첫글 작가 닉네임</td>
         <td class="px-4"><Input id="relFirstWriter" value={rel.firstWriter}/></td>
       </tr>
     )
