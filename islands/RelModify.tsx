@@ -40,7 +40,7 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">구글독스 링크</td>
-              <td class="px-4"><Input id="relEnd" value={rel.docs}/></td>
+              <td class="px-4"><Input id="relDocs" value={rel.docs}/></td>
           </tr>
       </table>
       <div>
@@ -65,6 +65,7 @@ const relSummit = (mainKey:any,url:string)=>{
   const relTopic = chkValue('relTopic')
   const relStart = chkValue('relStart')
   const relEnd = chkValue('relEnd')
+  const relDocs = chkValue('relDocs')
 
   const model = {
     mainKey : mainKey,
