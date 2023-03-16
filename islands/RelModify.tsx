@@ -44,7 +44,7 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
             <td class="px-4">첫글 작가 닉네임</td>
-            <td class="px-4"><Input id="relFirstWriter" value={rel.firstWriter}/></td>
+            <td class="px-4"><Input id="relFirstWriter" value={rel.entry_name}/></td>
           </tr>
       </table>
       <div>
