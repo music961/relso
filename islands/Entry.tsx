@@ -86,7 +86,7 @@ export default function Entry(props:EntryProps){
                 return(
                     <div class="p-4 items-center">
                         <Input id="entryName" placeholder={`${props.th}번째 작가님 모집 (이름 입력)`}/>
-                        <Button onClick={()=>entryStart(props.mainKey)}>잇겠습니다</Button>
+                        <Button onClick={()=>entryStart(props.mainKey,props.이전주자_닉네임)}>잇겠습니다</Button>
                     </div>
                 )
             }
@@ -115,7 +115,7 @@ const entrySummit = (entryKey:number,state:any,ask:string)=>{
     }
 }
 
-const entryStart = (mainKey:number)=>{
+const entryStart = (mainKey:number,이전주자_닉네임:string)=>{
     let summitOK = true
     const chkValue = (label:string)=> {
         const elem = document.getElementById(label).value
@@ -126,24 +126,28 @@ const entryStart = (mainKey:number)=>{
         return elem
       }
     const entryName = chkValue('entryName')
-    if(summitOK){
-        if(confirm(`${entryName}님, 이으시겠습니까?`)){
-            const model = {
-                mainKey : mainKey,
-                entryName : entryName
-            }
-            fetch('../DB/entry/runEntryAdd',{
-                method:'POST',
-                headers : {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-                },
-                body: JSON.stringify(model)
-            })
-            location.replace('/')
-        }
+    if(entryName==이전주자_닉네임){
+        alert('마지막으로 이은 작가와 닉네임이 달라야 합니다.')
     }else{
-        alert('바르게 입력해주세요.')
+        if(summitOK){
+            if(confirm(`${entryName}님, 이으시겠습니까?`)){
+                const model = {
+                    mainKey : mainKey,
+                    entryName : entryName
+                }
+                fetch('../DB/entry/runEntryAdd',{
+                    method:'POST',
+                    headers : {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify(model)
+                })
+                location.replace('/')
+            }
+        }else{
+            alert('바르게 입력해주세요.')
+        }
     }
 }
 
