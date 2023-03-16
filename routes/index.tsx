@@ -49,9 +49,7 @@ export const handler: Handlers<any,WithSession> = {
       )
     }else{
       [reserve] = await select(
-        //"rsv_name,rsv_start from (select rsv_name,rsv_start,rsv_end from rel_reserve rr join rel_entry re on rr.entry_key = re.entry_key order by rsv_key desc limit 1)a where (rsv_start>?)or(rsv_end is not null and rsv_end>?)",
-        //"rsv_name,entry_start,entry_end from rel_reserve rr join rel_entry re on rr.entry_key = re.entry_key order by rsv_key desc limit 1"
-        "rsv_key,rsv_name,entry_start,entry_end from (select rsv_key,rsv_name,entry_start,entry_end from rel_reserve rr join rel_entry re on rr.entry_key = re.entry_key order by rsv_key desc limit 1)a where (entry_start>?)and(entry_end is null or entry_end>?)",
+        "rsv_key,rsv_name,entry_start,entry_end from (select rsv_key,rsv_name,entry_start,entry_end from rel_reserve rr join rel_entry re on rr.entry_key = re.entry_key order by rsv_key desc limit 1)a where state is null and (entry_start>?)and(entry_end is null or entry_end>?)",
         [Date.now()-12600000,Date.now()-1800000]  // 3시간 30분, 30분
       )
     }
