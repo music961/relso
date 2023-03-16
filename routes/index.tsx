@@ -8,7 +8,7 @@ import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
 
 export default function Home({data}:PageProps) {
-  const lastEntry = data.entrys.at(-1)
+  const [firstEntry] = data.entrys
   return (
     <html lang="ko">
       <Head>
@@ -18,7 +18,7 @@ export default function Home({data}:PageProps) {
         <div>
           {lastEntry.entry_name}
           <Relso relso={data.relso}/>
-          <Entry th={data.th} mainKey={data.mainKey} 이전주자_닉네임={lastEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
+          <Entry th={data.th} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
           <Entrys entrys={data.entrys}/>
         </div>
       </Layout>
