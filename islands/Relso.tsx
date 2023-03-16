@@ -10,7 +10,7 @@ export default function Relso(props: RelsoProps){
         return(
             <div class="p-4 items-center">
                 <tr onClick={()=>location.href=`${relso.docs}`}>
-                    <td class="px-4">{relso.round}.{relso.topic}</td>
+                    <td class="px-4 cursor-pointer hover:underline">{relso.round}.{relso.topic}</td>
                 </tr>
                 <tr>
                     <td class="px-4">마감 : {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
