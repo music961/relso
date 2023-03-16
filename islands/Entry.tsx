@@ -71,7 +71,7 @@ export default function Entry(props:EntryProps){
                         </tr>
                         <tr class="mx-4">
                             <td>
-                                {rsv.rsv_name}<Button onClick={()=>예약자_릴레이참가(props.mainKey,rsv.rsv_name)}>잇겠습니다</Button>
+                                {rsv.rsv_name}<Button onClick={()=>예약자_릴레이참가(props.mainKey,rsv.rsv_name,rsv.rsv_key)}>잇겠습니다</Button>
                             </td>
                         </tr>
                         <tr class="mx-4">
@@ -196,11 +196,16 @@ const 실행_예약 = (rsvKey:number,state:any,ask:string)=>{
     }
 }
 
-const 예약자_릴레이참가 = (mainKey:number,entryName:string)=>{
+// 예약자 릴레이 참가시, 예약 state 를 갱신하는 절차가 추가된다.
+const 예약자_릴레이참가 = (mainKey:number,entryName:string,rsvKey:number)=>{
     if(confirm(`${entryName}님, 이으시겠습니까?`)){
         const model = {
             mainKey : mainKey,
             entryName : entryName
+        }
+        const 예약모델 = {
+            rsvKey : rsvKey,
+            state : 1   // 예약이 처리되었음을 뜻함
         }
         fetch('../DB/entry/runEntryAdd',{
             method:'POST',
@@ -210,6 +215,15 @@ const 예약자_릴레이참가 = (mainKey:number,entryName:string)=>{
             },
             body: JSON.stringify(model)
         })
+
+        fetch('../DB/entry/runReserveWrited',{
+            method:'POST',
+            headers : {
+            'Accept' : 'application/json',
+            'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(예약모델)
+        })    
         location.replace('/')
     }
 }
