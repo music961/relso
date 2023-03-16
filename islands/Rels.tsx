@@ -21,6 +21,7 @@ export default function Rels(props: RelsProps) {
                 <th>제목</th>
                 <th>시작</th>
                 <th>종료</th>
+                <th>첫글</th>
                 {
                 rels.map((rel)=>
                     <tr class="mx-4 cursor-pointer hover:underline" onClick={()=>location.href=`./relModify/${rel.main_key}`}>
@@ -30,6 +31,7 @@ export default function Rels(props: RelsProps) {
                         <td class="px-4">{rel.title}</td>
                         <td class="px-4">{convertDate(rel.main_start)}</td>
                         <td class="px-4">{convertDate(rel.main_end)}</td>
+                        <td class="px-4">{rel.entry_name}</td>
                     </tr>
                 )
                 }

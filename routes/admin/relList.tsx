@@ -25,7 +25,9 @@ export const handler:  Handlers<any,WithSession> = {
         isLogin = await isHave("rel_admin where email=?",[email])
     }
     const cntAdmin = await cnt("rel_main")
-    const selectAdmin = await select("* from rel_main")
+    //const selectAdmin = await select("* from rel_main")
+    //const selectAdmin = await select("*,min(entry_key)first_entry_key from rel_main natural join rel_entry group by main_key")
+    const selectAdmin = await select("* from rel_main rm left join (select main_key,entry_name from rel_entry where entry_key in (select min(entry_key) from rel_entry group by main_key))re on rm.main_key = re.main_key")
     return await cxt.render({
       isLogin : isLogin,
       cnt : cntAdmin,

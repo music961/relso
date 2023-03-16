@@ -5,10 +5,6 @@ export const handler = {
     async POST(req:Request):Promise<Response>{
         const rel = await req.json()
         pintoLog(rel)
-        // insert(
-        //   'rel_main (round,topic,title,main_start,main_end,docs)value (?,?,?,?,?,?)',
-        //   [rel.round,rel.topic,rel.title,rel.timeStart,rel.timeEnd,rel.docs]
-        // )
         const relReturning = await insertReturning(
           'rel_main (round,topic,title,main_start,main_end,docs)value (?,?,?,?,?,?)',
           'main_key',
