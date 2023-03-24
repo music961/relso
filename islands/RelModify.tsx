@@ -10,7 +10,7 @@ interface PropsRel {
 export default function FellModify(props : PropsRel){
   const rel = props.rel
   let preTitle = '미정'
-  const [주제_타입,설정_주제_타입] = useState(rel.topicType || 0)
+  const [주제_타입,설정_주제_타입] = useState(rel.topic_type || 0)
   let 주제_링크 = (<div/>)
   if(rel.title){
     preTitle = rel.title
@@ -19,7 +19,7 @@ export default function FellModify(props : PropsRel){
     주제_링크 = (
       <tr>
         <td class="px-4">주제링크</td>
-        <td class="px-4"><Input id="relTopicLink" value={rel.topicLink}/></td>
+        <td><Input id="relTopicLink" value={rel.topic_link}/></td>
       </tr>
     )
   }
@@ -41,7 +41,7 @@ export default function FellModify(props : PropsRel){
               <td class="px-4">주제</td>
               <td class="px-4"><Input id="relTopic" value={rel.topic}/></td>
               <td class="px-4">
-                <select class="bg-black border(gray-200 1)" id='topicType' value={rel.topicType} 
+                <select class="bg-black border(gray-200 1)" id='relTopicType' value={rel.topicType} 
                   onChange={()=>{
                     const topicType = document.getElementById('topicType').value
                     설정_주제_타입(topicType)
@@ -91,16 +91,24 @@ const relSummit = (mainKey:any,url:string)=>{
   const relRound = chkValue('relRound')
   const relTitle = chkValue('relTitle')
   const relTopic = chkValue('relTopic')
+  const relTopicType = chkValue('relTopicType')
+
   const relStart = chkValue('relStart')
   const relEnd = chkValue('relEnd')
   const relDocs = chkValue('relDocs')
   const relFirstWriter = chkValue('relFirstWriter')
-
+  
+  let relTopicLink = ''
+  if(relTopicType!=0){
+    relTopicLink = chkValue('relTopicLink')
+  }
   const model = {
     mainKey : mainKey,
     round : relRound,
     title : relTitle,
     topic : relTopic,
+    topicType : relTopicType,
+    topicLink : relTopicLink,
     timeStart : Date.parse(relStart),
     timeEnd : Date.parse(relEnd),
     docs : relDocs,
