@@ -19,7 +19,11 @@ export default function Home({data}:PageProps) {
       </Head>
       <Layout>
         <pre>
-          {data.content}
+          줄바꿈을
+          표현
+          할 ㅅ
+          수
+          있니?
         </pre>
         <Relso relso={data.relso}/>
         <Entry th={entrys.length} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
