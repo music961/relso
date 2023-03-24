@@ -19,10 +19,12 @@ export default function Home({data}:PageProps) {
       </Head>
       <Layout>
         <div>
-          이것은
-          여러
-          줄로
-          구성된
+          <pre>
+            이것은
+            여러
+            줄로
+            구성된
+          </pre>
           <Relso relso={data.relso}/>
           <Entry th={entrys.length} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
           <Entrys entrys={data.entrys}/>
