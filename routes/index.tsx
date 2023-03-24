@@ -1,20 +1,17 @@
 import { Head } from "$fresh/runtime.ts"
 import Layout from "../components/Layouts.tsx"
 import { PageProps, Handlers } from "$fresh/server.ts"
-import { select, cnt, isHave } from "../const/DBTable.tsx"
+import { select } from "../const/DBTable.tsx"
 import { WithSession } from "freshSession"
 import Relso from "../islands/Relso.tsx"
 import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
 
 export default function Home({data}:PageProps) {
-  let entryLength
-  let 이전주자_닉네임
-  if(data.entrys){
-    const firstEntry = data.entrys
-    이전주자_닉네임 = firstEntry.entry_name
-    entryLength = data.entrys.length
-  }
+  const entrys = data.entrys || []
+  const firstEntry = entrys[0] || {}
+  const 이전주자_닉네임 = firstEntry.entry_name
+  const entryLength = entrys.length
   return (
     <html lang="ko">
       <Head>
