@@ -20,10 +20,10 @@ export default function Home({data}:PageProps) {
       secretAccessKey : Deno.env.get('s3_secret')
     }
   })
-  const content = await s3.getObject({
-    bucket : 'relso',
-    key : 'test.txt'
-  }).then((data)=>data.body.tostring())
+  // const content = await s3.getObject({
+  //   bucket : 'relso',
+  //   key : 'test.txt'
+  // }).then((data)=>data.body.tostring())
   //임시 끝
   return (
     <html lang="ko">
@@ -32,7 +32,7 @@ export default function Home({data}:PageProps) {
       </Head>
       <Layout>
         <div>
-          {content}
+          {'gggfffeee'}
           <Relso relso={data.relso}/>
           <Entry th={entrys.length} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
           <Entrys entrys={data.entrys}/>
