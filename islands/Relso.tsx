@@ -9,7 +9,7 @@ export default function Relso(props: RelsoProps){
     if(relso){
         return(
             <div class="p-4 items-center">
-                <tr onClick={()=>location.href=`${relso.docs}`}>
+                <tr onClick={()=>location.href=`${relso.topic_link}`}>
                     <td class="px-4 cursor-pointer hover:underline">{relso.round}.{relso.topic}</td>
                 </tr>
                 <tr>

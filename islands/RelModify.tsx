@@ -43,7 +43,7 @@ export default function FellModify(props : PropsRel){
               <td class="px-4">
                 <select class="bg-black border(gray-200 1)" id='relTopicType' value={rel.topicType} 
                   onChange={()=>{
-                    const topicType = document.getElementById('topicType').value
+                    const topicType = document.getElementById('relTopicType').value
                     설정_주제_타입(topicType)
                   }}
                 >
