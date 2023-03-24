@@ -31,15 +31,15 @@ export default function FellModify(props : PropsRel){
       <table class="p-4 shadow-md">
           <tr>
               <td class="px-4">라운드</td>
-              <td class="px-4"><Input id="relRound" value={rel.round}/></td>
+              <td><Input id="relRound" value={rel.round}/></td>
           </tr>
           <tr>
               <td class="px-4">제목</td>
-              <td class="px-4"><Input id="relTitle" value={preTitle}/></td>
+              <td><Input id="relTitle" value={preTitle}/></td>
           </tr>
           <tr>
               <td class="px-4">주제</td>
-              <td class="px-4"><Input id="relTopic" value={rel.topic}/></td>
+              <td><Input id="relTopic" value={rel.topic}/></td>
               <td class="px-4">
                 <select class="bg-black border(gray-200 1)" id='relTopicType' value={rel.topicType} 
                   onChange={()=>{
@@ -56,15 +56,15 @@ export default function FellModify(props : PropsRel){
           {주제_링크}
           <tr>
               <td class="px-4">시작시간</td>
-              <td class="px-4"><Input id="relStart" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
+              <td><Input id="relStart" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
-              <td class="px-4"><Input id="relEnd" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
+              <td><Input id="relEnd" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
           </tr>
           <tr>
             <td class="px-4">첫글 작가 닉네임</td>
-            <td class="px-4"><Input id="relFirstWriter" value={rel.entry_name}/></td>
+            <td><Input id="relFirstWriter" value={rel.entry_name}/></td>
           </tr>
       </table>
       <div>
