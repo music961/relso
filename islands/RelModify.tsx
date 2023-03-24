@@ -63,10 +63,6 @@ export default function FellModify(props : PropsRel){
               <td class="px-4"><Input id="relEnd" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
           </tr>
           <tr>
-              <td class="px-4">구글독스 링크</td>
-              <td class="px-4"><Input id="relDocs" value={rel.docs}/></td>
-          </tr>
-          <tr>
             <td class="px-4">첫글 작가 닉네임</td>
             <td class="px-4"><Input id="relFirstWriter" value={rel.entry_name}/></td>
           </tr>
@@ -95,7 +91,6 @@ const relSummit = (mainKey:any,url:string)=>{
 
   const relStart = chkValue('relStart')
   const relEnd = chkValue('relEnd')
-  const relDocs = chkValue('relDocs')
   const relFirstWriter = chkValue('relFirstWriter')
   
   let relTopicLink = ''
@@ -111,7 +106,6 @@ const relSummit = (mainKey:any,url:string)=>{
     topicLink : relTopicLink,
     timeStart : Date.parse(relStart),
     timeEnd : Date.parse(relEnd),
-    docs : relDocs,
     firstWriter : relFirstWriter
   }
   if(summitOK){

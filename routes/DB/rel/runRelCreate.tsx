@@ -6,9 +6,9 @@ export const handler = {
         const rel = await req.json()
         pintoLog(rel)
         const relReturning = await insertReturning(
-          'rel_main (round,topic,title,main_start,main_end,docs)value (?,?,?,?,?,?)',
+          'rel_main (round,topic,topic_type,topic_link,title,main_start,main_end)value (?,?,?,?,?,?,?)',
           'main_key',
-          [rel.round,rel.topic,rel.title,rel.timeStart,rel.timeEnd,rel.docs]
+          [rel.round,rel.topic,rel.topicType,rel.topicLink,rel.title,rel.timeStart,rel.timeEnd]
         )
         insert(
           'rel_entry (main_key,entry_name,entry_start,entry_end,state)value(?,?,?,?,1)',
