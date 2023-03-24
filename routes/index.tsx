@@ -8,10 +8,11 @@ import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
 
 export default function Home({data}:PageProps) {
-  let firstEntry
   let entryLength
+  let 이전주자_닉네임
   if(data.entrys){
-    [firstEntry] = data.entrys
+    const firstEntry = data.entrys
+    이전주자_닉네임 = firstEntry.entry_name
     entryLength = data.entrys.length
   }
   return (
@@ -22,7 +23,7 @@ export default function Home({data}:PageProps) {
       <Layout>
         <div>
           <Relso relso={data.relso}/>
-          <Entry th={entryLength} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
+          <Entry th={entryLength} mainKey={data.mainKey} 이전주자_닉네임={이전주자_닉네임} entry={data.entry} reserve={data.reserve}/>
           <Entrys entrys={data.entrys}/>
         </div>
       </Layout>
