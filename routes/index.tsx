@@ -18,8 +18,11 @@ export default function Home({data}:PageProps) {
         <title>릴레이 선언 하는곳</title>
       </Head>
       <Layout>
-      <pre>{data.content}</pre>
         <div>
+          이것은
+          여러
+          줄로
+          구성된
           <Relso relso={data.relso}/>
           <Entry th={entrys.length} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
           <Entrys entrys={data.entrys}/>
