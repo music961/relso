@@ -9,6 +9,7 @@
     "mariaDB": "https://deno.land/x/mysql@v2.11.0/mod.ts",
     "twind": "https://esm.sh/twind@0.16.19",
     "twind/": "https://esm.sh/twind@0.16.19/",
+    "aws_s3":"https://deno.land/x/s3@0.5.0/mod.ts",
     "freshSession":"https://deno.land/x/fresh_session@0.2.0/mod.ts"
   }
 }

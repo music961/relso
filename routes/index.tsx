@@ -6,24 +6,21 @@ import { WithSession } from "freshSession"
 import Relso from "../islands/Relso.tsx"
 import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
-import { S3 } from "https://deno.land/x/aws_sdk/mod.ts";
+import { S3Bucket } from "aws_s3"
 
 export default function Home({data}:PageProps) {
   const entrys = data.entrys || []
   const firstEntry = entrys[0] || {}
 
   //임시 시작
-  // const s3 = new S3({
-  //   region : 'ap-northeast-2',
-  //   credentials: {
-  //     accessKeyId : Deno.env.get('s3_access'),
-  //     secretAccessKey : Deno.env.get('s3_secret')
-  //   }
-  // })
-  // const content = await s3.getObject({
-  //   bucket : 'relso',
-  //   key : 'test.txt'
-  // }).then((data)=>data.body.tostring())
+  const bucket = new S3Bucket({
+    accessKeyID: Deno.env.get('s3_access') || '',
+    secretKey: Deno.env.get('s3_secret') || '',
+    bucket: 'relso',
+    region: "ap-northeast-2"
+  })
+  const {body} = await bucket.getObject('entry/test.txt')
+  const content = await new Response(body).text()
   //임시 끝
   return (
     <html lang="ko">
@@ -32,7 +29,7 @@ export default function Home({data}:PageProps) {
       </Head>
       <Layout>
         <div>
-          {'gggfffeee'}
+          {content}
           <Relso relso={data.relso}/>
           <Entry th={entrys.length} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
           <Entrys entrys={data.entrys}/>
