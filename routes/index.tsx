@@ -8,7 +8,10 @@ import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
 
 export default function Home({data}:PageProps) {
-  const [firstEntry] = data.entrys
+  let firstEntry
+  if(data.entrys){
+    [firstEntry] = data.entrys
+  }
   return (
     <html lang="ko">
       <Head>
