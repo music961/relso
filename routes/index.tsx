@@ -13,13 +13,13 @@ export default function Home({data}:PageProps) {
   const firstEntry = entrys[0] || {}
 
   //임시 시작
-  const s3 = new S3({
-    region : 'ap-northeast-2',
-    credentials: {
-      accessKeyId : Deno.env.get('s3_access'),
-      secretAccessKey : Deno.env.get('s3_secret')
-    }
-  })
+  // const s3 = new S3({
+  //   region : 'ap-northeast-2',
+  //   credentials: {
+  //     accessKeyId : Deno.env.get('s3_access'),
+  //     secretAccessKey : Deno.env.get('s3_secret')
+  //   }
+  // })
   // const content = await s3.getObject({
   //   bucket : 'relso',
   //   key : 'test.txt'
