@@ -10,7 +10,7 @@ interface PropsRel {
 export default function FellModify(props : PropsRel){
   const rel = props.rel
   let preTitle = '미정'
-  const [주제_타입,설정_주제_타입] = useState(0)
+  const [주제_타입,설정_주제_타입] = useState(rel.topicType || 0)
   let 주제_링크 = (<div/>)
   if(rel.title){
     preTitle = rel.title
@@ -19,7 +19,7 @@ export default function FellModify(props : PropsRel){
     주제_링크 = (
       <tr>
         <td class="px-4">주제링크</td>
-        <td class="px-4"><Input id="relTopicLink" value={rel.topic}/></td>
+        <td class="px-4"><Input id="relTopicLink" value={rel.topicLink}/></td>
       </tr>
     )
   }
@@ -39,22 +39,19 @@ export default function FellModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">주제</td>
+              <td class="px-4"><Input id="relTopic" value={rel.topic}/></td>
               <td class="px-4">
-              <select class="bg-black border(gray-200 1)" id='topicType' value={주제_타입} 
-                onChange={()=>{
-                  const topicType = document.getElementById('topicType').value
-                  설정_주제_타입(topicType)
-                }}
-              >
+                <select class="bg-black border(gray-200 1)" id='topicType' value={rel.topicType} 
+                  onChange={()=>{
+                    const topicType = document.getElementById('topicType').value
+                    설정_주제_타입(topicType)
+                  }}
+                >
                   <option value={0}>평문</option>
                   <option value={1}>그림</option>
                   <option value={2}>음악</option>
                 </select>
               </td>
-          </tr>
-          <tr>
-              <td class="px-4">주제 타입</td>
-              <td class="px-4"><Input id="relTopic" value={rel.topic}/></td>
           </tr>
           {주제_링크}
           <tr>
