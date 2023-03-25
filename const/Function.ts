@@ -1,4 +1,3 @@
-import { options } from "https://esm.sh/v111/preact@10.13.0/src/index"
 import { jwtDec, format, validate, hexEnc, hexDec} from "../deps.ts"
 
 function jwtokenDecode(token: any) {
