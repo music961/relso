@@ -12,6 +12,7 @@ export default function EntryModify(props : PropsRel){
   pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
   return (
     <div>
+      {JSON.stringify(entry)}
       <div>
         <Button onClick={()=>relSummit(entry.main_key,props.url)}>확인</Button>
       </div>
