@@ -15,9 +15,9 @@ export default function EntryModify(props : PropEntity){
   //   setEntry(props.entry);
   // }, [entry]);
 
-  if (!entry) {
-    return <div>Loading...</div>;
-  }else{
+  // if (!entry) {
+  //   return <div>Loading...</div>;
+  // }else{
     return (
       <div>
         <table class="p-4 shadow-md">
@@ -32,5 +32,5 @@ export default function EntryModify(props : PropEntity){
         </table>
       </div>
     )
-  }
+  //}
 }
