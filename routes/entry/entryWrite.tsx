@@ -4,10 +4,10 @@ import { PageProps, Handlers } from "$fresh/server.ts"
 import { pintoLog } from '../../const/Function.ts'
 
 export default function entry_create({data}:PageProps){
-    const  entry = '민훠어'
+    const  entry = data.entry
     return (
         <Layout>
-            <EntryModify entry={entry} url='../../DB/entry/runEntryWrited' />
+            <EntryModify entry={'민훠어'} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
 }
