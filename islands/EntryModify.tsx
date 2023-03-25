@@ -32,5 +32,5 @@ export default function EntryModify(props : PropEntity){
         </table>
       </div>
     )
-  //}
+  }
 }
