@@ -2,6 +2,7 @@ import Layout from '../../components/Layouts.tsx'
 import EntryModify from '../../islands/EntryModify.tsx'
 import { PageProps, Handlers } from "$fresh/server.ts"
 import { pintoLog } from '../../const/Function.ts'
+import { WithSession } from 'https://deno.land/x/fresh_session@0.2.0/mod.ts'
 
 export default function entry_create({data}:PageProps){
     const  entry = data.entry || {}
@@ -12,9 +13,13 @@ export default function entry_create({data}:PageProps){
     )
 }
 
-
-
-
+export const handler:  Handlers<any,WithSession> = {
+    async GET(_,cxt){
+      return await cxt.render({
+        entry : 'ㅁㅇㄴㄹ'
+      })
+    }
+  }
 
 
 // export const handler: Handlers = {
