@@ -1,7 +1,7 @@
 import { PageProps, Handlers } from "$fresh/server.ts"
 import Layout from "../../components/Layouts.tsx"
 import Admin from "../../islands/Admin.tsx"
-import { select, cnt, isHave } from "../../const/DBTable.tsx"
+import { isHave } from "../../const/DBTable.tsx"
 import { WithSession } from "freshSession"
 
 export default function main({data}:PageProps){
