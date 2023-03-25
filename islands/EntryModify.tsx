@@ -13,7 +13,7 @@ export default function EntryModify(props : PropEntity){
   useEffect(() => {
     pintoLog(`모디파이에서 받은거 ${JSON.stringify(props.entry)}`)
     setEntry(props.entry);
-  }, [props.entry]);
+  }, []);
 
   if (!entry) {
     return <div>Loading...</div>;
