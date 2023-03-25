@@ -4,6 +4,7 @@ import { useState, useEffect } from "preact/hooks"
 
 interface PropEntity {
   entry: any,
+  url : string
 }
 
 export default function EntryModify(props : PropEntity){
