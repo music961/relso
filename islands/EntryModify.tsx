@@ -13,9 +13,6 @@ export default function EntryModify(props : PropsRel){
   return (
     <div>
       {JSON.stringify(entry)}
-      <div>
-        <Button onClick={()=>relSummit(entry.main_key,props.url)}>확인</Button>
-      </div>
       <table class="p-4 shadow-md">
           <tr>
               <td class="px-4">라운드</td>
@@ -23,13 +20,10 @@ export default function EntryModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">제목</td>
-              <td><Input id="relTitle" value={entry?.age}/></td>
+              <td><Input id="relTitle" value={entry.age}/></td>
           </tr>
 
       </table>
-      <div>
-        <Button onClick={()=>relSummit(entry.main_key,props.url)}>확인</Button>
-      </div>
     </div>
   )
 }
