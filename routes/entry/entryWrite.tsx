@@ -6,7 +6,7 @@ import { pintoLog } from '../../const/Function.ts'
 export default function entry_create({data}:PageProps){
     return (
         <Layout>
-            <EntryModify entry={data.entry} url='../../DB/entry/runEntryWrited'/>
+            <EntryModify entry={data.entry} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
 }
@@ -16,7 +16,7 @@ export const handler: Handlers = {
         const body = await req.json()
         pintoLog(`받았음 ${JSON.stringify(body)}`)
         return cxt.render({
-            entry : body
+            entry : body || {}
         })
     }
 }
