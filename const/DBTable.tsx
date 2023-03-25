@@ -1,6 +1,5 @@
 import { Client } from 'mariaDB'
 import { pintoLog } from "./Function.ts"
-import { pintoDBHostName, pintoDBUsrName, pintoDBPassword} from "./Const.ts"
 
 const maria = new Client()
 
@@ -8,9 +7,9 @@ const restartMaria = () => {
 	maria.close()
 	maria.connect({
 		charset : "utf8mb4",
-		hostname : pintoDBHostName,
-		username: pintoDBUsrName,
-		password: pintoDBPassword,
+		hostname : Deno.env.get('db_host_name'),
+		username: Deno.env.get('db_usr_name'),
+		password: Deno.env.get('db_password'),
 		db:`relso`
 	})
 }
