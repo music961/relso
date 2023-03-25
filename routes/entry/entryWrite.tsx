@@ -14,7 +14,7 @@ export default function entry_create({data}:PageProps){
 export const handler: Handlers = {
     async POST(req,cxt){
         const body = await req.json()
-        pintoLog(`받았음 ${body}`)
+        pintoLog(`받았음 ${JSON.stringify(body)}`)
         return cxt.render({
             entry : body
         })
