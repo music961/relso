@@ -5,7 +5,7 @@ import { PageProps, Handlers } from "$fresh/server.ts"
 export default function entry_create({data}:PageProps){
     return (
         <Layout>
-            <EntryModify entry={data.entry} url='../../DB/entry/runEntryWrited' />
+            <EntryModify entry={data?.entry} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
 }
