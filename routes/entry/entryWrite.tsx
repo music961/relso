@@ -14,6 +14,7 @@ export default function entry_create({data}:PageProps){
 
 export const handler: Handlers = {
     async GET(req,cxt){
+        pintoLog(`url : ${req.url}`)
         const params = new URLSearchParams(req.url.split('?')[1])
         pintoLog(`url 분리 : ${params}`)
         const decoded = decodeURIComponent(params)!
