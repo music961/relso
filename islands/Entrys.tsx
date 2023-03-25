@@ -31,5 +31,4 @@ export default function Entrys(props: RelsProps) {
     }else{
         return(<div/>)
     }
-
   }
