@@ -2,21 +2,20 @@ import { Button, Input } from "../components/Button.tsx"
 import { dbTimeToDateTimeLocal, pintoLog } from "../const/Function.ts"
 import { useState, useEffect } from "preact/hooks"
 
-interface PropsRel {
+interface PropEntity {
   entry: any,
   url : string
 }
 
-export default function EntryModify(props : PropsRel){
+export default function EntryModify(props : PropEntity){
   const [entry, setEntry] = useState(props.entry);
 
   useEffect(() => {
     setEntry(props.entry);
   }, [props.entry]);
 
-  pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
-  
-  let result = (<div/>)
+  let result = (<div/>);
+
   if(entry){
     result = (
       <div>
@@ -32,7 +31,8 @@ export default function EntryModify(props : PropsRel){
             </tr>
         </table>
       </div>
-    )
+    );
   }
-  return result
+
+  return result;
 }
