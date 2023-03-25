@@ -22,7 +22,7 @@ export default function entry_create({data}:PageProps){
 //   }
 
 
-export const handler: Handlers = {
+export const handler3: Handlers = {
     async GET(req,cxt){
         // let n
         // const body = await req.json()
