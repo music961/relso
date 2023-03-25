@@ -13,49 +13,21 @@ export default function EntryModify(props : PropsRel){
   return (
     <div>
       <div>
-        <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(entry.main_key,props.url)}>확인</Button>
       </div>
       <table class="p-4 shadow-md">
           <tr>
               <td class="px-4">라운드</td>
-              <td><Input id="relRound" value={rel.round}/></td>
+              <td><Input id="relRound" value={entry.round}/></td>
           </tr>
           <tr>
               <td class="px-4">제목</td>
-              <td><Input id="relTitle" value={preTitle}/></td>
+              <td><Input id="relTitle" value={entry.aa}/></td>
           </tr>
-          <tr>
-              <td class="px-4">주제</td>
-              <td><Input id="relTopic" value={rel.topic}/></td>
-              <td class="px-4">
-                <select class="bg-black border(gray-200 1)" id='relTopicType' value={rel.topic_type} 
-                  onChange={()=>{
-                    const topicType = document.getElementById('relTopicType').value
-                    설정_주제_타입(topicType)
-                  }}
-                >
-                  <option value={0}>평문</option>
-                  <option value={1}>그림</option>
-                  <option value={2}>음악</option>
-                </select>
-              </td>
-          </tr>
-          {주제_링크}
-          <tr>
-              <td class="px-4">시작시간</td>
-              <td><Input id="relStart" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
-          </tr>
-          <tr>
-              <td class="px-4">종료시간</td>
-              <td><Input id="relEnd" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
-          </tr>
-          <tr>
-            <td class="px-4">첫글 작가 닉네임</td>
-            <td><Input id="relFirstWriter" value={rel.entry_name}/></td>
-          </tr>
+
       </table>
       <div>
-        <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(entry.main_key,props.url)}>확인</Button>
       </div>
     </div>
   )
@@ -108,9 +80,4 @@ const relSummit = (mainKey:any,url:string)=>{
   }else{
     alert('바르게 입력해 주세요')
   } 
-}
-
-const topicTypeChange = ()=>{
-  
-
 }

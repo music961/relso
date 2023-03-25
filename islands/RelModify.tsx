@@ -122,8 +122,3 @@ const relSummit = (mainKey:any,url:string)=>{
     alert('바르게 입력해 주세요')
   } 
 }
-
-const topicTypeChange = ()=>{
-  
-
-}
