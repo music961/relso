@@ -8,11 +8,16 @@ interface PropEntity {
 }
 
 export default function EntryModify(props : PropEntity){
-  const entry = props.entry
+  const [entry, setEntry] = useState(props.entry);
+
+  useEffect(() => {
+    setEntry(props.entry);
+  }, [props.entry]);
   pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
-  let result = (<div/>)
-  if(entry){
-    result = (
+  if (!entry) {
+    return <div>Loading...</div>;
+  }else{
+    return (
       <div>
         {JSON.stringify(entry)}
         <table class="p-4 shadow-md">
@@ -28,8 +33,4 @@ export default function EntryModify(props : PropEntity){
       </div>
     )
   }
-  else {
-    result = (<div/>)
-  }
-  return result
 }
