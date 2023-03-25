@@ -7,7 +7,7 @@ export default function entry_create({data}:PageProps){
     const  entry = data.entry || '민훠어'
     return (
         <Layout>
-            <EntryModify entry={data.entry} url='../../DB/entry/runEntryWrited' />
+            <EntryModify entry={entry} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
 }
