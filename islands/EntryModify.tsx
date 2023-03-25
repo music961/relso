@@ -11,9 +11,10 @@ export default function EntryModify(props : PropEntity){
   const [entry, setEntry] = useState(props.entry);
 
   useEffect(() => {
+    pintoLog(`모디파이에서 받은거 ${JSON.stringify(props.entry)}`)
     setEntry(props.entry);
   }, [props.entry]);
-  pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
+
   if (!entry) {
     return <div>Loading...</div>;
   }else{
@@ -22,8 +23,8 @@ export default function EntryModify(props : PropEntity){
         {JSON.stringify(entry)}
         <table class="p-4 shadow-md">
             <tr>
-                <td class="px-4">라운드</td>
-                <td><Input id="relRound" value={JSON.stringify(entry)}/></td>
+                <td class="px-4">이름</td>
+                <td><Input id="relRound" value={entry.name}/></td>
             </tr>
             <tr>
                 <td class="px-4">제목</td>
