@@ -9,8 +9,9 @@ interface PropEntity {
 
 export default function EntryModify(props : PropEntity){
   const [entry, setEntry] = useState(props.entry);
-
+  pintoLog('트레이스1')
   useEffect(() => {
+    pintoLog('트레이스2')
     pintoLog(`모디파이에서 받은거 ${JSON.stringify(props.entry)}`)
     setEntry(props.entry);
   }, []);
