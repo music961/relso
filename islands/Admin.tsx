@@ -10,10 +10,10 @@ interface AdminProps {
 
 export default function Admin(props: AdminProps) {
     const ga = new GoogleOAuth({
-        // client_id : Deno.env.get('oauth_id'),
+        client_id : Deno.env.get('oauth_id'),
         // client_secret : Deno.env.get('oauth_secret'),
         // redirect_uri : Deno.env.get('oauth_redirect'),
-        client_id : oauthId,
+        //client_id : oauthId,
         client_secret : oauthSecret,
         redirect_uri : oauthRedirect,
         "scopes" : [
