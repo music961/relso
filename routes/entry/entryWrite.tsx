@@ -13,26 +13,26 @@ export default function entry_create({data}:PageProps){
     )
 }
 
-export const handler:  Handlers<any,WithSession> = {
-    async GET(_,cxt){
-      return await cxt.render({
-        entry : 'ㅁㅇㄴㄹ'
-      })
-    }
-  }
-
-
-// export const handler: Handlers = {
-//     async POST(req,cxt){
-//         // let n
-//         // const body = await req.json()
-//         // if(body){
-//         //     n = body.name
-//         // }
-//         // const age = body.age || 10
-//         // pintoLog(`받았음 ${body.name}`)
-//         return await cxt.render({
-//             entry : '민민'
-//         })
+// export const handler:  Handlers<any,WithSession> = {
+//     async GET(_,cxt){
+//       return await cxt.render({
+//         entry : 'ㅁㅇㄴㄹ'
+//       })
 //     }
-// }
+//   }
+
+
+export const handler: Handlers = {
+    async POST(req,cxt){
+        // let n
+        // const body = await req.json()
+        // if(body){
+        //     n = body.name
+        // }
+        // const age = body.age || 10
+        // pintoLog(`받았음 ${body.name}`)
+        return await cxt.render({
+            entry : '민민'
+        })
+    }
+}
