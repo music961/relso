@@ -20,7 +20,7 @@ export default function EntryModify(props : PropsRel){
           </tr>
           <tr>
               <td class="px-4">제목</td>
-              <td><Input id="relTitle" value={entry.age}/></td>
+              <td><Input id="relTitle" value={entry?.age}/></td>
           </tr>
 
       </table>
