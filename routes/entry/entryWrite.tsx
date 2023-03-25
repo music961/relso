@@ -13,8 +13,8 @@ export default function entry_create({data}:PageProps){
 
 export const handler: Handlers = {
     async GET(req,cxt){
-        const encodedEntry = await req.json();
-        const decodedEntry = JSON.parse(decodeURIComponent(encodedEntry));
+        const params = new URLSearchParams(req.url.split('?')[1])
+        const decodedEntry = JSON.parse(decodeURIComponent(params.get('entry')!))
         return await cxt.render({
             entry : decodedEntry
         })
