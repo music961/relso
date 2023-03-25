@@ -4,7 +4,7 @@ import { PageProps, Handlers } from "$fresh/server.ts"
 import { pintoLog } from '../../const/Function.ts'
 
 export default function entry_create({data}:PageProps){
-    const  entry = data.entry || '민훠어'
+    const  entry = '민훠어'
     return (
         <Layout>
             <EntryModify entry={entry} url='../../DB/entry/runEntryWrited' />
@@ -12,14 +12,14 @@ export default function entry_create({data}:PageProps){
     )
 }
 
-export const handler: Handlers = {
-    async POST(req,cxt){
-        const body = await req.json()
-        const name = body.name || '민'
-        const age = body.age || 10
-        pintoLog(`받았음 ${body.name}`)
-        return cxt.render({
-            entry : name
-        })
-    }
-}
+// export const handler: Handlers = {
+//     async POST(req,cxt){
+//         const body = await req.json()
+//         const name = body.name || '민'
+//         const age = body.age || 10
+//         pintoLog(`받았음 ${body.name}`)
+//         return cxt.render({
+//             entry : name
+//         })
+//     }
+// }
