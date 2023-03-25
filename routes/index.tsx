@@ -54,14 +54,14 @@ export const handler: Handlers<any,WithSession> = {
       )
     }
     //임시 시작
-  const bucket = new S3Bucket({
-    accessKeyID: Deno.env.get('s3_access') || '',
-    secretKey: Deno.env.get('s3_secret') || '',
-    bucket: 'relso',
-    region: "ap-northeast-2"
-  })
-  const {body} = await bucket.getObject('entry/test.txt') ||{}
-  const content = await new Response(body).text()
+  // const bucket = new S3Bucket({
+  //   accessKeyID: Deno.env.get('s3_access') || '',
+  //   secretKey: Deno.env.get('s3_secret') || '',
+  //   bucket: 'relso',
+  //   region: "ap-northeast-2"
+  // })
+  // const {body} = await bucket.getObject('entry/test.txt') ||{}
+  // const content = await new Response(body).text()
       
     return cxt.render({
       relso : relso,
@@ -69,7 +69,7 @@ export const handler: Handlers<any,WithSession> = {
       entrys : entrys,
       reserve : reserve,
       mainKey : mainKey,
-      content : content
+      //content : content
     })
   }
 }
