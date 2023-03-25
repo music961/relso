@@ -30,22 +30,22 @@ export function ButtonLink(props: {
 }) {
   const { data, url, ...buttonProps } = props;
 
-  const handleClick = async () => {
+  const handleClick = () => {
     try {
-      const response = await fetch(url, {
+      fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+      }).then(() => {
+        // 데이터 전송 후 페이지 이동
+        window.location.href = url
       });
-
-      const responseData = await response.json();
-      // TODO: 응답 데이터를 처리하는 로직 추가
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  };
+  }
 
   return (
     <button
