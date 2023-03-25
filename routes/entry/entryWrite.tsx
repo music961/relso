@@ -17,11 +17,11 @@ export const handler: Handlers = {
         pintoLog(`url : ${req.url}`)
         const params = new URLSearchParams(req.url.split('?')[1])
         pintoLog(`url 분리 : ${params}`)
-        const decoded = decodeURIComponent(params)!
-        pintoLog(`디코딩 : ${decoded}`)
-        const decodedEntry = JSON.parse(decoded)
+        const name = decodeURIComponent(params.get('name')!)
+        const age = decodeURIComponent(params.get('age')!)
+        pintoLog(`디코딩 : ${name} ${age}`)
         return await cxt.render({
-            entry : decodedEntry
+            entry : {name : name, age : age}
         })
     }
 }
