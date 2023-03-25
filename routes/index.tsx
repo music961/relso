@@ -63,7 +63,7 @@ export const handler: Handlers<any,WithSession> = {
   const {body} = await bucket.getObject('entry/test.txt') ||{}
   const content = await new Response(body).text()
       
-    return await cxt.render({
+    return cxt.render({
       relso : relso,
       entry : entry,
       entrys : entrys,
