@@ -1,5 +1,6 @@
 import { JSX } from "preact"
 import { IS_BROWSER } from "$fresh/runtime.ts"
+import { pintoLog } from "../const/Function.ts";
 
 export function Button(props: JSX.HTMLAttributes<HTMLButtonElement>) {
   return (
@@ -40,6 +41,7 @@ export function ButtonLink(props: {
         },
         body: JSON.stringify(data),
       })
+      pintoLog('보냈음')
     } catch (error) {
       console.error(error)
     }
