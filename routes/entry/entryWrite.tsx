@@ -13,10 +13,11 @@ export default function entry_create({data}:PageProps){
     )
 }
 
-export const handler3: Handlers = {
+export const handler: Handlers = {
     async GET(req,cxt){
+        const entry = await req.json()
         return await cxt.render({
-            entry : {name:'민민',age:10}
+            entry : entry
         })
     }
 }
