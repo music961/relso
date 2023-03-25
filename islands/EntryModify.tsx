@@ -9,7 +9,6 @@ interface PropsRel {
 
 export default function EntryModify(props : PropsRel){
   const entry = props.entry
-
   return (
     <div>
       <div>
@@ -18,7 +17,7 @@ export default function EntryModify(props : PropsRel){
       <table class="p-4 shadow-md">
           <tr>
               <td class="px-4">라운드</td>
-              <td><Input id="relRound" value={entry?.name}/></td>
+              <td><Input id="relRound" value={JSON.stringify(entry)}/></td>
           </tr>
           <tr>
               <td class="px-4">제목</td>
