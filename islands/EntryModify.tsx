@@ -8,15 +8,9 @@ interface PropEntity {
 }
 
 export default function EntryModify(props : PropEntity){
-  const [entry, setEntry] = useState(props.entry);
-
-  useEffect(() => {
-    pintoLog(`다시 그렸음. ${JSON.stringify(props.entry)}`)
-    setEntry(props.entry);
-  }, [props.entry]);
-
+  const entry = props.entry
+  pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
   let result = (<div/>)
-
   if(entry){
     result = (
       <div>
@@ -32,8 +26,10 @@ export default function EntryModify(props : PropEntity){
             </tr>
         </table>
       </div>
-    );
+    )
   }
-
-  return result;
+  else {
+    result = (<div/>)
+  }
+  return result
 }
