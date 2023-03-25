@@ -10,22 +10,25 @@ interface PropsRel {
 export default function EntryModify(props : PropsRel){
   const entry = props.entry
   pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
-  return (
-    <div>
-      {JSON.stringify(entry)}
-      <table class="p-4 shadow-md">
-          <tr>
-              <td class="px-4">라운드</td>
-              <td><Input id="relRound" value={JSON.stringify(entry)}/></td>
-          </tr>
-          <tr>
-              <td class="px-4">제목</td>
-              <td><Input id="relTitle" value={entry?.age}/></td>
-          </tr>
-
-      </table>
-    </div>
-  )
+  let result = (<div/>)
+  if(entry){
+    result = (
+      <div>
+        {JSON.stringify(entry)}
+        <table class="p-4 shadow-md">
+            <tr>
+                <td class="px-4">라운드</td>
+                <td><Input id="relRound" value={JSON.stringify(entry)}/></td>
+            </tr>
+            <tr>
+                <td class="px-4">제목</td>
+                <td><Input id="relTitle" value={entry?.age}/></td>
+            </tr>
+        </table>
+      </div>
+    )
+  }
+  return result
 }
 
 const relSummit = (mainKey:any,url:string)=>{
