@@ -23,7 +23,7 @@ export const handler: Handlers = {
         const age = body.age || 10
         pintoLog(`받았음 ${body.name}`)
         return cxt.render({
-            entry : n
+            entry : '민민'
         })
     }
 }
