@@ -20,7 +20,6 @@ export default function EntryModify(props : PropEntity){
   }else{
     return (
       <div>
-        {JSON.stringify(entry)}
         <table class="p-4 shadow-md">
             <tr>
                 <td class="px-4">이름</td>
