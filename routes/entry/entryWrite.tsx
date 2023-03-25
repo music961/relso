@@ -23,7 +23,7 @@ export default function entry_create({data}:PageProps){
 
 
 export const handler: Handlers = {
-    async POST(req,cxt){
+    async GET(req,cxt){
         // let n
         // const body = await req.json()
         // if(body){
