@@ -1,6 +1,7 @@
 import { Button, Input } from "../components/Button.tsx"
 import { GoogleOAuth } from "https://deno.land/x/google@0.0.7/oauth.ts"
 import { useState } from "preact/hooks"
+import { oauthId, oauthRedirect, oauthSecret } from "../const/Const.ts"
 
 interface AdminProps {
     isLogin : boolean,
