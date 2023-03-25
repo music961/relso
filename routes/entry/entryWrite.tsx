@@ -3,12 +3,10 @@ import EntryModify from '../../islands/EntryModify.tsx'
 import { PageProps, Handlers } from "$fresh/server.ts"
 
 export default function entry_create({data}:PageProps){
-    let name = data.name || '무명'
-    let age = data.age || 0
     return (
         <Layout>
-            {name}
-            {age}
+            {data.name}
+            {data.age}
             <EntryModify entry={{}} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
@@ -17,10 +15,11 @@ export default function entry_create({data}:PageProps){
 export const handler: Handlers = {
     async POST(req,cxt){
         const body = await req.json()
-
+        const name = body.name || '무명'
+        const age = body.age || 0
         return await cxt.render({
-            name : body.name,
-            age : body.age
+            name : name,
+            age : age
         })
     }
 }
