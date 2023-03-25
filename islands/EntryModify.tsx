@@ -9,7 +9,6 @@ interface PropsRel {
 
 export default function EntryModify(props : PropsRel){
   const entry = props.entry
-  pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
   return (
     <div>
       {JSON.stringify(entry)}
