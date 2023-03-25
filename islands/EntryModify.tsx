@@ -10,6 +10,8 @@ interface PropEntity {
 export default function EntryModify(props : PropEntity){
   const [entry, setEntry] = useState(props.entry);
 
+  pintoLog(`모디파이에서 받은거 ${JSON.stringify(entry)}`)
+
   useEffect(() => {
     setEntry(props.entry);
   }, [props.entry]);
