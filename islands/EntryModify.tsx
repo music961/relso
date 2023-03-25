@@ -9,11 +9,11 @@ interface PropEntity {
 
 export default function EntryModify(props : PropEntity){
   const [entry, setEntry] = useState(props.entry);
-  pintoLog(`트레이스1 ${JSON.stringify(props.entry)}`)
+  pintoLog(`트레이스1 ${JSON.stringify(entry)}`)
   useEffect(() => {
-    pintoLog(`트레이스2 ${JSON.stringify(props.entry)}`)
+    pintoLog(`트레이스2 ${JSON.stringify(entry)}`)
     setEntry(props.entry);
-  }, []);
+  }, [entry]);
 
   if (!entry) {
     return <div>Loading...</div>;
