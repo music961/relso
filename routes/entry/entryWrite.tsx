@@ -5,8 +5,8 @@ import { PageProps, Handlers } from "$fresh/server.ts"
 export default function entry_create({data}:PageProps){
     return (
         <Layout>
-            {data.name}
-            {data.age}
+            {data?.name}
+            {data?.age}
             <EntryModify entry={{}} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
@@ -17,7 +17,7 @@ export const handler: Handlers = {
         const body = await req.json()
         const name = body.name || '무명'
         const age = body.age || 0
-        return await cxt.render({
+        return cxt.render({
             name : name,
             age : age
         })
