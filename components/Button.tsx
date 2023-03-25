@@ -32,16 +32,14 @@ export function ButtonLink(props: {
 
   const handleClick = () => {
     try {
+      location.href = url
       fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      }).then(() => {
-        // 데이터 전송 후 페이지 이동
-        window.location.href = url
-      });
+      })
     } catch (error) {
       console.error(error)
     }
