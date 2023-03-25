@@ -1,6 +1,6 @@
 import { JSX } from "preact"
 import { IS_BROWSER } from "$fresh/runtime.ts"
-import { pintoLog } from "../const/Function.ts";
+import { Link } from 'preact-router'
 
 export function Button(props: JSX.HTMLAttributes<HTMLButtonElement>) {
   return (
@@ -24,38 +24,15 @@ export function Input(props: JSX.HTMLAttributes<HTMLInputElement>) {
   )
 }
 
-export function ButtonLink(props: {
-  data: Record<string, unknown>;
-  url: string;
-  children?: unknown;
-}) {
-  const { data, url, ...buttonProps } = props;
 
-  const handleClick = () => {
-    try {
-      location.href = url
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-      pintoLog('보냈음')
-    } catch (error) {
-      console.error(error)
-    }
-  }
+
+export function ButtonLink(props: JSX.HTMLAttributes<HTMLButtonElement> & { to: string, data: Record<string, any> }) {
+  const { to, data, children, ...rest } = props;
+  const serializedData = encodeURIComponent(JSON.stringify(data));
 
   return (
-    <button
-      {...buttonProps}
-      onClick={handleClick}
-      disabled={!IS_BROWSER || buttonProps.disabled}
-      className="px-2 py-1 border(gray-100 2) hover:bg-gray-200"
-    />
-  );
+    <Link {...rest} href={to + (data ? `?data=${serializedData}` : '')}>
+      {children}
+    </Link>
+  )
 }
-
-
-
