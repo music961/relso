@@ -20,14 +20,16 @@ import * as $13 from "./routes/admin/relCreate.tsx";
 import * as $14 from "./routes/admin/relList.tsx";
 import * as $15 from "./routes/admin/relModify/[mainKey].tsx";
 import * as $16 from "./routes/admin/runLogout.tsx";
-import * as $17 from "./routes/index.tsx";
+import * as $17 from "./routes/entry/entryWrite.tsx";
+import * as $18 from "./routes/index.tsx";
 import * as $$0 from "./islands/Admin.tsx";
 import * as $$1 from "./islands/Admins.tsx";
 import * as $$2 from "./islands/Entry.tsx";
-import * as $$3 from "./islands/Entrys.tsx";
-import * as $$4 from "./islands/RelModify.tsx";
-import * as $$5 from "./islands/Rels.tsx";
-import * as $$6 from "./islands/Relso.tsx";
+import * as $$3 from "./islands/EntryModify.tsx";
+import * as $$4 from "./islands/Entrys.tsx";
+import * as $$5 from "./islands/RelModify.tsx";
+import * as $$6 from "./islands/Rels.tsx";
+import * as $$7 from "./islands/Relso.tsx";
 
 const manifest = {
   routes: {
@@ -48,16 +50,18 @@ const manifest = {
     "./routes/admin/relList.tsx": $14,
     "./routes/admin/relModify/[mainKey].tsx": $15,
     "./routes/admin/runLogout.tsx": $16,
-    "./routes/index.tsx": $17,
+    "./routes/entry/entryWrite.tsx": $17,
+    "./routes/index.tsx": $18,
   },
   islands: {
     "./islands/Admin.tsx": $$0,
     "./islands/Admins.tsx": $$1,
     "./islands/Entry.tsx": $$2,
-    "./islands/Entrys.tsx": $$3,
-    "./islands/RelModify.tsx": $$4,
-    "./islands/Rels.tsx": $$5,
-    "./islands/Relso.tsx": $$6,
+    "./islands/EntryModify.tsx": $$3,
+    "./islands/Entrys.tsx": $$4,
+    "./islands/RelModify.tsx": $$5,
+    "./islands/Rels.tsx": $$6,
+    "./islands/Relso.tsx": $$7,
   },
   baseUrl: import.meta.url,
   config,

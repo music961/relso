@@ -1,8 +1,8 @@
 {
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.1.4/",
-    "preact": "https://esm.sh/preact@10.13.0",
-    "preact/": "https://esm.sh/preact@10.13.0/",
+    "preact": "https://esm.sh/preact@10.13.1",
+    "preact/": "https://esm.sh/preact@10.13.1/",
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@5.2.4",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
@@ -11,5 +11,6 @@
     "twind/": "https://esm.sh/twind@0.16.19/",
     "aws_s3":"https://deno.land/x/s3@0.5.0/mod.ts",
     "freshSession":"https://deno.land/x/fresh_session@0.2.0/mod.ts"
+
   }
 }

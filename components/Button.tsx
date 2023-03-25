@@ -1,5 +1,5 @@
-import { JSX } from "preact";
-import { IS_BROWSER } from "$fresh/runtime.ts";
+import { JSX } from "preact"
+import { IS_BROWSER } from "$fresh/runtime.ts"
 
 export function Button(props: JSX.HTMLAttributes<HTMLButtonElement>) {
   return (
@@ -22,3 +22,40 @@ export function Input(props: JSX.HTMLAttributes<HTMLInputElement>) {
     />
   )
 }
+
+export function ButtonLink(props: {
+  data: Record<string, unknown>;
+  url: string;
+  children?: unknown;
+}) {
+  const { data, url, ...buttonProps } = props;
+
+  const handleClick = async () => {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const responseData = await response.json();
+      // TODO: 응답 데이터를 처리하는 로직 추가
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <button
+      {...buttonProps}
+      onClick={handleClick}
+      disabled={!IS_BROWSER || buttonProps.disabled}
+      className="px-2 py-1 border(gray-100 2) hover:bg-gray-200"
+    />
+  );
+}
+
+
+

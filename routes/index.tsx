@@ -18,13 +18,6 @@ export default function Home({data}:PageProps) {
         <title>릴레이 선언 하는곳</title>
       </Head>
       <Layout>
-        <pre>
-          줄바꿈을
-          표현
-          할 ㅅ
-          수
-          있니?
-        </pre>
         <Relso relso={data.relso}/>
         <Entry th={entrys.length} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve}/>
         <Entrys entrys={data.entrys}/>

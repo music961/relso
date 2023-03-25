@@ -3,26 +3,13 @@ import { dbTimeToDateTimeLocal } from "../const/Function.ts"
 import { useState } from "preact/hooks"
 
 interface PropsRel {
-  rel: any,
+  entry: any,
   url : string
 }
 
-export default function RelModify(props : PropsRel){
-  const rel = props.rel
-  let preTitle = '미정'
-  const [주제_타입,설정_주제_타입] = useState(rel.topic_type || 0)
-  let 주제_링크 = (<div/>)
-  if(rel.title){
-    preTitle = rel.title
-  }
-  if(주제_타입!=0){
-    주제_링크 = (
-      <tr>
-        <td class="px-4">주제링크</td>
-        <td><Input id="relTopicLink" value={rel.topic_link}/></td>
-      </tr>
-    )
-  }
+export default function EntryModify(props : PropsRel){
+  const entry = props.entry
+
   return (
     <div>
       <div>
