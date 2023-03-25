@@ -47,7 +47,7 @@ export default function Entry(props:EntryProps){
                     </tr>
                     <tr>
                         <td class="px-4">
-                        <ButtonLink data={{name:"대민호",age:18}} url="/entry/entryWrite">ㄷㄷㄹ</ButtonLink>
+                        <ButtonLink data={{name:"대민호",age:18}} url="/entry/entryWrite">ㄷㄷ</ButtonLink>
                         <Button onClick={()=>entrySummit(entry.entry_key,1,"제출하시겠습니까?")}>제출</Button>
                         <Button onClick={()=>entrySummit(entry.entry_key,2,"포기하시겠습니까?")}>포기</Button>
                         {예약버튼}
