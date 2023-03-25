@@ -18,11 +18,11 @@ export default function EntryModify(props : PropsRel){
       <table class="p-4 shadow-md">
           <tr>
               <td class="px-4">라운드</td>
-              <td><Input id="relRound" value={entry.round}/></td>
+              <td><Input id="relRound" value={entry?.name}/></td>
           </tr>
           <tr>
               <td class="px-4">제목</td>
-              <td><Input id="relTitle" value={entry.aa}/></td>
+              <td><Input id="relTitle" value={entry?.age}/></td>
           </tr>
 
       </table>
