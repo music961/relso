@@ -6,7 +6,7 @@ import { pintoLog } from '../../const/Function.ts'
 export default function entry_create({data}:PageProps){
     return (
         <Layout>
-            <EntryModify entry={data?.entry} url='../../DB/entry/runEntryWrited' />
+            {data?.entry && <EntryModify entry={data.entry} url='../../DB/entry/runEntryWrited' />}
         </Layout>
     )
 }
