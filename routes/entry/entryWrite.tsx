@@ -13,14 +13,17 @@ export default function entry_create({data}:PageProps){
     )
 }
 
-export const handler: Handlers<any,WithSession> = {
+export const handler: Handlers = {
     async POST(req,cxt){
+        let n
         const body = await req.json()
-        const name = body.name || '민'
+        if(body){
+            n = body.name
+        }
         const age = body.age || 10
         pintoLog(`받았음 ${body.name}`)
         return cxt.render({
-            entry : name
+            entry : n
         })
     }
 }
