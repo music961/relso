@@ -33,7 +33,7 @@ export const handler: Handlers<any,WithSession> = {
     let reserve
     let mainKey = 0
     const now = Date.now()
-    const [relso] = await select("* from rel_main where main_end>? order by main_end desc limit 1",[now])
+    const [relso] = await select("*,CONCAT_WS('-', MONTH(FROM_UNIXTIME(main_start /1000)), ROW_NUMBER() OVER(PARTITION BY YEAR(FROM_UNIXTIME(main_start/1000)), MONTH(FROM_UNIXTIME(main_start/1000)) ORDER BY FROM_UNIXTIME(main_start/1000))) AS round from rel_main where main_end>? order by main_end desc limit 1",[now])
     if(relso){
       [entry] = await select(
         "* from rel_entry where main_key=? and entry_start>? and state is null order by entry_key desc limit 1",
