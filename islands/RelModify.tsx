@@ -74,7 +74,7 @@ export default function RelModify(props : PropsRel){
           id="relRole"
           placeholder="본문"
           class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
-          rows={12}
+          rows={6}
           value={''}
         />
       </div>
