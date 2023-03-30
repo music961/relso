@@ -15,12 +15,9 @@ export default function entry_create({data}:PageProps){
 
 export const handler: Handlers = {
     async GET(req,cxt){
-        pintoLog(`url : ${req.url}`)
         const params = new URLSearchParams(req.url.split('?')[1])
-        pintoLog(`url 분리 : ${params}`)
-        const relso = decodeURIComponent(params.get('relso')!)
-        const entry = decodeURIComponent(params.get('entry')!)
-        pintoLog(`디코딩 : ${relso} ${entry}`)
+        const relso = JSON.parse(decodeURIComponent(params.get('relso')!))
+        const entry = JSON.parse(decodeURIComponent(params.get('entry')!))
         return await cxt.render({
             relso : relso,
             entry : entry
