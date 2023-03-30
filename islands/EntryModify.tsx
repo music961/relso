@@ -20,10 +20,9 @@ export default function EntryModify(props : PropEntity){
   }else{
     return (
       <div>
-        <table class="p-4 shadow-md">
-            <tr onClick={()=>location.href=`${relso.topic_link}`}>
-                <td class="px-4 cursor-pointer hover:underline">{relso.round}.{relso.topic}</td>
-            </tr>
+            <div class="px-4 cursor-pointer hover:underline" onClick={()=>location.href=`${relso.topic_link}`}>
+              {relso.round}.{relso.topic}
+            </div>
             <tr>
                 <td class="px-4">규칙</td>
             </tr>
@@ -35,7 +34,6 @@ export default function EntryModify(props : PropEntity){
                 <td class="px-4">제목</td>
                 <td><Input id="relTitle" value={relso.topic}/></td>
             </tr>
-        </table>
       </div>
     )
   }
