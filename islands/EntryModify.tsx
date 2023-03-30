@@ -11,7 +11,6 @@ interface PropEntity {
 export default function EntryModify(props : PropEntity){
   const [entry, setEntry] = useState(props.entry)
   const [relso, setRelso] = useState(props.relso)
-  pintoLog(`트레이스1 : ${JSON.stringify(entry)} ${JSON.stringify(relso)}`)
   // useEffect(() => {
   //   setEntry(props.entry);
   // }, [entry]);
@@ -24,7 +23,7 @@ export default function EntryModify(props : PropEntity){
         <table class="p-4 shadow-md">
             <tr>
                 <td class="px-4">이름</td>
-                <td><Input id="relRound" value={entry.name}/></td>
+                <td><Input id="relRound" value={entry.entry_name}/></td>
             </tr>
             <tr>
                 <td class="px-4">제목</td>
