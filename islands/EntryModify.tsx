@@ -20,10 +20,10 @@ export default function EntryModify(props : PropEntity){
   }else{
     return (
       <div>
-        <div class="p-4 cursor-pointer hover:underline" onClick={()=>location.href=`${relso.topic_link}`}>
+        <div class="py-4 cursor-pointer hover:underline" onClick={()=>location.href=`${relso.topic_link}`}>
           {relso.round}.{relso.topic}
         </div>
-        <div class="p-4" >
+        <div class="py-4" >
           규칙
         </div>
         <div>
