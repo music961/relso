@@ -8,7 +8,8 @@ interface EntryProps {
     mainKey : number,
     이전주자_닉네임 : string,
     entry: any,
-    reserve: any
+    reserve: any,
+    relso : any
 }
 
 export default function Entry(props:EntryProps){
@@ -48,7 +49,7 @@ export default function Entry(props:EntryProps){
                     </tr>
                     <tr>
                         <td class="px-4">
-                        <Link href={`/entry/entryWrite?name=${encodeURIComponent("대민호")}&age=${encodeURIComponent(18)}`}>
+                        <Link href={`/entry/entryWrite?relso=${encodeURIComponent(props.relso)}&entry=${encodeURIComponent(props.entry)}`}>
                             <Button>제출22</Button>
                         </Link>
                         <Button onClick={()=>entrySummit(entry.entry_key,1,"제출하시겠습니까?")}>제출</Button>

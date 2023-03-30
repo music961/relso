@@ -4,10 +4,11 @@ import { PageProps, Handlers } from "$fresh/server.ts"
 import { pintoLog } from '../../const/Function.ts'
 
 export default function entry_create({data}:PageProps){
+    const  relso = data.relso || {}
     const  entry = data.entry || {}
     return (
         <Layout>
-            <EntryModify entry={entry} url='../../DB/entry/runEntryWrited' />
+            <EntryModify entry={entry} relso={relso} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
 }
@@ -17,11 +18,12 @@ export const handler: Handlers = {
         pintoLog(`url : ${req.url}`)
         const params = new URLSearchParams(req.url.split('?')[1])
         pintoLog(`url 분리 : ${params}`)
-        const name = decodeURIComponent(params.get('name')!)
-        const age = decodeURIComponent(params.get('age')!)
-        pintoLog(`디코딩 : ${name} ${age}`)
+        const relso = decodeURIComponent(params.get('relso')!)
+        const entry = decodeURIComponent(params.get('entry')!)
+        pintoLog(`디코딩 : ${relso} ${entry}`)
         return await cxt.render({
-            entry : {name : name, age : age}
+            relso : relso,
+            entry : entry
         })
     }
 }
