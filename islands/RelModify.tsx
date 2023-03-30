@@ -12,6 +12,7 @@ export default function RelModify(props : PropsRel){
   let preTitle = '미정'
   const [주제_타입,설정_주제_타입] = useState(rel.topic_type || 0)
   let 주제_링크 = (<div/>)
+  let 제목_입력 = (<div/>)
   if(rel.title){
     preTitle = rel.title
   }
@@ -23,20 +24,25 @@ export default function RelModify(props : PropsRel){
       </tr>
     )
   }
+  if(props.url!='../../DB/rel/runRelCreate'){
+    제목_입력 = (
+      <tr>
+        <td class="px-4">제목</td>
+        <td><Input id="relTitle" value={preTitle}/></td>
+      </tr>
+    )
+  }
   return (
     <div>
       <div>
         <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
       </div>
       <table class="p-4 shadow-md">
-          <tr>
+          {/* <tr>
               <td class="px-4">라운드</td>
               <td><Input id="relRound" value={rel.round}/></td>
-          </tr>
-          <tr>
-              <td class="px-4">제목</td>
-              <td><Input id="relTitle" value={preTitle}/></td>
-          </tr>
+          </tr> */}
+          {제목_입력}
           <tr>
               <td class="px-4">주제</td>
               <td><Input id="relTopic" value={rel.topic}/></td>
