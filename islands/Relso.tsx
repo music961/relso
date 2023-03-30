@@ -15,9 +15,6 @@ export default function Relso(props: RelsoProps){
                 <tr>
                     <td class="px-4">마감 : {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
                 </tr>
-                <tr>
-                    <td class="px-4"></td>
-                </tr>
             </div>
         )
     }else{

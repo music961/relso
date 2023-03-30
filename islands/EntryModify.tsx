@@ -21,6 +21,12 @@ export default function EntryModify(props : PropEntity){
     return (
       <div>
         <table class="p-4 shadow-md">
+            <tr onClick={()=>location.href=`${relso.topic_link}`}>
+                <td class="px-4 cursor-pointer hover:underline">{relso.round}.{relso.topic}</td>
+            </tr>
+            <tr>
+                <td class="px-4">규칙</td>
+            </tr>
             <tr>
                 <td class="px-4">이름</td>
                 <td><Input id="relRound" value={entry.entry_name}/></td>
