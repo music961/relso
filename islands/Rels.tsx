@@ -15,7 +15,6 @@ export default function Rels(props: RelsProps) {
                 <Button class="p-4" onClick={()=>location.href =`./relCreate`}>새 릴레이</Button>
             </div>
             <table class="p-4 items-center shadow-md">
-                <th>번호</th>
                 <th>회차</th>
                 <th>주제</th>
                 <th>제목</th>
@@ -25,7 +24,6 @@ export default function Rels(props: RelsProps) {
                 {
                 rels.map((rel)=>
                     <tr class="mx-4 cursor-pointer hover:underline" onClick={()=>location.href=`./relModify/${rel.main_key}`}>
-                        <td class="px-4">{rel.main_key}</td>
                         <td class="px-4">{rel.round}</td>
                         <td class="px-4">{rel.topic}</td>
                         <td class="px-4">{rel.title}</td>
