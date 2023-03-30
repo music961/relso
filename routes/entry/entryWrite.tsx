@@ -8,7 +8,7 @@ export default function entry_create({data}:PageProps){
     const  entry = data.entry || {}
     return (
         <Layout>
-            <EntryModify entry={entry} relso={relso} url='../../DB/entry/runEntryWrited' />
+            <EntryModify entry={entry} relso={relso} th={data.th} url='../../DB/entry/runEntryWrited' />
         </Layout>
     )
 }
@@ -20,7 +20,8 @@ export const handler: Handlers = {
         const entry = JSON.parse(decodeURIComponent(params.get('entry')!))
         return await cxt.render({
             relso : relso,
-            entry : entry
+            entry : entry,
+            th : params.get('th')
         })
     }
 }

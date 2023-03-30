@@ -19,7 +19,7 @@ export default function Home({data}:PageProps) {
       </Head>
       <Layout>
         <Relso relso={data.relso}/>
-        <Entry th={entrys.length} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve} relso={data.relso}/>
+        <Entry th={entrys.length+1} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve} relso={data.relso}/>
         <Entrys entrys={data.entrys}/>
       </Layout>
     </html>

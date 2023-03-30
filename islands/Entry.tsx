@@ -49,7 +49,7 @@ export default function Entry(props:EntryProps){
                     </tr>
                     <tr>
                         <td class="px-4">
-                        <Link href={`/entry/entryWrite?relso=${encodeURIComponent(JSON.stringify(props.relso))}&entry=${encodeURIComponent(JSON.stringify(props.entry))}`}>
+                        <Link href={`/entry/entryWrite?relso=${encodeURIComponent(JSON.stringify(props.relso))}&entry=${encodeURIComponent(JSON.stringify(props.entry))}&th=${props.th}`}>
                             <Button>제출22</Button>
                         </Link>
                         <Button onClick={()=>entrySummit(entry.entry_key,1,"제출하시겠습니까?")}>제출</Button>

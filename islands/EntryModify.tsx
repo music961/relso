@@ -5,6 +5,7 @@ import { useState, useEffect } from "preact/hooks"
 interface PropEntity {
   entry: any,
   relso: any,
+  th : number,
   url : string
 }
 
@@ -23,8 +24,8 @@ export default function EntryModify(props : PropEntity){
         <div class="py-4 cursor-pointer hover:underline" onClick={()=>location.href=`${relso.topic_link}`}>
           {relso.round}.{relso.topic}
         </div>
-        <div class="py-4" >
-          규칙
+        <div>
+          {props.th}번째 [{entry.entry_name}]님
         </div>
         <div>
             <textarea 
