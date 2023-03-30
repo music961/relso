@@ -11,6 +11,7 @@ interface PropEntity {
 export default function EntryModify(props : PropEntity){
   const [entry, setEntry] = useState(props.entry)
   const [relso, setRelso] = useState(props.relso)
+  pintoLog(`트레이스1 : ${JSON.stringify(entry)} ${JSON.stringify(relso)}`)
   // useEffect(() => {
   //   setEntry(props.entry);
   // }, [entry]);
