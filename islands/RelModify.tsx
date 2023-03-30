@@ -101,7 +101,6 @@ const relSummit = (mainKey:any,url:string)=>{
     }
     return elem
   }
-  const relRound = chkValue('relRound')
   const relTitle = chkValue('relTitle')
   const relTopic = chkValue('relTopic')
   const relTopicType = chkValue('relTopicType')
@@ -116,7 +115,6 @@ const relSummit = (mainKey:any,url:string)=>{
   }
   const model = {
     mainKey : mainKey,
-    round : relRound,
     title : relTitle,
     topic : relTopic,
     topicType : relTopicType,
