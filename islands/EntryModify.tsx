@@ -29,7 +29,6 @@ export default function EntryModify(props : PropEntity){
           {props.th}번째 [{entry.entry_name}]님
         </div>
         <div className="float-right">
-        
           <button type="button" class="px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 flex gap-2">
             <IconPencil class="w-6 h-6" />
           </button>

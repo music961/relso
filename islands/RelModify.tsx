@@ -67,6 +67,17 @@ export default function RelModify(props : PropsRel){
             <td><Input id="relFirstWriter" value={rel.entry_name}/></td>
           </tr>
       </table>
+      <div>규칙</div>
+      <div>
+        <textarea 
+          type="text"
+          id="relRole"
+          placeholder="본문"
+          class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
+          rows={12}
+          value={''}
+        />
+      </div>
       <div>
         <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
       </div>
