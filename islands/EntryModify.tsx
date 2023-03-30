@@ -20,20 +20,22 @@ export default function EntryModify(props : PropEntity){
   }else{
     return (
       <div>
-            <div class="px-4 cursor-pointer hover:underline" onClick={()=>location.href=`${relso.topic_link}`}>
-              {relso.round}.{relso.topic}
-            </div>
-            <tr>
-                <td class="px-4">규칙</td>
-            </tr>
-            <tr>
-                <td class="px-4">이름</td>
-                <td><Input id="relRound" value={entry.entry_name}/></td>
-            </tr>
-            <tr>
-                <td class="px-4">제목</td>
-                <td><Input id="relTitle" value={relso.topic}/></td>
-            </tr>
+        <div class="p-4 cursor-pointer hover:underline" onClick={()=>location.href=`${relso.topic_link}`}>
+          {relso.round}.{relso.topic}
+        </div>
+        <div class="p-4" >
+          규칙
+        </div>
+        <div>
+            <textarea 
+                type="text"
+                id="bbsTxt"
+                placeholder="본문"
+                class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
+                rows={12}
+                value={''}
+            />
+        </div>
       </div>
     )
   }
