@@ -11,7 +11,7 @@ export default function Entrys(props: RelsProps) {
     if(entrys){
         const cnt = entrys.length
         return (
-            <div>
+            <div class='max-w-md'>
                 <table class="p-4 items-center shadow-md">
                     <th>번째</th>
                     <th>작가</th>
