@@ -52,8 +52,7 @@ export default function Entry(props:EntryProps){
                         <Link href={`/entry/entryWrite?relso=${encodeURIComponent(JSON.stringify(props.relso))}&entry=${encodeURIComponent(JSON.stringify(props.entry))}&th=${props.th}`}>
                             <Button>제출22</Button>
                         </Link>
-                        <Button onClick={()=>entrySummit(entry.entry_key,1,"제출하시겠습니까?")}>제출</Button>
-                        <Button onClick={()=>entrySummit(entry.entry_key,2,"포기하시겠습니까?")}>포기</Button>
+                        <Button onClick={()=>제출포기(entry.entry_key)}>포기</Button>
                         {예약버튼}
                         </td>
                     </tr>
@@ -103,11 +102,11 @@ export default function Entry(props:EntryProps){
     }
 }
 
-const entrySummit = (entryKey:number,state:any,ask:string)=>{
-    if(confirm(ask)){
+const 제출포기 = (entryKey:number)=>{
+    if(confirm("포기하시겠습니까?")){
         const model = {
             entryKey : entryKey,
-            state : state
+            state : 2
         }
         fetch('../DB/entry/runEntryWrited',{
             method:'POST',
