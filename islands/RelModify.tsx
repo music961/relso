@@ -108,6 +108,7 @@ const relSummit = (mainKey:any,url:string)=>{
   const relStart = chkValue('relStart')
   const relEnd = chkValue('relEnd')
   const relFirstWriter = chkValue('relFirstWriter')
+  const relRole = chkValue('relRole')
   
   let relTopicLink = ''
   if(relTopicType!=0){
@@ -121,7 +122,8 @@ const relSummit = (mainKey:any,url:string)=>{
     topicLink : relTopicLink,
     timeStart : Date.parse(relStart),
     timeEnd : Date.parse(relEnd),
-    firstWriter : relFirstWriter
+    firstWriter : relFirstWriter,
+    role : relRole
   }
   if(summitOK){
     fetch(url,{
