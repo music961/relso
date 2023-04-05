@@ -6,7 +6,7 @@ const layouts = ({children}:any) => {
             <a class="mx-4 hover:underline" href="/admin/main">관리자</a>
             <a class="mx-4 hover:underline" href="/admin/guide">설명서</a>
         </nav>
-        <div class="mx-auto max-w-md">
+        <div class="flex justify-center max-w-md">
           {children}
         </div>
       </body>
