@@ -93,7 +93,7 @@ export default function RelModify(props : PropsRel){
           placeholder="본문"
           class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
           rows={12}
-          value={rel.novel}
+          value={props.novel}
         />
       </div>
       <div>
