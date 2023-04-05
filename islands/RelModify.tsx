@@ -103,7 +103,7 @@ export default function RelModify(props : PropsRel){
   )
 }
 
-const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
+const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -140,7 +140,7 @@ const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
     entryKey : entryKey
   }
   if(summitOK){
-    const rep = await fetch(url,{
+    const rep = fetch(url,{
       method:'POST',
       headers : {
         'Accept' : 'application/json',
@@ -148,14 +148,14 @@ const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
       },
       body: JSON.stringify(model)
     })
-    const data = await rep.json()
-    const entryKey = data.result
-    const bucket = new S3Bucket({
-      accessKeyID: Deno.env.get('s3_access') || '',
-      secretKey: Deno.env.get('s3_secret') || '',
-      bucket: 'relso',
-      region: "ap-northeast-2"
-    })
+    // const data = await rep.json()
+    // const entryKey = data.result
+    // const bucket = new S3Bucket({
+    //   accessKeyID: Deno.env.get('s3_access') || '',
+    //   secretKey: Deno.env.get('s3_secret') || '',
+    //   bucket: 'relso',
+    //   region: "ap-northeast-2"
+    // })
     // bucket.putObject(
     //   `entry/${entryKey}`,
     //   new TextEncoder().encode(relNovel)
