@@ -25,11 +25,12 @@ export default function Entrys(props: RelsProps) {
                         )
                     }
                 </table>
-                {    
-                    entrys.map((entry,idx)=>
-                        <a>asdfsdf<a/>
-                    )
-                }
+                {
+                    entrys.map((entry, idx) => (
+                        <a key={idx}>entry.entry_name</a>
+                    ))
+                    }
+
             </div>
         )
     }else{
