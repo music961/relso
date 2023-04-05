@@ -18,7 +18,7 @@ export default function Entrys(props: RelsProps) {
                     <th>제출시간</th>
                     {
                         entrys.map((entry,idx)=>
-                            <tr class="mx-4">
+                            <tr class="mx-4 flex justify-center">
                                 <td class="px-4">{cnt-idx}</td>
                                 <td class="px-4">{entry.entry_name}</td>
                                 <td class="px-4">{convertDate(entry.entry_end).substring(4)}</td>
