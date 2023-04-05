@@ -12,7 +12,7 @@ export default function Entrys(props: RelsProps) {
         const cnt = entrys.length
         return (
             <div>
-                <table class="p-4 items-center shadow-md">
+                <table class="p-4 shadow-md">
                     <th>번째</th>
                     <th>작가</th>
                     <th>제출시간</th>
