@@ -3,7 +3,7 @@ import Layout from "../../components/Layouts.tsx"
 export default function main(){
   return(
     <Layout>
-        <div>
+        <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
             <br/>
             [사용자]<br/><br/>
             릴소사의 규칙대로 릴레이를 선언하고 예약할 수 있습니다.<br/>
