@@ -138,7 +138,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
     timeEnd : Date.parse(relEnd),
     firstWriter : relFirstWriter,
     role : relRole,
-    entryKey : entryKey
+    //entryKey : entryKey
   }
   if(summitOK){
     fetch(url,{
