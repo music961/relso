@@ -18,7 +18,7 @@ export default function Entrys(props: RelsProps) {
                     {
                     entrys.reverse().map((entry,idx)=>
                         <tr class="mx-4">
-                            <td class="px-4">{cnt-idx}</td>
+                            <td class="px-4">{cnt-idx}번</td>
                             <td class="px-4">{entry.entry_name}</td>
                             <td class="px-4">{convertDate(entry.entry_end).substring(4)}</td>
                         </tr>
