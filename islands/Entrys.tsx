@@ -30,7 +30,7 @@ export default function Entrys(props: RelsProps) {
                     entrys.reverse().map((entry, idx) => (
                         <div>
                             <br/>
-                            <div>
+                            <div class='max-w-xs'>
                                 {idx+1}번째 [{entry.entry_name}]님
                             </div>
                             <br/>
