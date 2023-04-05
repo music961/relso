@@ -97,13 +97,13 @@ export default function RelModify(props : PropsRel){
         />
       </div>
       <div>
-        <Button onClick={()=>relSummit(rel.main_key,rel.entry_key,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
       </div>
     </div>
   )
 }
 
-const relSummit = (mainKey:any,entryKey:any,url:string)=>{
+const relSummit = (mainKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -137,7 +137,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
     timeEnd : Date.parse(relEnd),
     firstWriter : relFirstWriter,
     role : relRole,
-    entryKey : entryKey
+    //entryKey : entryKey
   }
   if(summitOK){
     fetch(url,{
