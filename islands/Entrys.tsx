@@ -27,7 +27,7 @@ export default function Entrys(props: RelsProps) {
                 </table>
                 {
                     entrys.map((entry, idx) => (
-                        <a key={idx}>entry.entry_name</a>
+                        <div>{idx}번째 [{entry.entry_name}]님</div>
                     ))
                     }
 
