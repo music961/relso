@@ -37,7 +37,7 @@ export default function Entry(props:EntryProps){
 
             const 마감시간 = entry.entry_start+(3600*3*1000)
             return(
-                <div class="p-4 items-center">
+                <div class="p-4">
                     <tr class="mx-4">
                         <td class="px-4">[{props.th} 번째 {entry.entry_name}]</td>
                     </tr>
