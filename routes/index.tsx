@@ -58,8 +58,7 @@ export const handler: Handlers<any,WithSession> = {
       entry : entry,
       entrys : entrys,
       reserve : reserve,
-      mainKey : mainKey,
-      //content : content
+      mainKey : mainKey
     })
   }
 }
