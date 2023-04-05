@@ -7,7 +7,6 @@ interface RelsProps {
 
 export default function Entrys(props: RelsProps) {
     const entrys = props.entrys
-    const 역순 = [...entrys].reverse()
     if(entrys){
         const cnt = entrys.length
         return (
@@ -17,22 +16,20 @@ export default function Entrys(props: RelsProps) {
                     <th>작가</th>
                     <th>제출시간</th>
                     {
-                    역순.map((entry,idx)=>
-                        <tr class="mx-4">
-                            <td class="px-4">{cnt-idx}</td>
-                            <td class="px-4">{entry.entry_name}</td>
-                            <td class="px-4">{convertDate(entry.entry_end).substring(4)}</td>
-                        </tr>
-                    )
+                        entrys.map((entry,idx)=>
+                            <tr class="mx-4">
+                                <td class="px-4">{cnt-idx}</td>
+                                <td class="px-4">{entry.entry_name}</td>
+                                <td class="px-4">{convertDate(entry.entry_end).substring(4)}</td>
+                            </tr>
+                        )
                     }
                 </table>
-                {/* {
-                    entrys.reverse().map((entry,idx)=>
-                        <div>
-                            {idx}번째[{entry.entry_name}]님
-                        <div/>
+                {    
+                    entrys.map((entry,idx)=>
+                        <a>asdfsdf<a/>
                     )
-                } */}
+                }
             </div>
         )
     }else{
