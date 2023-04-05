@@ -6,7 +6,6 @@ import { WithSession } from "freshSession"
 import Relso from "../islands/Relso.tsx"
 import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
-import { S3Bucket } from "aws_s3"
 
 export default function Home({data}:PageProps) {
   const entrys = data.entrys || []
@@ -53,15 +52,6 @@ export const handler: Handlers<any,WithSession> = {
         [Date.now()-12600000,Date.now()-1800000]  // 3시간 30분, 30분
       )
     }
-    //임시 시작
-  // const bucket = new S3Bucket({
-  //   accessKeyID: Deno.env.get('s3_access') || '',
-  //   secretKey: Deno.env.get('s3_secret') || '',
-  //   bucket: 'relso',
-  //   region: "ap-northeast-2"
-  // })
-  // const {body} = await bucket.getObject('entry/test.txt') ||{}
-  // const content = await new Response(body).text()
       
     return cxt.render({
       relso : relso,

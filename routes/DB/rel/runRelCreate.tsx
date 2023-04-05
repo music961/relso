@@ -10,12 +10,13 @@ export const handler = {
           'main_key',
           [rel.topic,rel.topicType,rel.topicLink,rel.title,rel.timeStart,rel.timeEnd,rel.role]
         )
-        insert(
+        const entryReturning = await insertReturning(
           'rel_entry (main_key,entry_name,entry_start,entry_end,state)value(?,?,?,?,1)',
+          'entry_key',
           [relReturning.main_key,rel.firstWriter,Date.now(),Date.now()]
         )
         const result = {
-            result : 100
+            result : entryReturning.entry_key
         }
       return new Response(
         JSON.stringify(result),

@@ -1,6 +1,7 @@
 import { Button, Input } from "../components/Button.tsx"
 import { dbTimeToDateTimeLocal } from "../const/Function.ts"
 import { useState } from "preact/hooks"
+import { S3Bucket } from "aws_s3"
 
 interface PropsRel {
   rel: any,
@@ -78,9 +79,20 @@ export default function RelModify(props : PropsRel){
         <textarea 
           type="text"
           id="relRole"
-          placeholder="본문"
+          placeholder="규칙"
           class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
           rows={6}
+          value={rel.role}
+        />
+      </div>
+      <div>본문</div>
+      <div>
+      <textarea 
+          type="text"
+          id="relNovel"
+          placeholder="본문"
+          class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
+          rows={12}
           value={rel.role}
         />
       </div>
@@ -91,7 +103,7 @@ export default function RelModify(props : PropsRel){
   )
 }
 
-const relSummit = (mainKey:any,url:string)=>{
+const relSummit = async (mainKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -109,6 +121,7 @@ const relSummit = (mainKey:any,url:string)=>{
   const relEnd = chkValue('relEnd')
   const relFirstWriter = chkValue('relFirstWriter')
   const relRole = chkValue('relRole')
+  const relNovel = chkValue('relNovel')
   
   let relTopicLink = ''
   if(relTopicType!=0){
@@ -126,14 +139,27 @@ const relSummit = (mainKey:any,url:string)=>{
     role : relRole
   }
   if(summitOK){
-    fetch(url,{
+    const rep = await fetch(url,{
       method:'POST',
       headers : {
         'Accept' : 'application/json',
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify(model)
-    })    
+    })
+    const data = await rep.json()
+    const entryKey = data.result
+    const bucket = new S3Bucket({
+      accessKeyID: Deno.env.get('s3_access') || '',
+      secretKey: Deno.env.get('s3_secret') || '',
+      bucket: 'relso',
+      region: "ap-northeast-2"
+    })
+    const str = relNovel
+    bucket.putObject(
+      `entry/${entryKey}`,
+      new TextEncoder().encode(str)
+    )
     location.replace('/admin/relList')
   }else{
     alert('바르게 입력해 주세요')
