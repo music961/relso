@@ -103,7 +103,7 @@ export default function RelModify(props : PropsRel){
   )
 }
 
-const relSummit = (mainKey:any,entryKey:any,url:string)=>{
+const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -141,7 +141,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
     entryKey : entryKey
   }
   if(summitOK){
-    fetch(url,{
+    const rsp = await fetch(url,{
       method:'POST',
       headers : {
         'Accept' : 'application/json',
@@ -149,18 +149,18 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
       },
       body: JSON.stringify(model)
     })
-    // const data = await rep.json()
-    // const entryKey = data.result
-    // const bucket = new S3Bucket({
-    //   accessKeyID: Deno.env.get('s3_access') || '',
-    //   secretKey: Deno.env.get('s3_secret') || '',
-    //   bucket: 'relso',
-    //   region: "ap-northeast-2"
-    // })
-    // bucket.putObject(
-    //   `entry/${entryKey}`,
-    //   new TextEncoder().encode(relNovel)
-    // )
+    const data = await rsp.json()
+    const ek = data.result
+    const bucket = new S3Bucket({
+      accessKeyID: Deno.env.get('s3_access') || '',
+      secretKey: Deno.env.get('s3_secret') || '',
+      bucket: 'relso',
+      region: "ap-northeast-2"
+    })
+    bucket.putObject(
+      `entry/${ek}`,
+      new TextEncoder().encode(relNovel)
+    )
     location.replace('/admin/relList')
   }else{
     alert('바르게 입력해 주세요')
