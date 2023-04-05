@@ -27,7 +27,7 @@ export default function Entrys(props: RelsProps) {
                     }
                 </table>
                 {
-                    entrys.map((entry, idx) => (
+                    [...entrys].reverse().map((entry, idx) => (
                         <div class='inline-block max-w-md'>
                             <br/>
                             <div>
