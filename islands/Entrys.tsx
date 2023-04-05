@@ -16,7 +16,7 @@ export default function Entrys(props: RelsProps) {
                     <th>작가</th>
                     <th>제출시간</th>
                     {
-                    entrys.map((entry,idx)=>
+                    entrys.reverse().map((entry,idx)=>
                         <tr class="mx-4">
                             <td class="px-4">{cnt-idx}</td>
                             <td class="px-4">{entry.entry_name}</td>
@@ -25,13 +25,13 @@ export default function Entrys(props: RelsProps) {
                     )
                     }
                 </table>
-                {
+                {/* {
                     entrys.reverse().map((entry,idx)=>
                         <div>
                             {idx}번째[{entry.entry_name}]님
                         <div/>
                     )
-                }
+                } */}
             </div>
         )
     }else{
