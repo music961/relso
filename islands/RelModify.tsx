@@ -140,7 +140,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
     entryKey : entryKey
   }
   if(summitOK){
-    const rep = fetch(url,{
+    fetch(url,{
       method:'POST',
       headers : {
         'Accept' : 'application/json',
