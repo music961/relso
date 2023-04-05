@@ -1,5 +1,5 @@
 import { Button, Input } from "../components/Button.tsx"
-import { dbTimeToDateTimeLocal } from "../const/Function.ts"
+import { dbTimeToDateTimeLocal, pintoLog } from "../const/Function.ts"
 import { useState } from "preact/hooks"
 import { S3Bucket } from "aws_s3"
 
@@ -127,6 +127,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   if(relTopicType!=0){
     relTopicLink = chkValue('relTopicLink')
   }
+  pintoLog(`엔트리키 : ${entryKey}`)
   const model = {
     mainKey : mainKey,
     title : relTitle,
@@ -137,7 +138,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
     timeEnd : Date.parse(relEnd),
     firstWriter : relFirstWriter,
     role : relRole,
-    //entryKey : entryKey
+    entryKey : entryKey
   }
   if(summitOK){
     fetch(url,{
