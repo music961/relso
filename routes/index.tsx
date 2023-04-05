@@ -6,6 +6,7 @@ import { WithSession } from "freshSession"
 import Relso from "../islands/Relso.tsx"
 import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
+import { S3Bucket } from "aws_s3"
 
 export default function Home({data}:PageProps) {
   const entrys = data.entrys || []
@@ -33,6 +34,14 @@ export const handler: Handlers<any,WithSession> = {
     let reserve
     let mainKey = 0
     const now = Date.now()
+
+    const bucket = new S3Bucket({
+      accessKeyID: Deno.env.get('s3_access') || '',
+      secretKey: Deno.env.get('s3_secret') || '',
+      bucket: 'relso',
+      region: "ap-northeast-2"
+  })
+  
     const [relso] = await select("*,CONCAT_WS('-', MONTH(FROM_UNIXTIME(main_start /1000)), ROW_NUMBER() OVER(PARTITION BY YEAR(FROM_UNIXTIME(main_start/1000)), MONTH(FROM_UNIXTIME(main_start/1000)) ORDER BY FROM_UNIXTIME(main_start/1000))) AS round from rel_main where main_end>? order by main_end desc limit 1",[now])
     if(relso){
       [entry] = await select(
@@ -41,9 +50,10 @@ export const handler: Handlers<any,WithSession> = {
       )
       mainKey = relso.main_key
       entrys = await select("* from rel_entry where main_key=? and state=1 order by entry_key desc",[mainKey])
-      entrys.map((entry)=>
-        novels.push(entry.entry_start)
-      )
+      for(const entry of entrys){
+        const {body} = await bucket.getObject(`entry/${entry.entry_key}`) ||{}
+        novels.push(await new Response(body).text())
+      }
     }
     if(entry){
       [reserve] = await select(
