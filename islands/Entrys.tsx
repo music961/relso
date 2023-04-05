@@ -7,7 +7,7 @@ interface RelsProps {
 
 export default function Entrys(props: RelsProps) {
     const entrys = props.entrys
-    const 역순 = entrys.reverse()
+    const 역순 = [...entrys].reverse()
     if(entrys){
         const cnt = entrys.length
         return (
