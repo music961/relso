@@ -156,11 +156,10 @@ const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
       bucket: 'relso',
       region: "ap-northeast-2"
     })
-    const str = relNovel
-    bucket.putObject(
-      `entry/${entryKey}`,
-      new TextEncoder().encode(str)
-    )
+    // bucket.putObject(
+    //   `entry/${entryKey}`,
+    //   new TextEncoder().encode(relNovel)
+    // )
     location.replace('/admin/relList')
   }else{
     alert('바르게 입력해 주세요')
