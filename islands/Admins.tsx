@@ -8,7 +8,7 @@ interface AdminsProps {
 export default function Admins(props: AdminsProps) {
     const admins = props.admins
     return (
-        <div>
+        <div class='flex justify-center'>
             <div>
                 <Input id='admin_add' placeholder='이메일 입력'/>
                 <Button onClick={()=> adminAdd()}>관리계정 추가</Button>
