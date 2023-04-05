@@ -28,13 +28,13 @@ export default function Entrys(props: RelsProps) {
                 </table>
                 {
                     entrys.reverse().map((entry, idx) => (
-                        <div class='inline-block text-center max-w-md'>
+                        <div class='inline-block max-w-md'>
                             <br/>
                             <div>
                                 {idx+1}번째 [{entry.entry_name}]님
                             </div>
                             <br/>
-                            <pre>
+                            <pre class='inline-block max-w-md'>
                                 {props.novels[idx]}
                             </pre>
                             <br/>
