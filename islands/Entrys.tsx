@@ -2,7 +2,8 @@ import { useState } from "preact/hooks"
 import { convertDate } from "../const/Function.ts"
 
 interface RelsProps {
-    entrys : any
+    entrys : any,
+    novels : string[]
 }
 
 export default function Entrys(props: RelsProps) {
@@ -27,7 +28,14 @@ export default function Entrys(props: RelsProps) {
                 </table>
                 {
                     entrys.reverse().map((entry, idx) => (
-                        <div>{idx+1}번째 [{entry.entry_name}]님</div>
+                        <div>
+                            <div>
+                                {idx+1}번째 [{entry.entry_name}]님
+                            </div>
+                            <div>
+                                {props.novels[idx]}
+                            </div>
+                        </div>
                     ))
                     }
 

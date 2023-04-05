@@ -61,6 +61,7 @@ export const handler: Handlers<any,WithSession> = {
       relso : relso,
       entry : entry,
       entrys : entrys,
+      novels : novels,
       reserve : reserve,
       mainKey : mainKey
     })
