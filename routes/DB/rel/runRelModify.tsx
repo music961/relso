@@ -7,10 +7,10 @@ export const handler = {
         pintoLog(rel)
         update(
           'rel_main set topic=?,topic_type=?,topic_link=?,title=?,main_start=?,main_end=?,role=? where main_key=?',
-          [rel.topic,rel.topicType,rel.topicLink,rel.title,rel.timeStart,rel.timeEnd,rel.mainKey]
+          [rel.topic,rel.topicType,rel.topicLink,rel.title,rel.timeStart,rel.timeEnd,rel.role,rel.mainKey]
         )
         const result = {
-            relKey : rel.mainKey
+            relKey : rel.entryKey
         }
       return new Response(
         JSON.stringify(result),
