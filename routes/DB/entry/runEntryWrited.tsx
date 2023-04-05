@@ -17,7 +17,7 @@ export const handler = {
         region: "ap-northeast-2"
       })
       bucket.putObject(
-        `entry/${entry.entry_key}`,
+        `entry/${entry.entryKey}`,
         new TextEncoder().encode(entry.novel)
       )
       return new Response(
