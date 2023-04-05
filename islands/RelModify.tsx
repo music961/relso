@@ -103,7 +103,7 @@ export default function RelModify(props : PropsRel){
   )
 }
 
-const relSummit = (mainKey:any,entryKey:any,url:string)=>{
+const relSummit = (mainKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
