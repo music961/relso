@@ -4,6 +4,7 @@ import { useState } from "preact/hooks"
 
 interface PropsRel {
   rel: any,
+  novel : string,
   url : string
 }
 
@@ -92,7 +93,7 @@ export default function RelModify(props : PropsRel){
           placeholder="본문"
           class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
           rows={12}
-          value={rel.role}
+          value={rel.novel}
         />
       </div>
       <div>
