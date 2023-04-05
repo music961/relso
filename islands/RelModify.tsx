@@ -36,7 +36,7 @@ export default function RelModify(props : PropsRel){
   return (
     <div>
       <div>
-        <Button onClick={()=>relSummit(rel.main_key,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(rel.main_key,rel.entry_key,props.url)}>확인</Button>
       </div>
       <table class="p-4 shadow-md">
           {/* <tr>
@@ -103,7 +103,7 @@ export default function RelModify(props : PropsRel){
   )
 }
 
-const relSummit = (mainKey:any,url:string)=>{
+const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -127,7 +127,7 @@ const relSummit = (mainKey:any,url:string)=>{
   if(relTopicType!=0){
     relTopicLink = chkValue('relTopicLink')
   }
-  //pintoLog(`엔트리키 : ${entryKey}`)
+  pintoLog(`엔트리키 : ${entryKey}`)
   const model = {
     mainKey : mainKey,
     title : relTitle,
@@ -138,7 +138,7 @@ const relSummit = (mainKey:any,url:string)=>{
     timeEnd : Date.parse(relEnd),
     firstWriter : relFirstWriter,
     role : relRole,
-    //entryKey : entryKey
+    entryKey : entryKey
   }
   if(summitOK){
     fetch(url,{
