@@ -60,7 +60,7 @@ const entrySummit = (entryKey:number)=>{
   }
   const novel = chkValue('entryNovel')
   if(summitOK){
-    if(confirm("제출하시겠습니까?")){
+    if(confirm(`제출하시겠습니까? ${entryKey}`)){
       const model = {
           entryKey : entryKey,
           state : 1,
