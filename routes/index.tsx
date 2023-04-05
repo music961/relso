@@ -54,6 +54,7 @@ export const handler: Handlers<any,WithSession> = {
         const {body} = await bucket.getObject(`entry/${entry.entry_key}`) ||{}
         novels.push(await new Response(body).text())
       }
+      novels.reverse()
     }
     if(entry){
       [reserve] = await select(

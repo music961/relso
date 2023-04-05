@@ -32,9 +32,9 @@ export default function Entrys(props: RelsProps) {
                             <div>
                                 {idx+1}번째 [{entry.entry_name}]님
                             </div>
-                            <div>
+                            <pre>
                                 {props.novels[idx]}
-                            </div>
+                            </pre>
                         </div>
                     ))
                     }
