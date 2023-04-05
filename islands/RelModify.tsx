@@ -1,7 +1,6 @@
 import { Button, Input } from "../components/Button.tsx"
 import { dbTimeToDateTimeLocal, pintoLog } from "../const/Function.ts"
 import { useState } from "preact/hooks"
-import { S3Bucket } from "aws_s3"
 
 interface PropsRel {
   rel: any,
@@ -103,7 +102,7 @@ export default function RelModify(props : PropsRel){
   )
 }
 
-const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
+const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -138,10 +137,10 @@ const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
     timeEnd : Date.parse(relEnd),
     firstWriter : relFirstWriter,
     role : relRole,
-    entryKey : entryKey
+    novel : relNovel
   }
   if(summitOK){
-    const rsp = await fetch(url,{
+    fetch(url,{
       method:'POST',
       headers : {
         'Accept' : 'application/json',
@@ -149,18 +148,6 @@ const relSummit = async (mainKey:any,entryKey:any,url:string)=>{
       },
       body: JSON.stringify(model)
     })
-    const data = await rsp.json()
-    const ek = data.result
-    const bucket = new S3Bucket({
-      accessKeyID: Deno.env.get('s3_access') || '',
-      secretKey: Deno.env.get('s3_secret') || '',
-      bucket: 'relso',
-      region: "ap-northeast-2"
-    })
-    bucket.putObject(
-      `entry/${ek}`,
-      new TextEncoder().encode(relNovel)
-    )
     location.replace('/admin/relList')
   }else{
     alert('바르게 입력해 주세요')

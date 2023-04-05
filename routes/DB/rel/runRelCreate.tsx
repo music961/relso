@@ -1,5 +1,6 @@
-import { insert, insertReturning } from "../../../const/DBTable.tsx"
+import { insertReturning } from "../../../const/DBTable.tsx"
 import { pintoLog } from "../../../const/Function.ts"
+import { S3Bucket } from "aws_s3"
 
 export const handler = {
     async POST(req:Request):Promise<Response>{
@@ -15,11 +16,18 @@ export const handler = {
           'entry_key',
           [relReturning.main_key,rel.firstWriter,Date.now(),Date.now()]
         )
-        const result = {
-            result : entryReturning.entry_key
-        }
+        const bucket = new S3Bucket({
+          accessKeyID: Deno.env.get('s3_access') || '',
+          secretKey: Deno.env.get('s3_secret') || '',
+          bucket: 'relso',
+          region: "ap-northeast-2"
+        })
+        bucket.putObject(
+          `entry/${entryReturning.entry_key}`,
+          new TextEncoder().encode(rel.novel)
+        )
       return new Response(
-        JSON.stringify(result),
+        JSON.stringify(200),
         {
           status: 200,
           headers: {
