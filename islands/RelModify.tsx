@@ -127,7 +127,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   if(relTopicType!=0){
     relTopicLink = chkValue('relTopicLink')
   }
-  pintoLog(`엔트리키 : ${entryKey}`)
+  //pintoLog(`엔트리키 : ${entryKey}`)
   const model = {
     mainKey : mainKey,
     title : relTitle,
