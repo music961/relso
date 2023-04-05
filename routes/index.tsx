@@ -19,7 +19,7 @@ export default function Home({data}:PageProps) {
       <Layout>
         <Relso relso={data.relso}/>
         <Entry th={entrys.length+1} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve} relso={data.relso}/>
-        <Entrys entrys={data.entrys}/>
+        <Entrys entrys={data.entrys} novels={data.novels}/>
       </Layout>
     </html>
   )
@@ -29,6 +29,7 @@ export const handler: Handlers<any,WithSession> = {
   async GET(_,cxt){
     let entry
     let entrys
+    const novels :string[] = []
     let reserve
     let mainKey = 0
     const now = Date.now()
@@ -40,6 +41,9 @@ export const handler: Handlers<any,WithSession> = {
       )
       mainKey = relso.main_key
       entrys = await select("* from rel_entry where main_key=? and state=1 order by entry_key desc",[mainKey])
+      entrys.map((entry)=>
+        novels.push(entry.entry_start)
+      )
     }
     if(entry){
       [reserve] = await select(

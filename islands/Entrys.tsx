@@ -26,8 +26,8 @@ export default function Entrys(props: RelsProps) {
                     }
                 </table>
                 {
-                    entrys.map((entry, idx) => (
-                        <div>{idx}번째 [{entry.entry_name}]님</div>
+                    entrys.reverse().map((entry, idx) => (
+                        <div>{idx+1}번째 [{entry.entry_name}]님</div>
                     ))
                     }
 
