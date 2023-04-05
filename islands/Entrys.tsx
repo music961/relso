@@ -28,9 +28,9 @@ export default function Entrys(props: RelsProps) {
                 </table>
                 {
                     entrys.reverse().map((entry, idx) => (
-                        <div>
+                        <div class='inline-block text-center max-w-md'>
                             <br/>
-                            <div class='max-w-xs'>
+                            <div>
                                 {idx+1}번째 [{entry.entry_name}]님
                             </div>
                             <br/>
