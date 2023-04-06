@@ -10,7 +10,7 @@ interface PropsRel {
 
 export default function RelModify(props : PropsRel){
   const rel = props.rel
-  const entryKey = rel.entry_key || 0
+  const entryKey = 0
   let preTitle = '미정'
   const [주제_타입,설정_주제_타입] = useState(rel.topic_type || 0)
   let 주제_링크 = (<div/>)
