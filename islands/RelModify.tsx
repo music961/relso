@@ -45,10 +45,6 @@ export default function RelModify(props : PropsRel){
         <Button onClick={()=>relSummit(rel.main_key,rel.entry_key,props.url)}>확인</Button>
       </div>
       <table class="p-4 shadow-md">
-          {/* <tr>
-              <td class="px-4">라운드</td>
-              <td><Input id="relRound" value={rel.round}/></td>
-          </tr> */}
           {제목_입력}
           <tr>
             <td class="px-4">카테고리</td>
