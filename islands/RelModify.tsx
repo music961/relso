@@ -113,6 +113,7 @@ export default function RelModify(props : PropsRel){
 
 const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   let summitOK = true
+  pintoLog('트레이스1')
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
     // 공백이 입력되면, 실행하지 않는다.
