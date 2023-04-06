@@ -10,13 +10,7 @@ export default function Relso(props: RelsoProps){
         return(
             <div class="p-4 items-center">
                 <tr>
-                    <td class="px-4">{relso.round}</td>
-                </tr>
-                <tr>
-                    <td class="px-4">{relso.cat}</td>
-                </tr>
-                <tr>
-                    <td class="px-4">{relso.concept}</td>
+                    <td class="px-4">{relso.round}.{relso.cat}/{relso.concept}</td>
                 </tr>
                 <tr onClick={()=>location.href=`${relso.topic_link}`}>
                     <td class="px-4 cursor-pointer hover:underline">{relso.topic}</td>
