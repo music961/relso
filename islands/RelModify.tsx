@@ -121,6 +121,8 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
     }
     return elem
   }
+  const relCat = chkValue('relCat')
+  const relConcept = chkValue('relConcept')
   const relTitle = chkValue('relTitle')
   const relTopic = chkValue('relTopic')
   const relTopicType = chkValue('relTopicType')
@@ -138,6 +140,8 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   pintoLog(`엔트리키 : ${entryKey}`)
   const model = {
     mainKey : mainKey,
+    cat : relCat,
+    concept : relConcept,
     title : relTitle,
     topic : relTopic,
     topicType : relTopicType,
