@@ -10,7 +10,7 @@ export default function Entrys(props: RelsProps) {
     if(entrys){
         return (
             <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
-                <hr/>
+                <div>주자</div>
                 {
                     entrys.map((entry,idx)=>(
                         <a>

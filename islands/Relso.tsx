@@ -8,7 +8,7 @@ export default function Relso(props: RelsoProps){
     const relso = props.relso
     if(relso){
         return(
-            <div class="p-4 items-center">
+            <div class="p-4">
                 <div>
                     <td class="px-4">{relso.round}.{relso.cat}/{relso.concept}</td>
                 </div>
