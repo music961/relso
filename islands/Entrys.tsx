@@ -12,6 +12,15 @@ export default function Entrys(props: RelsProps) {
             <div>
                 <hr/>
                 {
+                    entrys.map((entry,idx)=>(
+                        <div class='flex'>
+                        <a>{idx}.[entry.entry_name]님</a>
+                        {idx!==entrys.length-1 && <a>&gt;</a>}
+                        </div>
+                    ))
+                }
+                <hr/>
+                {
                     entrys.map((entry, idx) => (
                         <div>
                             <br/>
