@@ -10,7 +10,6 @@ interface PropsRel {
 
 export default function RelModify(props : PropsRel){
   const rel = props.rel
-  const entryKey = 0
   let preTitle = '미정'
   pintoLog('트레이스666')
   const [주제_타입,설정_주제_타입] = useState(rel.topic_type || 0)
@@ -43,7 +42,7 @@ export default function RelModify(props : PropsRel){
   return (
     <div>
       <div>
-        <Button onClick={()=>relSummit(rel.main_key,entryKey,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(rel.main_key,rel.entry_key,props.url)}>확인</Button>
       </div>
       <table class="p-4 shadow-md">
           {/* <tr>
@@ -112,7 +111,7 @@ export default function RelModify(props : PropsRel){
         />
       </div>
       <div>
-        <Button onClick={()=>relSummit(rel.main_key,entryKey,props.url)}>확인</Button>
+        <Button onClick={()=>relSummit(rel.main_key,rel.entry_key,props.url)}>확인</Button>
       </div>
     </div>
   )
@@ -131,7 +130,7 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   }
   const relCat = chkValue('relCat')
   const relConcept = chkValue('relConcept')
-  const relTitle = chkValue('relTitle')
+
   const relTopic = chkValue('relTopic')
   const relTopicType = chkValue('relTopicType')
 
@@ -142,6 +141,10 @@ const relSummit = (mainKey:any,entryKey:any,url:string)=>{
   const relNovel = chkValue('relNovel')
   
   let relTopicLink = ''
+  let relTitle = ''
+  if(entryKey){
+    relTitle = chkValue('relTitle')
+  }
   if(relTopicType!=0){
     relTopicLink = chkValue('relTopicLink')
   }
