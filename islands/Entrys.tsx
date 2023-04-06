@@ -28,7 +28,7 @@ export default function Entrys(props: RelsProps) {
                                 {idx+1}번째 [{entry.entry_name}]님
                             </div>
                             <br/>
-                            <pre class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
+                            <pre>
                                 {props.novels[idx]}
                             </pre>
                             <br/>
