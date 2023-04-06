@@ -9,7 +9,7 @@ export default function Entrys(props: RelsProps) {
     const entrys = props.entrys
     if(entrys){
         return (
-            <div>
+            <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
                 <hr/>
                 {
                     entrys.map((entry,idx)=>(
