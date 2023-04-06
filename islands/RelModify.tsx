@@ -19,6 +19,7 @@ export default function RelModify(props : PropsRel){
   if(rel.title){
     preTitle = rel.title
   }
+  pintoLog('트레이스777')
   if(주제_타입!=0){
     주제_링크 = (
       <tr>
@@ -27,6 +28,7 @@ export default function RelModify(props : PropsRel){
       </tr>
     )
   }
+  pintoLog('트레이스888')
   if(props.url!='../../DB/rel/runRelCreate'){
     제목_입력 = (
       <tr>
@@ -35,6 +37,9 @@ export default function RelModify(props : PropsRel){
       </tr>
     )
   }
+  pintoLog('트레이스999')
+  pintoLog(props.rel)
+  pintoLog('트레이스 101010')
   return (
     <div>
       <div>
