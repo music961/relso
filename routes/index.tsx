@@ -15,7 +15,7 @@ export default function Home({data}:PageProps) {
   return (
     <html lang="ko">
       <Head>
-        <title>릴레이 선언 하는곳</title>
+        <title>C형 릴레이</title>
       </Head>
       <Layout>
         <Relso relso={data.relso}/>
