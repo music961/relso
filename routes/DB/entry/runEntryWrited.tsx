@@ -10,16 +10,18 @@ export const handler = {
         'rel_entry set state=?,entry_end=? where entry_key=?',
         [entry.state,Date.now(),entry.entryKey]
       )
-      const bucket = new S3Bucket({
-        accessKeyID: Deno.env.get('s3_access') || '',
-        secretKey: Deno.env.get('s3_secret') || '',
-        bucket: 'relso',
-        region: "ap-northeast-2"
-      })
-      bucket.putObject(
-        `entry/${entry.entryKey}`,
-        new TextEncoder().encode(entry.novel)
-      )
+      if(entry.novel){
+        const bucket = new S3Bucket({
+          accessKeyID: Deno.env.get('s3_access') || '',
+          secretKey: Deno.env.get('s3_secret') || '',
+          bucket: 'relso',
+          region: "ap-northeast-2"
+        })
+        bucket.putObject(
+          `entry/${entry.entryKey}`,
+          new TextEncoder().encode(entry.novel)
+        )
+      }
       return new Response(
         JSON.stringify(100),
         {
