@@ -14,7 +14,7 @@ export default function Entrys(props: RelsProps) {
                 {
                     entrys.map((entry,idx)=>(
                         <a>
-                        {idx}.[{entry.entry_name}]님
+                        {idx+1}.[{entry.entry_name}]님
                         {idx!==entrys.length-1 && <a> &gt; </a>}
                         </a>
                     ))
@@ -28,7 +28,7 @@ export default function Entrys(props: RelsProps) {
                             <div>
                                 {idx+1}번째 [{entry.entry_name}]님
                             </div>
-                            <br/>
+                            <br/><br/>
                             <pre class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
                                 {props.novels[idx]}
                             </pre>
