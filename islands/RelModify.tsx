@@ -20,7 +20,7 @@ export default function RelModify(props : PropsRel){
   if(주제_타입!=0){
     주제_링크 = (
       <tr>
-        <td class="px-4">주제링크</td>
+        <td class="px-4">링크</td>
         <td><Input id="relTopicLink" value={rel.topic_link}/></td>
       </tr>
     )
@@ -45,7 +45,11 @@ export default function RelModify(props : PropsRel){
           </tr> */}
           {제목_입력}
           <tr>
-              <td class="px-4">주제</td>
+              <td class="px-4">카테고리</td>
+              <td><Input id="relCat" value={rel.cat}/></td>
+              <td class="px-4">컨셉</td>
+              <td><Input id="relConcept" value={rel.concept}/></td>
+              <td class="px-4">세부컨셉</td>
               <td><Input id="relTopic" value={rel.topic}/></td>
               <td class="px-4">
                 <select class="bg-black border(gray-200 1)" id='relTopicType' value={rel.topic_type} 
