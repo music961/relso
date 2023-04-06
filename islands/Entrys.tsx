@@ -10,6 +10,7 @@ export default function Entrys(props: RelsProps) {
     if(entrys){
         return (
             <div>
+                <hr/>
                 {
                     entrys.map((entry, idx) => (
                         <div>
