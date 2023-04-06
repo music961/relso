@@ -56,12 +56,11 @@ export const handler: Handlers<any,WithSession> = {
         [relso.main_key,Date.now()-10800000]
       )
       mainKey = relso.main_key
-      entrys = await select("* from rel_entry where main_key=? and state=1 order by entry_key desc",[mainKey])
+      entrys = await select("* from rel_entry where main_key=? and state=1 order by entry_key",[mainKey])
       for(const entry of entrys){
         const {body} = await bucket.getObject(`entry/${entry.entry_key}`) ||{}
         novels.push(await new Response(body).text())
       }
-      novels.reverse()
     }
     if(entry){
       [reserve] = await select(
