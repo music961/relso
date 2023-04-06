@@ -18,8 +18,15 @@ export default function Home({data}:PageProps) {
         <title>C형 릴레이</title>
       </Head>
       <Layout>
+        <Entry 
+          th={entrys.length+1} 
+          mainKey={data.mainKey} 
+          이전주자_닉네임={firstEntry.entry_name} 
+          entry={data.entry} 
+          reserve={data.reserve} 
+          relso={data.relso}
+        />
         <Relso relso={data.relso}/>
-        <Entry th={entrys.length+1} mainKey={data.mainKey} 이전주자_닉네임={firstEntry.entry_name} entry={data.entry} reserve={data.reserve} relso={data.relso}/>
         <Entrys entrys={data.entrys} novels={data.novels}/>
       </Layout>
     </html>
