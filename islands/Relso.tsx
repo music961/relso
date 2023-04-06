@@ -8,7 +8,7 @@ export default function Relso(props: RelsoProps){
     const relso = props.relso
     if(relso){
         return(
-            <div>
+            <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
                 <div>
                     <td>{relso.round}.{relso.cat}/{relso.concept}</td>
                 </div>
