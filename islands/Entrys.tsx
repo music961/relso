@@ -8,7 +8,6 @@ interface RelsProps {
 export default function Entrys(props: RelsProps) {
     const entrys = props.entrys
     if(entrys){
-        const cnt = entrys.length
         return (
             <div>
                 {
