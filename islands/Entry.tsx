@@ -90,7 +90,7 @@ export default function Entry(props:EntryProps){
             }else{
                 return(
                     <div class="p-4 items-center">
-                        <Input id="entryName" placeholder={`${props.th+1}번째 작가님 모집 (이름 입력)`}/>
+                        <Input id="entryName" placeholder={`${props.th}번째 작가님 모집 (이름 입력)`}/>
                         <Button onClick={()=>entryStart(props.mainKey,props.이전주자_닉네임)}>잇겠습니다</Button>
                     </div>
                 )

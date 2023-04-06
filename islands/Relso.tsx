@@ -19,7 +19,7 @@ export default function Relso(props: RelsoProps){
                     <td class="px-4">{relso.concept}</td>
                 </tr>
                 <tr onClick={()=>location.href=`${relso.topic_link}`}>
-                    <td class="px-4 cursor-pointer hover:underline">{relso.round}.{relso.topic}</td>
+                    <td class="px-4 cursor-pointer hover:underline">{relso.topic}</td>
                 </tr>
                 <tr>
                     <td class="px-4">마감 : {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
