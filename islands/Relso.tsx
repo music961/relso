@@ -23,6 +23,7 @@ export default function Relso(props: RelsoProps){
                 <div>
                     {relso.role}
                 </div>
+                <br/>
             </div>
         )
     }else{

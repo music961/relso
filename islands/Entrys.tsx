@@ -19,6 +19,7 @@ export default function Entrys(props: RelsProps) {
                         </a>
                     ))
                 }
+                <br/>
                 <hr/>
                 {
                     entrys.map((entry, idx) => (
