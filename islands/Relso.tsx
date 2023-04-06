@@ -9,15 +9,20 @@ export default function Relso(props: RelsoProps){
     if(relso){
         return(
             <div class="p-4 items-center">
-                <tr>
+                <div>
                     <td class="px-4">{relso.round}.{relso.cat}/{relso.concept}</td>
-                </tr>
-                <tr onClick={()=>location.href=`${relso.topic_link}`}>
+                </div>
+                <div onClick={()=>location.href=`${relso.topic_link}`}>
                     <td class="px-4 cursor-pointer hover:underline">{relso.topic}</td>
-                </tr>
-                <tr>
+                </div>
+                <div>
                     <td class="px-4">마감 : {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
-                </tr>
+                </div>
+                <br/>
+                <div>규칙</div>
+                <div>
+                    {relso.role}
+                </div>
             </div>
         )
     }else{
