@@ -91,7 +91,7 @@ export default function RelModify(props : PropsRel){
           id="relRole"
           placeholder="규칙"
           class="w-full border-2 rounded-md mt-2 px-2 bg-black border-green-500 focus:border-green-600 outline-none" 
-          rows={6}
+          rows={4}
           value={rel.role}
         />
       </div>
