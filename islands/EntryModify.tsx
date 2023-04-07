@@ -73,11 +73,12 @@ const entrySummit = (entryKey:number)=>{
           'Content-Type' : 'application/json'
           },
           body: JSON.stringify(model)
-      })    
-      location.replace('/')
+      })
+      .then(()=>{
+        location.replace('/')
+      })
     }
   }else{
     alert('바르게 입력해 주세요')
   } 
-
 }
