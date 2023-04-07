@@ -10,7 +10,7 @@ import { S3Bucket } from "aws_s3"
 
 export default function Home({data}:PageProps) {
   const entrys = data.entrys || []
-  const firstEntry = entrys[0] || {}
+  const lastEntry = entrys[entrys.length-1] || {}
   //임시 끝
   return (
     <html lang="ko">

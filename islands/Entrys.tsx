@@ -32,7 +32,7 @@ export default function Entrys(props: RelsProps) {
                             <pre class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
                                 {props.novels[idx]}
                             </pre>
-                            <br/>
+                            <br/><br/>
                         </div>
                     ))
                     }
