@@ -21,7 +21,7 @@ export default function Home({data}:PageProps) {
         <Entry 
           th={entrys.length+1} 
           mainKey={data.mainKey} 
-          이전주자_닉네임={firstEntry.entry_name} 
+          이전주자_닉네임={lastEntry.entry_name} 
           entry={data.entry} 
           reserve={data.reserve} 
           relso={data.relso}
