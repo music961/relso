@@ -73,11 +73,11 @@ export default function RelModify(props : PropsRel){
           {주제_링크}
           <tr>
               <td class="px-4">시작시간</td>
-              <td><Input id="relStart" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
+              <td><Input id="relStart" type="datetime-local" step="60" value={dbTimeToDateTimeLocal(rel.main_start)}/></td>
           </tr>
           <tr>
               <td class="px-4">종료시간</td>
-              <td><Input id="relEnd" type="datetime-local" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
+              <td><Input id="relEnd" type="datetime-local" step="60" value={dbTimeToDateTimeLocal(rel.main_end)}/></td>
           </tr>
           <tr>
             <td class="px-4">첫글 작가 닉네임</td>

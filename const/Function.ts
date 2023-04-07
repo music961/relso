@@ -50,7 +50,10 @@ const pintoLog = (params:any) => {
 const dbTimeToDateTimeLocal = (dbTime : number)=>{
 	let param = dbTime
 	if(!dbTime){
-		param = Date.now()
+		const now = new Date()
+		now.setMinutes(0)
+		now.setSeconds(0)
+		param = now.getTime()
 	}
 	return new Date(new Date(param).getTime()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,-5)
 }
