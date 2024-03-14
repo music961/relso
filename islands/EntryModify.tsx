@@ -27,7 +27,7 @@ export default function EntryModify(props : PropEntity){
         </div>
         <div className="float-right">
           <button 
-            class="px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 flex gap-2" 
+            class="w-full px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 flex gap-2" 
             onClick={()=>entrySummit(entry.entry_key)}
           >
             제출
@@ -54,6 +54,7 @@ const entrySummit = (entryKey:number)=>{
     const elem = document.getElementById(label).value
     // 공백이 입력되면, 실행하지 않는다.
     if(elem==''){
+      alert('내용이 없습니다.')
       summitOK = false
     }
     return elem
