@@ -30,7 +30,7 @@ export default function EntryModify(props : PropEntity){
             class="px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 flex gap-2" 
             onClick={()=>entrySummit(entry.entry_key)}
           >
-            <IconPencil class="w-4 h-4" />
+            제출
           </button>
         </div>
         <div>
