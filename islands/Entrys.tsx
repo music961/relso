@@ -32,21 +32,21 @@ export default function Entrys(props: RelsProps) {
                                 <div>
                                     {idx+1}번째 [{entry.entry_name}]님
                                 </div>
-                                <div>
-                                <IconEdit 
-                                    class="w-6 h-6"
-                                    onClick={()=>
-                                        alert('수정버튼 준비중')
-                                    }
-                                />
-                                <IconCopy 
-                                    class="w-6 h-6" 
-                                    onClick={()=>
-                                        window.navigator.clipboard.writeText(
-                                            `${idx+1}번째 [${entry.entry_name}]님\n\n`+props.novels[idx]
-                                        )
-                                    }
-                                />
+                                <div class="flex">
+                                    <IconEdit 
+                                        class="w-6 h-6"
+                                        onClick={()=>
+                                            alert('수정버튼 준비중')
+                                        }
+                                    />
+                                    <IconCopy 
+                                        class="w-6 h-6" 
+                                        onClick={()=>
+                                            window.navigator.clipboard.writeText(
+                                                `${idx+1}번째 [${entry.entry_name}]님\n\n`+props.novels[idx]
+                                            )
+                                        }
+                                    />
                                 </div>
                             </div>
                             <br/>
