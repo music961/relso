@@ -11,14 +11,12 @@ interface PropsRel {
 export default function RelModify(props : PropsRel){
   const rel = props.rel
   let preTitle = '미정'
-  pintoLog('트레이스666')
   const [주제_타입,설정_주제_타입] = useState(rel.topic_type || 0)
   let 주제_링크 = (<div/>)
   let 제목_입력 = (<div/>)
   if(rel.title){
     preTitle = rel.title
   }
-  pintoLog('트레이스777')
   if(주제_타입!=0){
     주제_링크 = (
       <tr>
@@ -27,7 +25,6 @@ export default function RelModify(props : PropsRel){
       </tr>
     )
   }
-  pintoLog('트레이스888')
   if(props.url!='../../DB/rel/runRelCreate'){
     제목_입력 = (
       <tr>
