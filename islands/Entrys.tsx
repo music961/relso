@@ -37,7 +37,7 @@ export default function Entrys(props: RelsProps) {
                                 <IconCopy 
                                     class="w-6 h-6" 
                                     onClick={()=>
-                                        testFunc()
+                                        copyNovel(`${idx+1}번째 [${entry.entry_name}]님\n\n`+props.novels[idx])
                                     }
                                 />
                                 </div>
@@ -61,6 +61,9 @@ export default function Entrys(props: RelsProps) {
   }
 
 
-const testFunc = ()=>{
-    alert("복사버튼 누름")
+const copyNovel = (novel:string)=>{
+    window.navigator.clipboard.writeText(novel).then(() => {
+    alert("복사되었습니다.\n릴소사 단톡방에 붙여주세요.")
+    });
+
 }
