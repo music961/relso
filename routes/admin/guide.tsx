@@ -23,6 +23,7 @@ export default function main(){
             <br/><br/>
             v.0.2.0(22nd Mar 24')<br/><br/>
             - 복사버튼이 추가되었습니다.<br/>
+            - 릴레이 소설을 제출하면, 내용이 자동으로 복사됩니다.<br/>
             - Deno fresh, preact 등 API 를 최신버전으로 업그레이드했습니다.<br/>
             <br/><br/>
             v.0.1.4(6th Apr 23')<br/><br/>

@@ -1,4 +1,5 @@
 import IconCopy from "https://deno.land/x/tabler_icons_tsx@0.0.5/tsx/copy.tsx"
+import IconEdit from "https://deno.land/x/tabler_icons_tsx@0.0.5/tsx/edit.tsx"
 
 interface RelsProps {
     entrys : any,
@@ -10,10 +11,8 @@ export default function Entrys(props: RelsProps) {
     if(entrys){
         return (
             <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
-                <div class="flex">
-                    <div class="mr-2">
-                        주자
-                    </div>
+                <div>
+                    주자
                 </div>
                 {
                     entrys.map((entry,idx)=>(
@@ -34,6 +33,12 @@ export default function Entrys(props: RelsProps) {
                                     {idx+1}번째 [{entry.entry_name}]님
                                 </div>
                                 <div>
+                                <IconEdit 
+                                    class="w-6 h-6"
+                                    onClick={()=>
+                                        alert('수정버튼 준비중')
+                                    }
+                                />
                                 <IconCopy 
                                     class="w-6 h-6" 
                                     onClick={()=>
