@@ -12,7 +12,7 @@ export default function Entrys(props: RelsProps) {
         return (
             <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
                 <div>
-                    주자
+                    🏃🏻‍♀️주자
                 </div>
                 {
                     entrys.map((entry,idx)=>(

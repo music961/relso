@@ -16,10 +16,10 @@ export default function Relso(props: RelsoProps){
                     <td class="cursor-pointer hover:underline">{relso.topic}</td>
                 </div>
                 <div>
-                    <td>마감 : {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
+                    <td>⏳ {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
                 </div>
                 <br/>
-                <div>규칙</div>
+                <div>📜규칙</div>
                 <div>
                     {relso.role}
                 </div>
