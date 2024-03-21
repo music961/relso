@@ -19,7 +19,7 @@ export default function Relso(props: RelsoProps){
                     <td>⏳ {convertDate(relso.main_end)} ({convertTimeScale(relso.main_end,Date.now(),false)})</td>
                 </div>
                 <br/>
-                <div>📜규칙</div>
+                <div>📜 규칙</div>
                 <div>
                     {relso.role}
                 </div>
