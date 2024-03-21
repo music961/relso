@@ -29,7 +29,7 @@ export default function Entry(props:EntryProps){
             if(예약){
                 예약입력영역 = (
                     <div>
-                        <Input id="예약자이름" placeholder={`예약하시는 분 이름 입력`}/>
+                        <Input id="예약자이름" placeholder={`예약자 이름 입력`}/>
                         <Button onClick={()=>등록_예약(entry.entry_key,entry.entry_name)}>예약합니다</Button>
                     </div>
                 )
@@ -90,8 +90,8 @@ export default function Entry(props:EntryProps){
             }else{
                 return(
                     <div class="p-4 items-center">
-                        <Input id="entryName" placeholder={`${props.th}번째 작가님 모집 (이름 입력)`}/>
-                        <Button onClick={()=>entryStart(props.mainKey,props.이전주자_닉네임)}>잇겠습니다</Button>
+                        <Input id="entryName" placeholder={`${props.th}번째 (이름 입력)`}/>
+                        <Button onClick={()=>entryStart(props.mainKey,props.이전주자_닉네임)}>*선언</Button>
                     </div>
                 )
             }
