@@ -1,4 +1,4 @@
-import { Button } from "../components/Button.tsx";
+import IconCopy from "https://deno.land/x/tabler_icons_tsx@0.0.5/tsx/copy.tsx"
 
 interface RelsProps {
     entrys : any,
@@ -34,12 +34,12 @@ export default function Entrys(props: RelsProps) {
                                     {idx+1}번째 [{entry.entry_name}]님
                                 </div>
                                 <div>
-                                    <Button 
-                                        onClick={()=>
-                                            testFunc()
-                                        }
-                                    >복사
-                                    </Button>
+                                <IconCopy 
+                                    class="w-6 h-6" 
+                                    onClick={()=>
+                                        testFunc()
+                                    }
+                                />
                                 </div>
                             </div>
                             <br/>
