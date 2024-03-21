@@ -1,3 +1,5 @@
+import { Button } from "../components/Button.tsx";
+
 interface RelsProps {
     entrys : any,
     novels : string[]
@@ -11,9 +13,6 @@ export default function Entrys(props: RelsProps) {
                 <div class="flex">
                     <div class="mr-2">
                         주자
-                    </div>
-                    <div>
-                        복사
                     </div>
                 </div>
                 {
@@ -30,8 +29,13 @@ export default function Entrys(props: RelsProps) {
                     entrys.map((entry, idx) => (
                         <div>
                             <br/>
-                            <div>
-                                {idx+1}번째 [{entry.entry_name}]님
+                            <div class="flex justify-between">
+                                <div>
+                                    {idx+1}번째 [{entry.entry_name}]님
+                                </div>
+                                <div>
+                                    <Button>복사</Button>
+                                </div>
                             </div>
                             <br/><br/>
                             <div 
