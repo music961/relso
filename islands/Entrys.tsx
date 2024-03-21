@@ -62,8 +62,5 @@ export default function Entrys(props: RelsProps) {
 
 
 const copyNovel = (novel:string)=>{
-    window.navigator.clipboard.writeText(novel).then(() => {
-    alert("복사되었습니다.\n릴소사 단톡방에 붙여주세요.")
-    });
-
+    window.navigator.clipboard.writeText(novel)
 }
