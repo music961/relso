@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks"
+import { kakaoClipboard } from "npm:react-kakao-shere"
 
 interface RelsProps {
     entrys : any,
@@ -10,7 +11,14 @@ export default function Entrys(props: RelsProps) {
     if(entrys){
         return (
             <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>
-                <div>주자</div>
+                <div class="flex">
+                    <div class="mr-2">
+                        주자
+                    </div>
+                    <div>
+                        확인
+                    </div>
+                </div>
                 {
                     entrys.map((entry,idx)=>(
                         <a>
