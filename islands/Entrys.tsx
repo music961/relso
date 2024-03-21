@@ -1,6 +1,3 @@
-import { useState } from "preact/hooks"
-import { kakaoClipboard } from "npm:react-kakao-shere"
-
 interface RelsProps {
     entrys : any,
     novels : string[]
@@ -16,7 +13,7 @@ export default function Entrys(props: RelsProps) {
                         주자
                     </div>
                     <div>
-                        확인
+                        복사
                     </div>
                 </div>
                 {
