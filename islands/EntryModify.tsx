@@ -28,7 +28,7 @@ export default function EntryModify(props : PropEntity){
         <div className="float-right">
           <button 
             class="px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 flex gap-2" 
-            onClick={()=>entrySummit(entry.entry_key)}
+            onClick={()=>entrySummit(entry.entry_key,`${props.th}번째 [${entry.entry_name}]님\n\n`)}
           >
             제출
           </button>
@@ -48,7 +48,7 @@ export default function EntryModify(props : PropEntity){
   }
 }
 
-const entrySummit = (entryKey:number)=>{
+const entrySummit = (entryKey:number,novelHeader:string)=>{
   let summitOK = true
   const chkValue = (label:string)=> {
     const elem = document.getElementById(label).value
@@ -75,6 +75,7 @@ const entrySummit = (entryKey:number)=>{
           body: JSON.stringify(model)
       })
       .then(()=>{
+        window.navigator.clipboard.writeText(novelHeader+novel)
         location.replace('/')
       })
     }

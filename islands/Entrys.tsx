@@ -37,7 +37,9 @@ export default function Entrys(props: RelsProps) {
                                 <IconCopy 
                                     class="w-6 h-6" 
                                     onClick={()=>
-                                        copyNovel(`${idx+1}번째 [${entry.entry_name}]님\n\n`+props.novels[idx])
+                                        window.navigator.clipboard.writeText(
+                                            `${idx+1}번째 [${entry.entry_name}]님\n\n`+props.novels[idx]
+                                        )
                                     }
                                 />
                                 </div>
@@ -59,8 +61,3 @@ export default function Entrys(props: RelsProps) {
         return(<div/>)
     }
   }
-
-
-const copyNovel = (novel:string)=>{
-    window.navigator.clipboard.writeText(novel)
-}

@@ -21,6 +21,10 @@ export default function main(){
             릴소사 민호<br/><br/>
             [패치노트]
             <br/><br/>
+            v.0.2.0(22nd Mar 24')<br/><br/>
+            - 복사버튼이 추가되었습니다.<br/>
+            - Deno fresh, preact 등 API 를 최신버전으로 업그레이드했습니다.<br/>
+            <br/><br/>
             v.0.1.4(6th Apr 23')<br/><br/>
             - 선언 페이지의 레이아웃을 변경했습니다.<br/>
             - 선언페이지에서 릴레이소설 전체를 읽을 수 있습니다.<br/>
