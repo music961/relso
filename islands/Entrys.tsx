@@ -30,8 +30,7 @@ export default function Entrys(props: RelsProps) {
                             </div>
                             <br/><br/>
                             <pre 
-                                class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap text-base'
-                                style={{ letterSpacing: '-0.05em' }}
+                                class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap tracking-tighter text-base'
                             >
                                 {props.novels[idx]}
                             </pre>
