@@ -5,9 +5,9 @@ const oauthSecret = "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"
 const oauthRedirect = "https://relso.deno.dev/DB/runGoogleAuth"
 
 // 240322 앤디 : Entrys를 초기화시키는 용도로 사용
-const signalEntryTh = useSignal('')
-const signalEntryTopic = useSignal('')
-const signalEntryNovel = useSignal('')
+// const signalEntryTh = useSignal('')
+// const signalEntryTopic = useSignal('')
+// const signalEntryNovel = useSignal('')
 
 
 export { oauthId, oauthRedirect, oauthSecret}
