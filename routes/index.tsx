@@ -7,10 +7,13 @@ import Relso from "../islands/Relso.tsx"
 import Entry from "../islands/Entry.tsx"
 import Entrys from "../islands/Entrys.tsx"
 import { S3Bucket } from "aws_s3"
+import { sigRelso } from "../const/sig.tsx"
 
 export default function Home({data}:PageProps) {
   const entrys = data.entrys || []
   const lastEntry = entrys[entrys.length-1] || {}
+  sigRelso.value.include(data.relso)
+
   //임시 끝
   return (
     <html lang="ko">
