@@ -12,7 +12,7 @@ import { sigRelso } from "../const/sig.tsx"
 export default function Home({data}:PageProps) {
   const entrys = data.entrys || []
   const lastEntry = entrys[entrys.length-1] || {}
-  sigRelso.value = relso
+  sigRelso.value = data.relso
 
   //임시 끝
   return (
