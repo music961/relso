@@ -12,8 +12,8 @@ interface PropEntity {
 }
 
 export default function EntryModify(props : PropEntity){
-  const [entry, setEntry] = useSignal(props.entry)
-  const [relso, setRelso] = useSignal(props.relso)
+  const entry = useSignal(props.entry)
+  const relso = useSignal(props.relso)
 
   if (!entry) {
     return <div>Loading...</div>;
