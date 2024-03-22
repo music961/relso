@@ -26,10 +26,9 @@ export default function Home({data}:PageProps) {
           mainKey={data.mainKey} 
           이전주자_닉네임={lastEntry.entry_name} 
           entry={data.entry} 
-          reserve={data.reserve} 
-          relso={data.relso}
+          reserve={data.reserve}
         />
-        <Relso relso={data.relso}/>
+        <Relso/>
         <Entrys entrys={data.entrys} novels={data.novels}/>
       </Layout>
     </html>

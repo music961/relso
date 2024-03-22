@@ -1,12 +1,7 @@
 import { convertDate, convertTimeScale } from "../const/Function.ts"
 import { sigRelso } from "../const/sig.tsx"
 
-interface RelsoProps {
-    relso: any
-}
-
-export default function Relso(props: RelsoProps){
-    //const relso = props.relso
+export default function Relso(){
     const relso = sigRelso.value
     if(relso){
         return(
