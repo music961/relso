@@ -1,15 +1,15 @@
 import { useSignal } from "@preact/signals";
-import { sigRelso } from "../const/sig.tsx"
 
 interface PropEntity {
   entry: any,
+  relso: any,
   th : number,
   url : string,
 }
 
 export default function EntryModify(props : PropEntity){
   const entry = useSignal(props.entry)
-  const relso = sigRelso.value
+  const relso = useSignal(props.relso)
 
   if (!entry.value) {
     return <div>Loading...</div>;
