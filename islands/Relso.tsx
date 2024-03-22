@@ -1,8 +1,12 @@
 import { convertDate, convertTimeScale } from "../const/Function.ts"
 import { sigRelso } from "../const/sig.tsx"
 
-export default function Relso(){
-    const relso = sigRelso.value
+interface RelsoProps {
+    relso: any
+}
+
+export default function Relso(props: RelsoProps){
+    const relso = props.relso
     if(relso){
         return(
             <div class='block w-full overflow-x-auto max-w-md mx-auto whitespace-pre-wrap'>

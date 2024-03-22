@@ -28,7 +28,7 @@ export default function Home({data}:PageProps) {
           entry={data.entry} 
           reserve={data.reserve}
         />
-        <Relso/>
+        <Relso relso={data.relso}/>
         <Entrys entrys={data.entrys} novels={data.novels}/>
       </Layout>
     </html>
