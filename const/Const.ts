@@ -9,7 +9,8 @@ const version = "0.0.5"
 // 240322 앤디 : Entrys를 초기화시키는 용도로 사용
 const cxtEntry = useSignal({
     round : '',
-    topic : 
+    topic : '',
+    novel : ''
 })
 
 export { version, oauthId, oauthRedirect, oauthSecret, cxtEntry}
