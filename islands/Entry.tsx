@@ -49,7 +49,8 @@ export default function Entry(props:EntryProps){
                     </tr>
                     <tr>
                         <td class="px-4">
-                        <Link href={`/entry/entryWrite?relso=${encodeURIComponent(JSON.stringify(props.relso))}&entry=${encodeURIComponent(JSON.stringify(props.entry))}&th=${props.th}`}>
+                        {/* <Link href={`/entry/entryWrite?relso=${encodeURIComponent(JSON.stringify(props.relso))}&entry=${encodeURIComponent(JSON.stringify(props.entry))}&th=${props.th}`}> */}
+                        <Link href={`/entry/entryWrite`}>
                             <Button>제출</Button>
                         </Link>
                         <Button onClick={()=>제출포기(entry.entry_key)}>포기</Button>
