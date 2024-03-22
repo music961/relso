@@ -1,4 +1,4 @@
-import { useSignal } from "@preact/signals";
+import { useSignal } from "@preact/signals"
 
 interface PropEntity {
   entry: any,
@@ -11,7 +11,7 @@ export default function EntryModify(props : PropEntity){
   const entry = useSignal(props.entry)
   const relso = useSignal(props.relso)
 
-  if (!entry.value) {
+  if (!entry) {
     return <div>Loading...</div>;
   }else{
     return (
