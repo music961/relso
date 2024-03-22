@@ -1,6 +1,7 @@
 import { Button, Input } from "../components/Button.tsx"
 import { dbTimeToDateTimeLocal, pintoLog } from "../const/Function.ts"
 import { useState, useEffect } from "preact/hooks"
+import { useSignal } from "@preact/signals"
 import IconPencil from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/pencil.tsx"
 
 interface PropEntity {
@@ -11,8 +12,8 @@ interface PropEntity {
 }
 
 export default function EntryModify(props : PropEntity){
-  const [entry, setEntry] = useState(props.entry)
-  const [relso, setRelso] = useState(props.relso)
+  const [entry, setEntry] = useSignal(props.entry)
+  const [relso, setRelso] = useSignal(props.relso)
 
   if (!entry) {
     return <div>Loading...</div>;
