@@ -33,9 +33,6 @@ export default function RelModify(props : PropsRel){
       </tr>
     )
   }
-  pintoLog('트레이스999')
-  pintoLog(props.rel)
-  pintoLog('트레이스 101010')
   return (
     <div>
       <div>

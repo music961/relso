@@ -1,7 +1,6 @@
 import Layout from '../../components/Layouts.tsx'
 import EntryModify from '../../islands/EntryModify.tsx'
 import { PageProps, Handlers } from "$fresh/server.ts"
-import { pintoLog } from '../../const/Function.ts'
 
 export default function entry_create({data}:PageProps){
     const  relso = data.relso || {}
