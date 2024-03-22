@@ -1,4 +1,4 @@
-import { useSignal } from "@preact/signals"
+import { useState } from "preact/hooks"
 
 interface PropEntity {
   entry: any,
@@ -8,8 +8,8 @@ interface PropEntity {
 }
 
 export default function EntryModify(props : PropEntity){
-  const entry = useSignal(props.entry)
-  const relso = useSignal(props.relso)
+  const [entry,setEntry] = useState(props.entry)
+  const [relso,setRelso] = useState(props.relso)
 
   if (!entry) {
     return <div>Loading...</div>;
