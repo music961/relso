@@ -12,7 +12,6 @@ import { sigRelso } from "../const/sig.tsx"
 export default function Home({data}:PageProps) {
   const entrys = data.entrys || []
   const lastEntry = entrys[entrys.length-1] || {}
-  sigRelso.value = data.relso
 
   //임시 끝
   return (
@@ -63,6 +62,7 @@ export const handler: Handlers<any,WithSession> = {
         const {body} = await bucket.getObject(`entry/${entry.entry_key}`) ||{}
         novels.push(await new Response(body).text())
       }
+      sigRelso.value = relso
     }
     if(entry){
       [reserve] = await select(
@@ -77,7 +77,6 @@ export const handler: Handlers<any,WithSession> = {
     }
       
     return cxt.render({
-      relso : relso,
       entry : entry,
       entrys : entrys,
       novels : novels,
